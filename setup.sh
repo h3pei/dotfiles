@@ -7,19 +7,19 @@ if [ ! -e ~/.vimrc ]; then
 fi
 
 if [ ! -e ~/.vim ]; then
-  ln -s ~/dotfilus/.vim
+  ln -s ~/dotfiles/.vim
 fi
 
 if [ ! -e ~/.zshrc ]; then
-  ln -s ~/dotfilus/.zshrc
+  ln -s ~/dotfiles/.zshrc
 fi
 
 if [ ! -e ~/.tmux.conf ]; then
-  ln -s ~/dotfilus/.tmux.conf
+  ln -s ~/dotfiles/.tmux.conf
 fi
 
 if [ ! -e ~/.gitconfig ]; then
-  ln -s ~/dotfilus/.gitconfig
+  ln -s ~/dotfiles/.gitconfig
 fi
 
 if [ ! -e ~/.vim/dotfiles/.vim/bundle/neobundle.vim ]; then
