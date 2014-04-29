@@ -1,7 +1,3 @@
-" 2013-05-13
-" https://github.com/yuroyoro/dotfiles
-" にて公開されているvimrcの設定を参考にして整理をした
-
 "------------------------------------------------------------
 " 基本設定
 "------------------------------------------------------------
@@ -15,9 +11,7 @@ set scrolloff=5           " カーソルの上または下に表示される最�
 set visualbell            " ビープの代わりにビジュアルベル（画面フラッシュ）を使う
 set vb t_vb=              " ビープを鳴らさない
 set mouse=a               " 全モードでマウスを有効化
-
-" キーコードはすぐにタイムアウト  マッピングはタイムアウトしない
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=200 " キーコードはすぐにタイムアウト  マッピングはタイムアウトしない
 
 
 "------------------------------------------------------------
@@ -55,12 +49,6 @@ augroup vimrc
   autocmd! FileType php setlocal shiftwidth=4 tabstop=2
 augroup END
 
-
-" au BufNewFile,BufRead *.java set tabstop=4 shiftwidth=4
-" au BufNewFile,BufRead *.ruby set tabstop=2 shiftwidth=2
-
-"filetype indent on " ファイルタイプに合わせたインデントを利用する
-
 " MEMO
 " autoindent  : 改行時に半角スペース8文字を挿入する
 " smartindent : 新しい行をつくったときに高度な自動インデントを行う  cindentがONだと無効化される
@@ -76,8 +64,6 @@ augroup END
 set number     " 行番号を表示
 set showmatch  " カッコの対応をハイライト
 set cursorline " カーソル行のハイライト
-"set list       " 不可視文字の表示
-"set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " 全角スペースのハイライト表示
 " 参考：http://code-life.net/?p=2704
@@ -94,8 +80,6 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
-" MEMO
-" 不可視文字とはタブ文字や行末文字のことを指す
 
 "------------------------------------------------------------
 " 補完
@@ -133,9 +117,6 @@ set incsearch  " インクリメンタルサーチを有効化
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
-" MEMO
-" incsearch : " インクリメンタルサーチとは「検索文字列を入力完了する前に、入力中の文字列にマッチしている場所へ移動する」機能
-
 
 "------------------------------------------------------------
 " 移動
@@ -150,7 +131,7 @@ inoremap <C-f> <Right>
 
 " インサートモードでも削除
 inoremap <C-h> <BS>
-"inoremap <C-x> <BS>
+
 
 "------------------------------------------------------------
 " カラー
@@ -158,10 +139,6 @@ inoremap <C-h> <BS>
 syntax enable " ハイライトを有効化
 syntax on     " ハイライトを有効化
 
-"------------------------------------------------------------
-" 編集
-"------------------------------------------------------------
-" とりあえず何もしない
 
 "------------------------------------------------------------
 " エンコーディング
@@ -199,97 +176,68 @@ map Y y$
 " プラグイン
 "------------------------------------------------------------
 "------------------
-" molokai.vim
+" molokai.vim and jellybeans.vim
 "------------------
 set t_Co=256
 let g:molokai_original = 1
-colorscheme molokai
-
+colorscheme jellybeans
 
 "------------------
 " neocomplete.vim
 "------------------
-" Disable AutoCompPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" Disable AutoCompPop.
+"let g:acp_enableAtStartup = 0
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"
+"" Define dictionary.
+"let g:neocomplete#sources#dictionary#dictionaries = {
+"      \ 'default' : '',
+"      \ 'vimshell' : $HOME.'/.vimshell_hist',
+"      \ 'scheme' : $HOME.'/.gosh_completions'
+"      \ }
+"
+"" Define keyword.
+"if !exists('g:neocomplete#keyword_patterns')
+"  let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+"
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
+"
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"  return neocomplete#close_popup() . "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplete#close_popup()
+"inoremap <expr><C-e>  neocomplete#cancel_popup()
+"
+"" Enable omni completion.
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"
+"" Enable heavy omni completion.
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
 
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-      \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-
-"------------------
-" coffee script
-"------------------
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
-
-
-"------------------
-" unite.vim
-"------------------
-" let g:unite_enable_start_insert=0   " 入力モードで開始する
-" noremap :uf  :Unite file     -buffer-name=file     -default-action=tabopen
-" noremap :ufm :Unite file_mru -buffer-name=file_mru -default-action=tabopen
-" noremap :ufr :Unite file_rec -buffer-name=file_rec -default-action=tabopen
-" noremap :ur  :Unite register -buffer-name=register -default-action=tabopen
-" noremap :ub  :Unite buffer   -buffer-name=buffer   -default-action=tabopen
-" noremap :uff :UniteWithBufferDir file -buffer-name=file
-" noremap :uffr :UniteWithBufferDir file_rec -buffer-name=file_rec
-
-" MEMO
-" Unite fileとの違いは、フルパスで表示するか否か(?)
-" Unite file_recとの違いは、フルパスで表示するか否か(?)
-" file    : カレントディレクトリのファイル一覧
-" file_mru: 最近使ったファイルの一覧
-" file_rec: カレントディレクトリ以下のファイルを再帰的に探索
-" register: レジスタ一覧
-" buffer  : バッファ一覧
-"-default-action=tabopen: " 候補を実行したら新しいタブでファイルを開く
 
 "------------------
 " ctrlp
@@ -354,13 +302,10 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 "------------------
 " over.vimの起動
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
-
 " カーソル下の単語をハイライト付きで置換
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-
 " コピーした文字列をハイライト付きで置換
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-
 
 
 "------------------
@@ -378,7 +323,8 @@ NeoBundle 'Shougo/vimproc'            " 非同期処理のため
 NeoBundle 'VimClojure'                " vimにおけるクロージャの開発環境
 NeoBundle 'Shougo/vimshell'           " vimからシェルを起動する
 NeoBundle 'Shougo/unite.vim'          " vim上で使用出来る統合ユーザーインターフェース
-NeoBundle 'Shougo/neocomplete.vim'    " 補完
+"NeoBundle 'Shougo/neocomplete.vim'   " 補完 vim7.3.885以上が必要
+NeoBundle 'Shougo/neocomplcache.vim'  " 補完
 NeoBundle 'Shougo/neosnippet'         " スニペット
 NeoBundle 'jpalardy/vim-slime'        " ??
 NeoBundle 'mattn/emmet-vim'           " zen-codingの後継
