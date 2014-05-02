@@ -55,23 +55,20 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 # source ~/dotfiles/oh-my-zsh/oh-my-zsh.sh
 
+# ---------------------
 # User configuration
+# ---------------------
+alias l="ls"
+alias ll="ls -al"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+# eval "$(rbenv init -)" # rbenv
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
+HISTSIZE=10000            # メモリに保存されるヒストリの件数
+SAVEHIST=10000            # 保存されるヒストリの件数
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+function cd() {
+  builtin cd $@ && ls;
+}
