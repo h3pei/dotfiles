@@ -37,7 +37,6 @@ cask install kobito
 
 cask install firefox
 cask install google-drive
-cask install line
 cask install clamxav
 cask install cheatseet
 cask install magican
