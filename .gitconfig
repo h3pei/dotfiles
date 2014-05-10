@@ -1,6 +1,7 @@
 [core]
   editor = vim
   excludefile = ~/.gitignore
+  excludesfile = \"$HOME\"/.gitignore_global
 
 [user]
   name = mogulla3
@@ -18,3 +19,11 @@
   s = status
   br = branch
   co = commit
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
