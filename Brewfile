@@ -7,17 +7,17 @@ tap homebrew/binary
 tap sanemat/font
 
 # Packages
-install brew-cask
-install zsh
-install git
-install tmux
-install vim
-install curl
-install wget
-install tree
-install ruby-build
-install rbenv
-install ricty
+install brew-cask || true
+install zsh || true
+install git || true
+install tmux || true
+install vim || true
+install curl || true
+install wget || true
+install tree || true
+install ruby-build || true
+install rbenv || true
+install ricty || true
 
 # .dmg
 cask install keyremap4macbook || true
@@ -29,7 +29,6 @@ cask install virtualbox || true
 cask install vagrant || true
 cask install appcleaner || true
 cask install iterm2 || true
-cask install shiftit || true
 cask install skype || true
 cask install google-japanese-ime || true
 cask install xtrafinder || true
@@ -42,5 +41,6 @@ cask install clamxav || true
 cask install cheatsheet || true
 cask install magican || true
 cask install evernote || true
+cask install spectacle || true
 
 cleanup
