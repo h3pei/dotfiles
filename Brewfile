@@ -18,6 +18,8 @@ install tree || true
 install ruby-build || true
 install rbenv || true
 install ricty || true
+install node.js || true
+install npm || true
 
 # .dmg
 cask install keyremap4macbook || true
@@ -42,5 +44,7 @@ cask install cheatsheet || true
 cask install magican || true
 cask install evernote || true
 cask install spectacle || true
+cask install intellij-idea-ce || true
+cask install atom || true
 
 cleanup
