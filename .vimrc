@@ -13,7 +13,6 @@ endif
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/emmet-vim'
@@ -30,10 +29,8 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 
-filetype plugin indent on
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
 set noswapfile                 " スワップファイルをつくらない
@@ -116,6 +113,30 @@ endif
 " Yの動作をDやCと同じにする
 map Y y$ 
 
+" Golang
+" [begin]-------------------------------------------
+
+" syntax highlight
+filetype off
+filetype plugin indent off
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+filetype plugin indent on
+syntax on
+
+" gocodeを補完機能として使う（以下のコマンドでgocodeをインストールしておく必要がある）
+" $ go get github.com/nsf/gocode
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
+" 保存時にgo fmtを走らせる
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" 補完内容の詳細化
+set completeopt=menu,preview
+
+" [end]---------------------------------------------
+
 " color scheme
 set t_Co=256
 let g:molokai_original = 1
@@ -163,3 +184,68 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+
+"
+" neocomplete
+"
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+filetype plugin indent on
+syntax on
