@@ -6,8 +6,8 @@ export ZSH=$HOME/dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="cloud"
+# ZSH_THEME="cloud"
+ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -52,8 +52,8 @@ ZSH_THEME="cloud"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-# source ~/dotfiles/oh-my-zsh/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
+source ~/dotfiles/oh-my-zsh/oh-my-zsh.sh
 
 # ---------------------
 # User configuration
@@ -63,7 +63,20 @@ alias ll="ls -al"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
-# eval "$(rbenv init -)" # rbenv
+
+#
+# rbenv
+#
+eval "$(rbenv init -)"
+
+#
+# golang
+#
+if [ -x "`which go`" ]; then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/work/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
 HISTSIZE=10000            # メモリに保存されるヒストリの件数
