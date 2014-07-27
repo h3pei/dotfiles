@@ -11,7 +11,8 @@ install brew-cask || true
 install zsh || true
 install git || true
 install tmux || true
-install vim || true
+install lua || true
+install vim --devel --with-lua || true
 install curl || true
 install wget || true
 install tree || true
@@ -20,6 +21,7 @@ install rbenv || true
 install ricty || true
 install node.js || true
 install npm || true
+install hg || true
 
 # .dmg
 cask install keyremap4macbook || true
@@ -46,5 +48,11 @@ cask install evernote || true
 cask install spectacle || true
 cask install intellij-idea-ce || true
 cask install atom || true
+cask install wireshark || true
+cask install bettertouchtool || true
+cask install gyazo || true
+cask install arduino || true
+cask install processing || true
+cask install dash || true
 
 cleanup
