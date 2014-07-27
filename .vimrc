@@ -30,6 +30,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'rcyrus/snipmate-snippets-rubymotion'
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
