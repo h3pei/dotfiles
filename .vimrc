@@ -30,7 +30,10 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'rcyrus/snipmate-snippets-rubymotion'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'vim-scripts/vim-auto-save'
+" NeoBundle 'msanders/snipmate.vim'
+" NeoBundle 'rcyrus/snipmate-snippets-rubymotion'
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
@@ -138,12 +141,17 @@ set completeopt=menu,preview
 
 " [end]---------------------------------------------
 
+"
 " color scheme
+"
 set t_Co=256
 let g:molokai_original = 1
 colorscheme jellybeans
 
+"
 " ctrlp
+"
+let g:ctrlp_map = '<c-g>' " yankroundと競合するのでC-gへ変更
 let g:ctrolp_use_migemo    = 1 " ミゲモ検索
 let g:ctrlp_jump_to_buffer = 2 " タブで開かれた場合はそのタブに切り替える
 let g:ctrlp_open_new_file  = 't' " 新規作成時にタブで開く
@@ -152,14 +160,18 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
 
+"
 " easymotion
+"
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 let g:EasyMotion_leader_key="'"
 let g:EasyMotion_grouping=1
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
+"
 " lightline.vim
+"
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'mode_map': { 'c': 'NORMAL' },
@@ -168,28 +180,49 @@ let g:lightline = {
       \ },
       \ }
 
+"
 " nerdcommenter
+"
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 
+"
 " yankround.vim
+"
 nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
-nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
-nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 
+
+"
 " vim-over
+"
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 
 "
+" vimproc
+"
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+
+"
 " neocomplete
 "
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
