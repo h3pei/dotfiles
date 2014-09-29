@@ -32,8 +32,9 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-scripts/vim-auto-save'
-" NeoBundle 'msanders/snipmate.vim'
-" NeoBundle 'rcyrus/snipmate-snippets-rubymotion'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kannokanno/previm'
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
@@ -159,6 +160,11 @@ let g:ctrlp_open_multiple_files = 't'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
+
+"
+" vim-markdown
+"
+let g:vim_markdown_folding_disabled=1 " 折りたたみ機能解除
 
 "
 " easymotion
