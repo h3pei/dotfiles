@@ -150,6 +150,11 @@ let g:molokai_original = 1
 colorscheme jellybeans
 
 "
+" vim-auto-save
+"
+let g:auto_save = 1
+
+"
 " ctrlp
 "
 let g:ctrlp_map = '<c-g>' " yankroundと競合するのでC-gへ変更
