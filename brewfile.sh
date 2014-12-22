@@ -41,7 +41,6 @@ brew cask install skype || true
 brew cask install google-japanese-ime || true
 brew cask install xtrafinder || true
 brew cask install macvim || true
-brew cask install sourcetree || true
 brew cask install kobito || true
 brew cask install firefox || true
 brew cask install google-drive || true
@@ -50,12 +49,11 @@ brew cask install cheatsheet || true
 brew cask install magican || true
 brew cask install evernote || true
 brew cask install spectacle || true
-brew cask install intellij-idea-ce || true
 brew cask install atom || true
 brew cask install wireshark || true
 brew cask install bettertouchtool || true
 brew cask install gyazo || true
 brew cask install dash || true
-brew cask install macdown || true
+brew cask install slack || true
 
 brew cleanup
