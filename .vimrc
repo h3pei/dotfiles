@@ -35,6 +35,9 @@ NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
@@ -172,6 +175,11 @@ let g:ctrlp_prompt_mappings = {
 let g:vim_markdown_folding_disabled=1 " 折りたたみ機能解除
 
 "
+" vim-indent-guides
+"
+let g:indent_guides_enable_on_vim_startup = 1
+
+"
 " easymotion
 "
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
@@ -229,7 +237,6 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-
 
 "
 " neocomplete
