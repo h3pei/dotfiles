@@ -20,6 +20,9 @@ brew install vim --devel --with-lua || true
 brew install curl || true
 brew install wget || true
 brew install tree || true
+brew install pstree || true
+brew install grc || true
+brew install htop-osx || true
 brew install ruby-build || true
 brew install rbenv || true
 brew install ricty || true

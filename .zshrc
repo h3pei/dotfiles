@@ -60,6 +60,13 @@ source ~/dotfiles/oh-my-zsh/oh-my-zsh.sh
 # ---------------------
 alias l="ls"
 alias ll="ls -al"
+alias ps="grc ps"
+alias ping="grc ping"
+alias pstree="grc pstree"
+alias ifconfig="grc ifconfig"
+alias netstat="grc netstat"
+alias dig="grc dig"
+alias tail="grc tail"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
