@@ -55,7 +55,6 @@ set vb t_vb=                   " ビープを鳴らさない
 set mouse=a                    " 全モードでマウスを有効化
 set number                     " 行番号を表示
 set showmatch                  " カッコの対応をハイライト
-set cursorline                 " カーソル行のハイライト
 set laststatus=2               " ステータスラインを常に表示する
 set ruler                      " ステータスライン上にルーラーを表示する（カーソルが何行目の何列目に置かれているか）
 set autoindent                 " オートインデント
