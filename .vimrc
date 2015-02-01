@@ -42,6 +42,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
   \ 'insert' : 1,
   \ 'filetypes': 'ruby',
@@ -249,6 +250,11 @@ NeoBundle 'Shougo/vimproc.vim', {
 " vim-ansible-yaml
 "
 let g:ansible_options = {'ignore_blank_lines': 0}
+
+"
+" syntastic
+"
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "
 " neocomplete
