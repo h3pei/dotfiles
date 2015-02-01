@@ -16,7 +16,7 @@ brew install zsh || true
 brew install git || true
 brew install tmux || true
 brew install lua || true
-brew install vim --devel --with-lua || true
+brew install vim --with-lua --with-perl --with-python3 || true
 brew install curl || true
 brew install wget || true
 brew install tree || true
@@ -29,6 +29,7 @@ brew install ricty || true
 brew install node.js || true
 brew install npm || true
 brew install hg || true
+brew install rsense || true
 
 # .dmg
 brew cask install karabiner || true
