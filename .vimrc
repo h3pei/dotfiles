@@ -31,6 +31,7 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-scripts/vim-auto-save'
@@ -40,6 +41,11 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'chase/vim-ansible-yaml'
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+  \ 'insert' : 1,
+  \ 'filetypes': 'ruby',
+  \ }}
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
@@ -151,7 +157,7 @@ set completeopt=menu,preview
 "
 set t_Co=256
 let g:molokai_original = 1
-colorscheme jellybeans
+colorscheme hybrid
 
 "
 " vim-auto-save
@@ -178,7 +184,8 @@ let g:vim_markdown_folding_disabled=1 " 折りたたみ機能解除
 "
 " vim-indent-guides
 "
-let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_start_level = 2
 
 "
 " easymotion
@@ -219,7 +226,6 @@ nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
-
 "
 " vim-over
 "
@@ -238,6 +244,11 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+
+"
+" vim-ansible-yaml
+"
+let g:ansible_options = {'ignore_blank_lines': 0}
 
 "
 " neocomplete
@@ -292,6 +303,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -299,6 +311,15 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+
+" .や::を入力したときにオムニ補完が有効になるようにする
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+" 環境変数RSENSE_HOMEに'/usr/local/bin/rsense'を指定しても動く
+" let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 
 filetype plugin indent on
 syntax on
