@@ -5,45 +5,31 @@
 " cnoremap : コマンドラインモード限定
 " inoremap : 挿入モード限定
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
-endif
-
-NeoBundle 'tomasr/molokai'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'kien/ctrlp.vim.git'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'vim-scripts/vim-auto-save'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-surround'
+Plug 'Townk/vim-autoclose'
+Plug 'scrooloose/nerdcommenter'
+Plug 'LeafCage/yankround.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-endwise'
+Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/Align'
+Plug 'plasticboy/vim-markdown'
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
+Plug 'marcus/rsense'
+Plug 'szw/vim-tags'
+Plug 'thinca/vim-ref'
+Plug 'yuku-t/vim-ref-ri'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'w0ng/vim-hybrid'
+call plug#end()
 
 syntax enable                  " ハイライトを有効化
 syntax on                      " ハイライトを有効化
@@ -198,82 +184,14 @@ let g:syntastic_ruby_checkers = ['rubocop']
 " yankround.vim
 "
 nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
 "
-" vim-over
-"
-nnoremap <silent> <Leader>m :OverCommandLine<CR>
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
-nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
-
-"
-" vimproc
-"
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-"
 " Rsense
 "
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+let g:rsenseHome = '/usr/local/Cellar/rsense/0.3/libexec'
 let g:rsenseUseOmniFunc = 1
-
-"
-" neocomplete
-"
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-endfunction
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" .や::を入力したときにオムニ補完が有効になるようにする
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-filetype plugin indent on
-syntax on

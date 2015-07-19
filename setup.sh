@@ -13,6 +13,5 @@ for conf_file in ${conf_files[@]}; do
   fi
 done
 
-if [ ! -e ~/.vim/dotfiles/.vim/bundle/neobundle.vim ]; then
-  git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/.vim/bundle/neobundle.vim
-fi
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
