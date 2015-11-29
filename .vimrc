@@ -29,6 +29,7 @@ Plug 'yuku-t/vim-ref-ri'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 syntax enable                  " ハイライトを有効化
@@ -129,6 +130,7 @@ colorscheme hybrid
 " vim-auto-save
 "
 let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
 
 "
 " ctrlp
@@ -177,8 +179,6 @@ vmap ,, <Plug>NERDCommenterToggle
 "
 " syntastic
 "
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 
 "
 " yankround.vim
@@ -195,3 +195,8 @@ nmap <C-n> <Plug>(yankround-next)
 "
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3/libexec'
 let g:rsenseUseOmniFunc = 1
+
+"
+" NERDTree
+"
+map <C-n> :NERDTreeToggle<CR>
