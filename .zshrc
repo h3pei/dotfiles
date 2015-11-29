@@ -11,3 +11,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+ 
+# alias
+alias l="ls"
+alias ll="ls -al"
+
+# utilities
+function cd() {
+    builtin cd $@ && ls;
+}
