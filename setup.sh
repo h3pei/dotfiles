@@ -1,11 +1,8 @@
 #!/bin/sh
 set -ex
 
-# oh-my-zsh
-# git submodule init
-# git submodule update
-
 # prezto
+zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
 
