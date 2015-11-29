@@ -11,7 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
- 
+eval "$(rbenv init -)"
+
 # alias
 alias l="ls"
 alias ll="ls -al"
