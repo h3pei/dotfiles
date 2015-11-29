@@ -19,3 +19,4 @@
   s = status
   br = branch
   co = commit
+  l = log
