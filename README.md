@@ -7,3 +7,8 @@ $ cd dotfiles
 $ sh setup.sh
 $ chsh -s <zsh_path> <user>
 ```
+
+Vim
+```
+:PlugInstall
+```
