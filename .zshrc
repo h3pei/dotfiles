@@ -14,8 +14,12 @@ fi
 eval "$(rbenv init -)"
 
 # alias
-alias l="ls"
-alias ll="ls -al"
+alias ls="ls -G"
+alias ll="ls -alG"
+
+# dircolors
+# (!) for MacOS
+eval $(gdircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-universal)
 
 # utilities
 function cd() {
