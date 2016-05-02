@@ -20,6 +20,7 @@ export SAVEHIST=30000
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export GREP_OPTIONS='--color=auto'
 
 # alias
 alias ls="ls -G"
