@@ -18,5 +18,8 @@
 [alias]
   s = status
   br = branch
-  co = commit
+  co = checkout
+  c = commit
   l = log
+  d = diff
+  a = add
