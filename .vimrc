@@ -11,7 +11,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/nerdcommenter'
-Plug 'LeafCage/yankround.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-scripts/vim-auto-save'
@@ -29,7 +28,8 @@ Plug 'yuku-t/vim-ref-ri'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'scrooloose/nerdtree'
+Plug 'Shougo/neocomplete.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 syntax enable                  " ハイライトを有効化
@@ -74,6 +74,11 @@ inoremap <C-p> <Up>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-h> <BS>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-b> <BS>
 
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
@@ -135,11 +140,10 @@ let g:auto_save_in_insert_mode = 0
 "
 " ctrlp
 "
-let g:ctrlp_map = '<c-g>' " yankroundと競合するのでC-gへ変更
-let g:ctrolp_use_migemo    = 1 " ミゲモ検索
-let g:ctrlp_jump_to_buffer = 2 " タブで開かれた場合はそのタブに切り替える
-let g:ctrlp_open_new_file  = 't' " 新規作成時にタブで開く
-let g:ctrlp_open_multiple_files = 't'
+" let g:ctrlp_map = '<c-P>'
+let g:ctrolp_use_migemo = 1     " ミゲモ検索
+let g:ctrlp_jump_to_buffer = 2  " タブで開かれた場合はそのタブに切り替える
+let g:ctrlp_open_new_file = 't' " 新規作成時にタブで開く
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
@@ -177,26 +181,11 @@ nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 
 "
-" syntastic
-"
-
-"
-" yankround.vim
-"
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-
-"
 " Rsense
 "
 let g:rsenseHome = '/usr/local/Cellar/rsense/0.3/libexec'
 let g:rsenseUseOmniFunc = 1
 
-"
-" NERDTree
-"
-map <C-n> :NERDTreeToggle<CR>
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
