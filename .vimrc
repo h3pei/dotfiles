@@ -6,7 +6,7 @@
 " inoremap : 挿入モード限定
 
 call plug#begin('~/.vim/plugged')
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'Townk/vim-autoclose'
@@ -67,6 +67,7 @@ set history=1000               " コマンド・検索パターンの履歴数
 set wildmode=list:longest,full
 set nostartofline              " 移動コマンドを使ったとき、行頭に移動しない
 set notimeout ttimeout ttimeoutlen=200 " キーコードはすぐにタイムアウト  マッピングはタイムアウトしない
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " インサートモードでのキーバインド変更
 inoremap <C-n> <Down>
@@ -141,9 +142,10 @@ let g:auto_save_in_insert_mode = 0
 " ctrlp
 "
 " let g:ctrlp_map = '<c-P>'
-let g:ctrolp_use_migemo = 1     " ミゲモ検索
+let g:ctrlp_use_migemo = 1     " ミゲモ検索
 let g:ctrlp_jump_to_buffer = 2  " タブで開かれた場合はそのタブに切り替える
 let g:ctrlp_open_new_file = 't' " 新規作成時にタブで開く
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " .gitignoreに追加されたファイルを無視する
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
