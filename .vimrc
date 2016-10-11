@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
@@ -37,6 +38,7 @@ syntax on                      " ハイライトを有効化
 set ffs=unix,dos,mac           " 改行文字
 set encoding=utf-8             " デフォルトエンコーディング
 set fileencodings=utf-8
+set ambiwidth=double           " □や○文字が崩れる問題を解決
 set number                     " 行番号を表示
 set noswapfile                 " スワップファイルをつくらない
 set nocompatible               " vi互換モードをオフ（vimの拡張機能を有効)
