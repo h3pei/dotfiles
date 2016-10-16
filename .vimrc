@@ -22,12 +22,6 @@ Plug 'vim-scripts/Align'
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
-Plug 'marcus/rsense'
-Plug 'szw/vim-tags'
-Plug 'thinca/vim-ref'
-Plug 'yuku-t/vim-ref-ri'
-Plug 'tomasr/molokai'
-Plug 'nanotech/jellybeans.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'Shougo/neocomplete.vim'
 Plug 'airblade/vim-gitgutter'
@@ -183,12 +177,6 @@ let g:lightline = {
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
-
-"
-" Rsense
-"
-let g:rsenseHome = '/usr/local/Cellar/rsense/0.3/libexec'
-let g:rsenseUseOmniFunc = 1
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
