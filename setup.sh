@@ -4,6 +4,9 @@ set -ex
 # prezto
 git clone --recursive https://github.com/mogulla3/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
+# ruby dict
+git clone https://github.com/pocke/dicts.git ~/dotfiles/.vim/dicts/dicts
+
 cd
 
 conf_files=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zpreztorc" ".zlogin" ".zshenv" ".zprofile")

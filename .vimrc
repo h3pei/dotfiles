@@ -195,3 +195,6 @@ vmap ,, <Plug>NERDCommenterToggle
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#dictionary#dictionaries = {
+      \   'ruby': $HOME . '/.vim/dicts/dicts/ruby.dict',
+      \ }
