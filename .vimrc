@@ -25,6 +25,7 @@ Plug 'othree/html5.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'Shougo/neocomplete.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
 call plug#end()
 
 syntax enable                  " ハイライトを有効化
@@ -130,7 +131,7 @@ endif
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 " 保存時にgo fmtを走らせる
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " 補完内容の詳細化
 set completeopt=menu,preview

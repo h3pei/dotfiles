@@ -22,9 +22,15 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GREP_OPTIONS='--color=auto'
 
+# golang
+export GOPATH=$HOME/go
+export GOROOT=$(go env GOROOT)
+export PATH=$PATH:$GOPATH/bin
+
 # alias
 alias ls="ls -G"
 alias ll="ls -alG"
+alias vim="/usr/local/Cellar/vim/8.0.0013/bin/vim"
 
 # dircolors
 # (!) for MacOS
