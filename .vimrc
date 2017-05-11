@@ -199,3 +199,7 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#dictionary#dictionaries = {
       \   'ruby': $HOME . '/.vim/dicts/dicts/ruby.dict',
       \ }
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint']
