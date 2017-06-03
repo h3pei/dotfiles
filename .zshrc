@@ -29,7 +29,6 @@ export PATH=$PATH:$GOPATH/bin
 # alias
 alias ls="ls -G"
 alias ll="ls -alG"
-alias vim="/usr/local/Cellar/vim/8.0.0013/bin/vim"
 
 # dircolors
 # (!) for MacOS

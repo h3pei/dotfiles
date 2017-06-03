@@ -130,9 +130,6 @@ endif
 " $ go get github.com/nsf/gocode
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
-" 保存時にgo fmtを走らせる
-" autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
 " 補完内容の詳細化
 set completeopt=menu,preview
 " [end]---------------------------------------------
