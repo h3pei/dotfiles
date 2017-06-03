@@ -20,6 +20,12 @@
   br = branch
   co = checkout
   c = commit
-  l = log
+  l = log --oneline
   d = diff
   a = add
+
+[merge]
+  ff = only
+
+[status]
+  showUntrackedFiles = all
