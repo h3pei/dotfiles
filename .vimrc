@@ -121,13 +121,8 @@ endif
 
 " Golang
 " [begin]-------------------------------------------
-" syntax highlight
-if $GOROOT != ''
-  set rtp+=$GOROOT/misc/vim
-endif
-
 " gocodeを補完機能として使う（以下のコマンドでgocodeをインストールしておく必要がある）
-" $ go get github.com/nsf/gocode
+" $ go get -u github.com/nsf/gocode
 exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 
 " 補完内容の詳細化
