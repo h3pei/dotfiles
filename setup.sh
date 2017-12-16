@@ -7,7 +7,7 @@ mkdir -p $HOME/.ssh
 
 # prezto
 if [ ! -e "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  git clone --recursive https://github.com/mogulla3/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
 # ruby dict
