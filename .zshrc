@@ -21,6 +21,9 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GREP_OPTIONS='--color=auto'
+export PROMPT="
+%n@%m: %B%~%b
+%(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
 
 # golang
 export GOPATH=$HOME/go
@@ -38,3 +41,6 @@ eval $(gdircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-universal)
 function cd() {
     builtin cd $@ && ls;
 }
+
+# ssh-add
+ssh-add -K ~/.ssh/id_rsa
