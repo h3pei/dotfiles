@@ -10,9 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-eval "$(rbenv init -)"
-
 # environment variables
 export HISTFILE=~/.zsh_history
 export HISTSIZE=30000
@@ -21,17 +18,33 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GREP_OPTIONS='--color=auto'
-export PROMPT="
-%n@%m: %B%~%b
-%(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
-
-# golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PROMPT="
+%n@%m: %B%~%b
+%(?.%F{green}${1:->>}%f.%F{red}${1:->>}%f) "
 
 # alias
 alias ls="ls -G"
 alias ll="ls -alG"
+alias h='echo "$(hostname) ($(hostname -i))"'
+
+# history
+function select-history() {
+  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
+
+# rbenv
+eval "$(rbenv init -)"
+
+# goenv
+eval "$(goenv init -)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # dircolors
 # (!) for MacOS

@@ -1,6 +1,7 @@
 #!/bin/sh
 set -ex
 
+mkdir -p $HOME/work
 mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/.ssh
@@ -13,6 +14,17 @@ fi
 # ruby dict
 if [ ! -e "$HOME/dotfiles/dicts/dicts" ]; then
   git clone https://github.com/pocke/dicts.git ~/dotfiles/dicts/dicts
+fi
+
+# goenv
+if [ ! -e "$HOME/.goenv" ]; then
+  git clone https://github.com/syndbg/goenv.git ~/.goenv
+fi
+
+# fzf
+if [ ! -e "$HOME/.fzf" ]; then
+  git clone https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --bin --64 --no-bash --no-fish
 fi
 
 cd
