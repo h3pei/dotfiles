@@ -20,6 +20,7 @@ export LC_ALL=en_US.UTF-8
 export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export EDITOR=vim
 export PROMPT="
 %n@%m: %B%~%b
 %(?.%F{green}${1:->>}%f.%F{red}${1:->>}%f) "
@@ -41,7 +42,7 @@ bindkey '^r' select-history
 eval "$(rbenv init -)"
 
 # goenv
-eval "$(goenv init -)"
+# eval "$(goenv init -)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

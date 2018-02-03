@@ -29,7 +29,7 @@ fi
 
 cd
 
-dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zpreztorc" ".zlogin" ".zshenv" ".zprofile")
+dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zpreztorc" ".zlogin" ".zshenv" ".zprofile" ".pryrc")
 for dotfile in ${dotfiles[@]}; do
   # Remove dotfile if exists
   if [ -e "${HOME}/${dotfile}" ]; then
