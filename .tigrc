@@ -1,5 +1,6 @@
 # status view
 bind status P ?git push -u %(remote) %(repo:head)
+bind status P ?git push %(remote) %(repo:head)
 bind status + !git commit --amend
 
 # refs view
