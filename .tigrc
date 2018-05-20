@@ -1,0 +1,10 @@
+# status view
+bind status P ?git push -u %(remote) %(repo:head)
+bind status + !git commit --amend
+
+# refs view
+bind refs d ?git branch -d %(branch)
+bind refs D ?git branch -D %(branch)
+bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
+bind refs F ?git fetch
+bind refs p ?git pull %(remote) %(repo:head)
