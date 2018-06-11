@@ -32,7 +32,7 @@ alias h='echo "$(hostname) ($(hostname -i))"'
 
 # history
 function select-history() {
-  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --reverse --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --reverse --no-sort -i -e --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
