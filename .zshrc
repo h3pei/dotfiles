@@ -58,3 +58,6 @@ function cd() {
 
 # ssh-add
 ssh-add -K ~/.ssh/id_rsa
+
+# z
+[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
