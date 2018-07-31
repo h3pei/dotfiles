@@ -3,6 +3,7 @@ bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push -f %(remote) %(repo:head)
 bind status + !git commit --amend
 bind status ^ ?git reset --soft HEAD^
+bind status <Ctrl-r> ?hub pull-request -o -m "%(prompt PullRequest title: )"
 
 # refs view
 bind refs d ?git branch -d %(branch)
