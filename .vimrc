@@ -133,7 +133,7 @@ set completeopt=menu,preview
 " color scheme
 "
 set t_Co=256
-colorscheme hybrid
+colorscheme jellybeans
 
 "
 " vim-auto-save
