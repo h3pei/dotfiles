@@ -49,7 +49,7 @@ eval "$(rbenv init -)"
 
 # dircolors
 # (!) for MacOS
-eval $(gdircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-universal)
+# eval $(gdircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-universal)
 
 # utilities
 function cd() {
@@ -61,3 +61,6 @@ ssh-add -K ~/.ssh/id_rsa
 
 # z
 [ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
+
+# local settings
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
