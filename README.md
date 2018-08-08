@@ -1,5 +1,5 @@
 dotfiles
-========
+===
 
 ```
 $ git clone git@github.com:mogulla3/dotfiles.git
