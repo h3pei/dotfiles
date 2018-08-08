@@ -29,3 +29,6 @@
 
 [status]
   showUntrackedFiles = all
+
+[init]
+  templatedir = ~/.git_template/
