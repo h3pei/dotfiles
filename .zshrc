@@ -44,6 +44,12 @@ eval "$(rbenv init -)"
 # goenv
 # eval "$(goenv init -)"
 
+# nodenv
+eval "$(nodenv init -)"
+
+# direnv
+eval "$(direnv hook zsh)"
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
