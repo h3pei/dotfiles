@@ -20,7 +20,7 @@
   br = branch
   co = checkout
   c = commit
-  l = log --oneline
+  l = log --oneline --graph --decorate
   d = diff
   a = add
 
