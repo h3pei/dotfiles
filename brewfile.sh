@@ -4,26 +4,25 @@ brew update
 brew upgrade
 
 # Add Repository
-# brew tap phinze/homebrew-cask
-# brew tap homebrew/versions
-# brew tap homebrew/binary
 brew tap sanemat/font
 
-# Packages
-brew install zsh || true
-brew install git || true
-brew install tmux || true
-brew install lua || true
-brew install vim --with-lua --with-perl --with-python3 || true
-brew install tree || true
-brew install pstree || true
+# CLI packages
 brew install curl || true
-brew install wget || true
-brew install ruby-build || true
-brew install rbenv || true
+brew install git || true
+brew install jq || true
+brew install lua || true
 brew install nodenv || true
+brew install pstree || true
+brew install rbenv || true
+brew install ruby-build || true
+brew install tmux || true
+brew install tree || true
+brew install vim --with-lua --with-perl --with-python3 || true
+brew install wget || true
+brew install z || true
+brew install zsh || true
 
-# .dmg
+# .dmg packages
 brew cask install karabiner || true
 brew cask install dropbox || true
 brew cask install alfred || true
