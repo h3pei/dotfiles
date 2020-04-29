@@ -2,11 +2,12 @@
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "olivierverdier/zsh-git-prompt", as:plugin
 zplug "modules/completion", from:prezto
 zplug "modules/history", from:prezto
 zplug "modules/terminal", from:prezto
 zplug "modules/prompt", from:prezto
+zplug "olivierverdier/zsh-git-prompt", as:plugin
+zplug "zsh-users/zsh-syntax-highlighting", as:plugin
 zplug load
 
 # prezto
