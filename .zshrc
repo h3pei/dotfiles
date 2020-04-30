@@ -20,26 +20,27 @@ fi
 
 # pure (zsh theme)
 autoload -U promptinit; promptinit
+zstyle ":prompt:pure:git:branch" color "yellow"
 zstyle ":prompt:pure:git:stash" show yes
 zstyle ":prompt:pure:path" color "white"
-zstyle ":prompt:pure:git:branch" color "yellow"
+zstyle ":prompt:pure:prompt:success" color "green"
 prompt pure
 
 # Environment variables
+export EDITOR='vim'
+export GOPATH=$HOME/go
+export GREP_OPTIONS='--color=auto'
 export HISTFILE=~/.zsh_history
 export HISTSIZE=30000
-export SAVEHIST=30000
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-export VISUAL='less'
 export PAGER='less'
-export EDITOR='vim'
+export PATH=$PATH:$GOPATH/bin:$HOME/bin
+export SAVEHIST=30000
+export VISUAL='less'
 
 # %n: username
 # %m: hostname
