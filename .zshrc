@@ -95,6 +95,3 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
-
-# ssh-add
-# ssh-add -K ~/.ssh/id_rsa
