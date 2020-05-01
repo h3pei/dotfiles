@@ -35,6 +35,7 @@ export PAGER='less'
 export VISUAL='less'
 export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
+export FZF_DEFAULT_OPTS='--reverse --no-sort -i'
 export GOPATH=$HOME/go
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
@@ -84,14 +85,19 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 # Utilities
-function cd() {
+cd() {
   builtin cd $@ && ls;
 }
 
-function select-history() {
+select-history() {
   # -i: Case-insensitive match
-  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --reverse --no-sort -i --exact --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --exact --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
 bindkey '^r' select-history
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '/*' -prune -o -type d -maxdepth 2 -print 2> /dev/null | fzf +m) && cd "$dir"
+}
