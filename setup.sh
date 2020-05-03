@@ -6,30 +6,14 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/.ssh
 
-# prezto
-if [ ! -e "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-  git clone --recursive https://github.com/mogulla3/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-fi
-
 # ruby dict
 if [ ! -e "$HOME/dotfiles/dicts/dicts" ]; then
   git clone https://github.com/pocke/dicts.git ~/dotfiles/dicts/dicts
 fi
 
-# goenv
-if [ ! -e "$HOME/.goenv" ]; then
-  git clone https://github.com/syndbg/goenv.git ~/.goenv
-fi
-
-# fzf
-if [ ! -e "$HOME/.fzf" ]; then
-  git clone https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install --bin --64 --no-bash --no-fish
-fi
-
 cd
 
-dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zpreztorc" ".zlogin" ".zshenv" ".zprofile" ".pryrc" ".tigrc")
+dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zlogin" ".zshenv" ".zprofile" ".pryrc" ".tigrc")
 for dotfile in ${dotfiles[@]}; do
   # Remove dotfile if exists
   if [ -e "${HOME}/${dotfile}" ]; then
@@ -51,3 +35,5 @@ done
 
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# brew install ..

@@ -1,72 +1,82 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# zplug
+source ~/.zplug/init.zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "mafredri/zsh-async", from:github
+zplug "modules/completion", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/terminal", from:prezto
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2
+
+zplug load
+
+# prezto
+if [[ -s "${ZPLUG_REPOS}/sorin-ionescu/prezto/init.zsh" ]]; then
+  source "${ZPLUG_REPOS}/sorin-ionescu/prezto/init.zsh"
 fi
 
-# environment variables
-export HISTFILE=~/.zsh_history
-export HISTSIZE=30000
-export SAVEHIST=30000
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export GREP_OPTIONS='--color=auto'
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export EDITOR=vim
-export PROMPT="
-%n@%m: %B%~%b
-%(?.%F{green}${1:->>}%f.%F{red}${1:->>}%f) "
+# pure (zsh theme)
+autoload -U promptinit; promptinit
+zstyle ":prompt:pure:git:branch" color "yellow"
+zstyle ":prompt:pure:git:stash" show yes
+zstyle ":prompt:pure:path" color "white"
+zstyle ":prompt:pure:prompt:success" color "green"
 
-# alias
+# %n: username
+# %m: hostname
+# %y: tty name
+# %~: current directory
+# %B..%b: bolding ..
+# %F..%f: coloring .. foreground
+# %? : return value of previous command
+# export PROMPT="
+# %n@%m(%y): %F{magenta}%B%~%b%f
+# %(?.%F{green}${1:-$}%f.%F{red}${1:-$}%f) "
+
+# Aliases
 alias ls="ls -G"
 alias ll="ls -alG"
 alias h='echo "$(hostname) ($(hostname -i))"'
 
-# history
-function select-history() {
-  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --reverse --no-sort -i -e --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
+# fzf
+if [ -f $HOME/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
+
+# z
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+  source /usr/local/etc/profile.d/z.sh
+fi
 
 # rbenv
-eval "$(rbenv init -)"
-
-# goenv
-# eval "$(goenv init -)"
+if [ -d $HOME/.rbenv ]; then
+  eval "$(rbenv init -)"
+fi
 
 # nodenv
-eval "$(nodenv init -)"
+if [ -d $HOME/.nodenv ]; then
+  eval "$(nodenv init -)"
+fi
 
 # direnv
 eval "$(direnv hook zsh)"
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# For local settings
+if [ -f ~/.zshrc_local ]; then
+  source ~/.zshrc_local
+fi
 
-# dircolors
-# (!) for MacOS
-# eval $(gdircolors $HOME/dotfiles/dircolors-solarized/dircolors.ansi-universal)
-
-# utilities
+# Utilities
 function cd() {
-    builtin cd $@ && ls;
+  builtin cd $@ && ls;
 }
 
-# ssh-add
-ssh-add -K ~/.ssh/id_rsa
-
-# z
-[ -f /usr/local/etc/profile.d/z.sh ] && source /usr/local/etc/profile.d/z.sh
-
-# local settings
-[ -f ~/.zshrc_local ] && source ~/.zshrc_local
+function select-history() {
+  # -i: Case-insensitive match
+  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --exact --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
