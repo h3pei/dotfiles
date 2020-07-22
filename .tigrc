@@ -2,6 +2,7 @@
 bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push -f %(remote) %(repo:head)
 bind status + !git commit --amend
+bind status E !git commit --allow-empty
 bind status ^ ?git reset --soft HEAD^
 bind status <Ctrl-r> ?hub pull-request -o -m "%(prompt PullRequest title: )"
 
@@ -11,3 +12,10 @@ bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs F ?git fetch
 bind refs p ?git pull %(remote) %(repo:head)
+
+# -- MEMO --
+#
+# コマンドの先頭の記号について
+# - !: 通常のコマンド実行
+# - ?: コマンド実行前に実行内容を確認
+# - @: バックグラウンド実行する. 出力は捨てる
