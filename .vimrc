@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rails'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
@@ -23,9 +22,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'Shougo/neocomplete.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go'
 call plug#end()
 
 syntax enable                  " ハイライトを有効化
@@ -119,16 +116,6 @@ if &term =~ "xterm"
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
-" Golang
-" [begin]-------------------------------------------
-" gocodeを補完機能として使う（以下のコマンドでgocodeをインストールしておく必要がある）
-" $ go get -u github.com/nsf/gocode
-exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-
-" 補完内容の詳細化
-set completeopt=menu,preview
-" [end]---------------------------------------------
-
 "
 " color scheme
 "
@@ -184,13 +171,6 @@ let g:lightline = {
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \   'ruby': $HOME . '/.vim/dicts/dicts/ruby.dict',
-      \ }
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
