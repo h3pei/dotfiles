@@ -24,7 +24,7 @@
   d = diff
   a = add
 
-[merge]
+[pull]
   ff = only
 
 [status]
