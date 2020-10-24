@@ -5,6 +5,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/vim-auto-save'
 call plug#end()
@@ -37,13 +38,18 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-h> <BS>
 
-" Pressing the esc key twice disables highlithing
+" pressing the esc key twice disables highlithing
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_postsave_hook = 'FixWhitespace'
+
+" NERD Commenter
+let NERDSpaceDelims = 1
+nmap ,, <Plug>NERDCommenterToggle
+vmap ,, <Plug>NERDCommenterToggle
 
 " lightline.vim
 let g:lightline = {
