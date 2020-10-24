@@ -18,6 +18,13 @@ set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set nostartofline
 
+" key mapping for INSERT mode
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-h> <BS>
+
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
