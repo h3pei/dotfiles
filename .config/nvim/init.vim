@@ -4,6 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
