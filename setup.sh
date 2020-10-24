@@ -5,6 +5,7 @@ mkdir -p $HOME/work
 mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/.ssh
+mkdir -p $HOME/.config/nvim
 
 cd
 
@@ -28,7 +29,13 @@ for dotfile in ${dotfiles[@]}; do
   ln -s $HOME/dotfiles/$dotfile $HOME/$dotfile
 done
 
+nvim_files=("init.vim")
+for nvim_file in ${nvim_files[@]}; do
+  ln -s -f $HOME/dotfiles/.config/nvim/$nvim_file $HOME/.config/nvim/$nvim_file
+done
+
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# brew install ..
+# vim-plug for Neovim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
