@@ -20,6 +20,17 @@ set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set nostartofline
 
+" [ファイルフォーマット][エンコーディング][改行タイプ] 行数,
+" %F: full path to the file
+" %m: modified flag
+" %r: readonly flag
+" %c: current column number
+" %l: current line number
+" %L: total number of lines
+" %Y: filetype
+" set statusline=%F%m%r\%=[filetype=%Y][enc=%{&fenc}][%{&ff}]%=%c,\%l/%L
+set statusline=%F%m%r%=%c,\ %l/%L\ [%Y][%{&fenc}][%{&ff}]
+
 colorscheme PaperColor
 
 " key mapping for INSERT mode
