@@ -5,6 +5,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
