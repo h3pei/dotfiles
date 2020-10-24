@@ -27,6 +27,9 @@ set laststatus=2
 
 colorscheme PaperColor
 
+" change Leader key to <Space> (default: '\')
+let mapleader = "\<Space>"
+
 " key mapping for INSERT mode
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
