@@ -2,6 +2,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
@@ -19,17 +21,7 @@ set wildchar=<tab>
 set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set nostartofline
-
-" [ファイルフォーマット][エンコーディング][改行タイプ] 行数,
-" %F: full path to the file
-" %m: modified flag
-" %r: readonly flag
-" %c: current column number
-" %l: current line number
-" %L: total number of lines
-" %Y: filetype
-" set statusline=%F%m%r\%=[filetype=%Y][enc=%{&fenc}][%{&ff}]%=%c,\%l/%L
-set statusline=%F%m%r%=%c,\ %l/%L\ [%Y][%{&fenc}][%{&ff}]
+set laststatus=2
 
 colorscheme PaperColor
 
@@ -47,3 +39,23 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_postsave_hook = 'FixWhitespace'
+
+" lightline.vim
+let g:lightline = {
+      \ 'active': {
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'relativepath', 'modified', 'readonly', 'gitbranch' ],
+      \   ],
+      \   'right': [
+      \     [ 'column', 'line_info' ],
+      \     [ 'fileformat', 'fileencoding', 'filetype' ],
+      \   ],
+      \ },
+      \ 'component': {
+      \   'line_info' : '%l/%L',
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name',
+      \ },
+      \ }
