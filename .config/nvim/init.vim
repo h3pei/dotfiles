@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/vim-auto-save'
@@ -18,6 +19,8 @@ set wildchar=<tab>
 set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set nostartofline
+
+colorscheme PaperColor
 
 " key mapping for INSERT mode
 inoremap <C-n> <Down>
