@@ -6,14 +6,9 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/.ssh
 
-# ruby dict
-if [ ! -e "$HOME/dotfiles/dicts/dicts" ]; then
-  git clone https://github.com/pocke/dicts.git ~/dotfiles/dicts/dicts
-fi
-
 cd
 
-dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zlogin" ".zshenv" ".zprofile" ".pryrc" ".tigrc")
+dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zlogin" ".zshenv" ".zprofile" ".pryrc" ".tigrc" ".gemrc")
 for dotfile in ${dotfiles[@]}; do
   # Remove dotfile if exists
   if [ -e "${HOME}/${dotfile}" ]; then
