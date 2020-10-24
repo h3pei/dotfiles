@@ -25,6 +25,9 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-h> <BS>
 
+" Pressing the esc key twice disables highlithing
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
