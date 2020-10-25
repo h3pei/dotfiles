@@ -44,6 +44,10 @@ inoremap <C-h> <BS>
 " pressing the esc key twice disables highlithing
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
+" customize keymap for switching tabs
+nnoremap <silent> <leader>n gt
+nnoremap <silent> <leader>p gT
+
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
