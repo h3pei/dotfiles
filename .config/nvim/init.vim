@@ -5,6 +5,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -51,6 +53,22 @@ let g:auto_save_postsave_hook = 'FixWhitespace'
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
+
+" fzf.vim
+" - use Enter key for opening file as new tab
+" - type `;f` to search files
+" - type `;r` to search file contents
+" - customize ripgrep and fzf options
+let g:fzf_action = { 'enter': 'tab split' }
+nnoremap <silent> ;f :Files<CR>
+nnoremap <silent> ;r :Rg<CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),
+  \   1,
+  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
+  \   <bang>0,
+  \ )
 
 " lightline.vim
 let g:lightline = {
