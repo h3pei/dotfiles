@@ -7,6 +7,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -53,6 +54,9 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 nnoremap <silent> <leader>fw :FixWhitespace<CR>
 
+" NERDTree
+map <silent> <C-n> :NERDTreeToggle<CR>
+
 " NERD Commenter
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
@@ -64,6 +68,7 @@ vmap ,, <Plug>NERDCommenterToggle
 " - type `;r` to search file contents
 " - customize ripgrep and fzf options
 let g:fzf_action = { 'enter': 'tab split' }
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> ;f :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 command! -bang -nargs=* Rg
