@@ -47,7 +47,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
-let g:auto_save_postsave_hook = 'FixWhitespace'
+nnoremap <silent> <leader>fw :FixWhitespace<CR>
 
 " NERD Commenter
 let NERDSpaceDelims = 1
