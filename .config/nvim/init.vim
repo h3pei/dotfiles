@@ -7,6 +7,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
