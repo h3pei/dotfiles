@@ -55,6 +55,7 @@ let g:auto_save_in_insert_mode = 0
 nnoremap <silent> <leader>fw :FixWhitespace<CR>
 
 " NERDTree
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 't'}, 'dir': {}}
 map <silent> <C-n> :NERDTreeToggle<CR>
 
 " NERD Commenter
