@@ -29,6 +29,8 @@ set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set nostartofline
 set laststatus=2
+set foldmethod=indent
+set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
 
 colorscheme PaperColor
 
@@ -69,7 +71,6 @@ vmap ,, <Plug>NERDCommenterToggle
 " - type `;r` to search file contents
 " - customize ripgrep and fzf options
 let g:fzf_action = { 'enter': 'tab split' }
-nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> ;f :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 command! -bang -nargs=* Rg
