@@ -71,7 +71,8 @@ vmap ,, <Plug>NERDCommenterToggle
 " - type `;r` to search file contents
 " - customize ripgrep and fzf options
 let g:fzf_action = { 'enter': 'tab split' }
-nnoremap <silent> ;f :Files<CR>
+nnoremap <silent> ;f :GFiles<CR>
+nnoremap <silent> ;F :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
