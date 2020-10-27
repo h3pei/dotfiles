@@ -7,6 +7,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
@@ -16,10 +17,13 @@ call plug#end()
 
 set number
 set noswapfile
+set nostartofline
+set nobackup
+set nowritebackup
 set hidden
 set confirm
 set ignorecase
-set smartcase   " ignorecaseと合わせることで、小文字で検索した場合はcase insensitive, 大文字で検索した場合はcase sensitiveになる
+set smartcase " ignorecaseと合わせることで、小文字で検索した場合はcase insensitive, 大文字で検索した場合はcase sensitiveになる
 set scrolloff=5 " 指定行数分の余裕を持たせて上下にスクロールさせる
 set expandtab
 set cindent
@@ -27,10 +31,13 @@ set smartindent
 set wildchar=<tab>
 set wildmode=list:longest,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set nostartofline
 set laststatus=2
+set cmdheight=2
 set foldmethod=indent
 set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 colorscheme PaperColor
 
@@ -82,12 +89,24 @@ command! -bang -nargs=* Rg
   \   <bang>0,
   \ )
 
+" coc.nvim
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-markdownlint',
+  \ 'coc-solargraph',
+  \ ]
+
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " lightline.vim
 let g:lightline = {
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
-      \     [ 'relativepath', 'modified', 'readonly', 'gitbranch' ],
+      \     [ 'cocstatus', 'relativepath', 'modified', 'readonly', 'gitbranch' ],
       \   ],
       \   'right': [
       \     [ 'column', 'line_info' ],
@@ -99,5 +118,6 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name',
+      \   'cocstatus': 'coc#status',
       \ },
       \ }
