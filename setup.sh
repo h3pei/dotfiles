@@ -9,7 +9,21 @@ mkdir -p $HOME/.config/nvim
 
 cd
 
-dotfiles=(".vimrc" ".vim" ".tmux.conf" ".gitconfig" ".zshrc" ".zlogin" ".zshenv" ".zprofile" ".pryrc" ".tigrc" ".gemrc")
+dotfiles=(
+  ".vimrc"
+  ".vim"
+  ".tmux.conf"
+  ".tigrc"
+  ".gitconfig"
+  ".zshrc"
+  ".zlogin"
+  ".zshenv"
+  ".zprofile"
+  ".pryrc"
+  ".gemrc"
+  ".solargraph.yml"
+)
+
 for dotfile in ${dotfiles[@]}; do
   # Remove dotfile if exists
   if [ -e "${HOME}/${dotfile}" ]; then
