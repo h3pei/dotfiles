@@ -39,6 +39,7 @@ set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set ambiwidth=double
 
 colorscheme PaperColor
 
@@ -118,7 +119,6 @@ let g:ale_fix_on_save = 0
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
 \ }
-
 
 " lightline.vim
 let g:lightline = {
