@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
@@ -100,6 +101,24 @@ let g:coc_global_extensions = [
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" ale
+nmap <leader>fp <Plug>(ale_fix)
+let g:ale_disable_lsp = 1
+let g:ale_linters_explicit = 1 " ale_lintersとして定義したもののみ実行
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_linters = {
+\ 'ruby': ['rubocop'],
+\}
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {
+\ 'ruby': ['rubocop'],
+\ }
+
 
 " lightline.vim
 let g:lightline = {
