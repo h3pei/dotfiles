@@ -39,6 +39,7 @@ zstyle ":prompt:pure:prompt:success" color "green"
 alias ls="ls -G"
 alias ll="ls -alG"
 alias h='echo "$(hostname) ($(hostname -i))"'
+alias vim='nvim'
 
 # fzf
 if [ -f $HOME/.fzf.zsh ]; then
