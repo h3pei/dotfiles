@@ -5,7 +5,7 @@ mkdir -p $HOME/work
 mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/.ssh
-mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim/ftplugin
 
 cd
 
@@ -46,6 +46,9 @@ done
 nvim_files=("init.vim" "coc-settings.json")
 for nvim_file in ${nvim_files[@]}; do
   ln -s -f $HOME/dotfiles/.config/nvim/$nvim_file $HOME/.config/nvim/$nvim_file
+done
+for file in $HOME/dotfiles/.config/nvim/ftplugin/*.vim ; do
+  ln -s -f $file $HOME/.config/nvim/ftplugin/`basename $file`
 done
 
 # vim-plug
