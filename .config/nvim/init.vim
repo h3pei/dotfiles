@@ -92,16 +92,16 @@ command! -bang -nargs=* Rg
   \ )
 
 " coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+let g:coc_status_error_sign = 'E'
+let g:coc_status_warning_sign = 'W'
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-markdownlint',
   \ 'coc-solargraph',
   \ ]
-
-" coc.nvim
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " ale
 nmap <leader>fp <Plug>(ale_fix)
