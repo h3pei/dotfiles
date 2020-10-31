@@ -46,6 +46,9 @@ colorscheme PaperColor
 " change Leader key to <Space> (default: '\')
 let mapleader = "\<Space>"
 
+" Toggle fold
+nnoremap <leader>F za
+
 " key mapping for INSERT mode
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
