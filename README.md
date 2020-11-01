@@ -1,7 +1,5 @@
 # dotfiles
 
-===
-
 ## Initial setup
 
 ```console
