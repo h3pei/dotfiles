@@ -7,14 +7,13 @@ cd ~
 git clone git@github.com:mogulla3/dotfiles.git
 cd dotfiles
 sh setup.sh
-
-# homebrew (https://brew.sh/)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 ## Homebrew
 
 ```console
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
 cd ~/dotfiles
 brew bundle
 ```
