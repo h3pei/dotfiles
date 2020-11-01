@@ -7,20 +7,14 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-surround'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-endwise'
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-scripts/Align'
 Plug 'plasticboy/vim-markdown'
-Plug 'mattn/emmet-vim'
-Plug 'othree/html5.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
@@ -120,7 +114,7 @@ endif
 " color scheme
 "
 set t_Co=256
-colorscheme jellybeans
+colorscheme hybrid
 
 "
 " vim-auto-save
@@ -171,7 +165,3 @@ let g:lightline = {
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
-
-" syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['go', 'golint']
