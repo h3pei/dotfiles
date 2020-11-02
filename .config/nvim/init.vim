@@ -39,7 +39,6 @@ set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
-set ambiwidth=double
 
 colorscheme PaperColor
 
