@@ -80,14 +80,13 @@ vmap ,, <Plug>NERDCommenterToggle
 " - use Enter key for opening file as new tab
 " - type `;f` to search files
 " - type `;r` to search file contents
-" - customize ripgrep and fzf options
 let g:fzf_action = { 'enter': 'tab split' }
 nnoremap <silent> ;f :GFiles<CR>
 nnoremap <silent> ;F :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),
+  \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
   \   1,
   \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
   \   <bang>0,
