@@ -23,6 +23,8 @@ zstyle ":prompt:pure:git:stash" show yes
 zstyle ":prompt:pure:path" color "white"
 zstyle ":prompt:pure:prompt:success" color "green"
 
+setopt hist_ignore_dups
+
 # %n: username
 # %m: hostname
 # %y: tty name

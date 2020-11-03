@@ -32,3 +32,17 @@ For iTerm2 version 3.4.0, load my configuration files as follows
 ```txt
 Preferences > General > Preferences > Load preferences from a custom folder or URL .. (/path/to/iterm2/com.googlecode.iterm2.plist)
 ```
+
+## fzf
+
+Run follwing command after running `brew install`.
+
+```console
+$(brew --prefix)/opt/fzf/install
+```
+
+see: https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
+
+## TODOs
+
+- zplug
