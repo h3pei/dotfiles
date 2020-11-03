@@ -15,7 +15,6 @@ export PAGER='less'
 export VISUAL='less'
 export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
-export FZF_DEFAULT_OPTS='--reverse --exact -i'
 export GOPATH=$HOME/go
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export PYENV_ROOT="$HOME/.pyenv"
