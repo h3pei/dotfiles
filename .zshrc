@@ -2,7 +2,6 @@
 source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "b4b4r07/enhancd", use:init.sh
 zplug "mafredri/zsh-async", from:github
 zplug "modules/completion", from:prezto
 zplug "modules/history", from:prezto
@@ -80,7 +79,6 @@ function cd() {
 }
 
 function select-history() {
-  # -i: Case-insensitive match
   BUFFER=$(history -n -r 1 | fzf --exact --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
