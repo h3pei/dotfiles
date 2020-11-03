@@ -81,7 +81,7 @@ function cd() {
 
 function select-history() {
   # -i: Case-insensitive match
-  BUFFER=$(history -n -r 1 | $HOME/.fzf/bin/fzf --exact --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | fzf --exact --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
