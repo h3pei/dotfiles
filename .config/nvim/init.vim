@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'vim-test/vim-test'
 call plug#end()
 
 set number
@@ -120,6 +121,13 @@ let g:ale_fix_on_save = 0
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
 \ }
+
+" test-vim
+let test#strategy = "neovim"
+let g:test#runner_commands = ['RSpec']
+nmap <silent> tn :TestNearest<CR>
+nmap <silent> tf :TestFile<CR>
+nmap <silent> tl :TestLast<CR>
 
 " lightline.vim
 let g:lightline = {
