@@ -81,7 +81,7 @@ function cd() {
 }
 
 function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --exact -i --reverse --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | fzf --exact --reverse --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
