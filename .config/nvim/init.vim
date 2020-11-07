@@ -72,6 +72,7 @@ nnoremap <silent> <leader>fw :FixWhitespace<CR>
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 't'}, 'dir': {}}
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 3 " close after opening file and bookmark
+let NERDTreeWinSize = 50
 map <silent> <C-n> :NERDTreeToggle<CR>
 
 " NERD Commenter
