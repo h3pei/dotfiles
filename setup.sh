@@ -12,7 +12,6 @@ cd
 
 dotfiles=(
   ".vimrc"
-  ".vim"
   ".tmux.conf"
   ".tigrc"
   ".gitconfig"
