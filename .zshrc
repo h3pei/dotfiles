@@ -41,6 +41,7 @@ alias ls="ls -G"
 alias ll="ls -alG"
 alias h='echo "$(hostname) ($(hostname -i))"'
 alias vim='nvim'
+alias memo="vim ${HOME}/memo/$(date +%Y%m%d).md"
 
 # fzf
 if [ -f $HOME/.fzf.zsh ]; then
