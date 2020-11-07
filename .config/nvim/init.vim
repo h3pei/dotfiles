@@ -83,7 +83,7 @@ vmap ,, <Plug>NERDCommenterToggle
 " - use Enter key for opening file as new tab
 " - type `;f` to search files
 " - type `;r` to search file contents
-let g:fzf_action = { 'enter': 'tab split' }
+let g:fzf_action = { 'enter': 'tab drop' }
 nnoremap <silent> ;f :GFiles<CR>
 nnoremap <silent> ;F :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
