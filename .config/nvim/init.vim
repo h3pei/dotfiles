@@ -42,6 +42,8 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
 colorscheme PaperColor
 
 " change Leader key to <Space> (default: '\')
