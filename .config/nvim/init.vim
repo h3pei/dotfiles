@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vim-auto-save'
