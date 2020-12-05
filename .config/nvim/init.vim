@@ -3,7 +3,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'dense-analysis/ale', { 'for': 'ruby' } " 現時点ではrubyのみで必要
+Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript']}
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
@@ -124,11 +124,14 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_linters = {
 \ 'ruby': ['rubocop'],
+\ 'javascript': ['prettier'],
 \}
 let g:ale_fix_on_save = 0
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
+\ 'javascript': ['prettier'],
 \ }
+let g:ale_javascript_prettier_use_local_config = 1
 
 " test-vim
 let test#strategy = "neovim"
