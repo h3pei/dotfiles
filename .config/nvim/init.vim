@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'slim-template/vim-slim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vim-auto-save'
@@ -43,10 +44,16 @@ set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set autoread " 開いているバッファに外部で変更があった場合に読みこみ直す
 
 autocmd BufNewFile,BufRead *.thor set filetype=ruby
 
 colorscheme PaperColor
+
+" `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
+" FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
+" vim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
+autocmd FocusGained * checktime
 
 " change Leader key to <Space> (default: '\')
 let mapleader = "\<Space>"
