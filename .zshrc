@@ -24,6 +24,8 @@ zstyle ":prompt:pure:path" color "white"
 zstyle ":prompt:pure:prompt:success" color "green"
 
 setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
 
 # %n: username
 # %m: hostname
