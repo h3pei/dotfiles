@@ -109,6 +109,8 @@ command! -bang -nargs=* Rg
   \ )
 
 " coc.nvim
+" extensionは `:CocInstall :extension_name` でVimPlugとは別にinstallする必要がある
+" 不要になったextensionは `:CocUninstall :extension_name` で削除する
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -117,6 +119,7 @@ let g:coc_status_warning_sign = 'W'
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-solargraph',
+  \ 'coc-tsserver',
   \ ]
 
 " ale
