@@ -48,5 +48,18 @@
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
     "javascript.format.insertSpaceAfterTypeAssertion": false,
     "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+    // coc-html
+    "html.enable": true,
+    "html.filetypes": ["html"],
+    "html.format.enable": true,
+    "html.format.wrapLineLength": 120,
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
+    "html.suggest.html5": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "html.validate.html": true,
+    "html.autoClosingTags": true
 }
