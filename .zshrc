@@ -45,6 +45,7 @@ alias h='echo "$(hostname) ($(hostname -i))"'
 alias vim='nvim'
 alias memo="vim ${HOME}/memo/$(date +%Y%m%d).md"
 alias memo_path="echo ${HOME}/memo/$(date +%Y%m%d).md"
+alias be='bundle exec'
 
 # fzf
 if [ -f $HOME/.fzf.zsh ]; then
