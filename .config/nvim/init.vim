@@ -58,6 +58,9 @@ autocmd FocusGained * checktime
 " change Leader key to <Space> (default: '\')
 let mapleader = "\<Space>"
 
+" disable Ex mode
+nnoremap Q <Nop>
+
 " Toggle fold
 nnoremap <leader>F za
 
