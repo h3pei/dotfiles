@@ -1,3 +1,6 @@
+" ----------------
+" vim-plug
+" ----------------
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'NLKNguyen/papercolor-theme'
@@ -21,6 +24,9 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'vim-test/vim-test'
 call plug#end()
 
+" ----------------
+" General settings
+" ----------------
 set number
 set noswapfile
 set nostartofline
@@ -46,63 +52,98 @@ set shortmess+=c
 set signcolumn=yes
 set autoread " 開いているバッファに外部で変更があった場合に読みこみ直す
 
-autocmd BufNewFile,BufRead *.thor set filetype=ruby
-
 colorscheme PaperColor
 
-" `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
-" FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
-" vim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
+" 開いているバッファに外部で変更があった場合に読みこみ直す
+" - `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
+" - FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
+" - なおvim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
 autocmd FocusGained * checktime
 
-" change Leader key to <Space> (default: '\')
+" thorファイルを `filetype=ruby` で開く
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
+" ------------
+" key mappings
+" ------------
+" Use <Space> as Leader key (default: '\')
 let mapleader = "\<Space>"
 
-" disable Ex mode
+" Disables Ex mode
 nnoremap Q <Nop>
 
-" Toggle fold
-nnoremap <leader>F za
-
-" key mapping for INSERT mode
+" For INSERT mode
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-h> <BS>
 
-" pressing the esc key twice disables highlithing
+" Toggle folding
+nnoremap <leader>F za
+
+" Turn off highlithing
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
-" customize keymap for switching tabs
+" Switch tabs
 nnoremap <silent> <leader>n gt
 nnoremap <silent> <leader>p gT
 
+" Move jump list
+" memo: plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
+" see: https://vimhelp.org/vim_faq.txt.html#faq-20.5
+nnoremap <C-l> <C-I>
+nnoremap <C-h> <C-O>
+
+" Remove whitespece
+nnoremap <silent> <leader>fw :FixWhitespace<CR>
+
+" Toggle file explorer (NERDTree)
+map <silent> <C-n> :NERDTreeToggle<CR>
+
+" Comment out / Comment in (NERD Commenter)
+nmap ,, <Plug>NERDCommenterToggle
+vmap ,, <Plug>NERDCommenterToggle
+
+" Search files (fzf.vim)
+nnoremap <silent> ;f :GFiles<CR>
+nnoremap <silent> ;F :Files<CR>
+nnoremap <silent> ;r :Rg<CR>
+
+" Go to definition/implementation/references (coc.nvim)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Fix linter problems (ALE)
+nmap <silent> <leader>fp <Plug>(ale_fix)
+
+" Run tests (test.vim)
+nmap <silent> tn :TestNearest<CR>
+nmap <silent> tf :TestFile<CR>
+nmap <silent> tl :TestLast<CR>
+
+" ---------------
+" plugin settings
+" ---------------
 " vim-auto-save
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
-nnoremap <silent> <leader>fw :FixWhitespace<CR>
 
 " NERDTree
 let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 't'}, 'dir': {}}
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 3 " close after opening file and bookmark
 let NERDTreeWinSize = 50
-map <silent> <C-n> :NERDTreeToggle<CR>
 
 " NERD Commenter
 let NERDSpaceDelims = 1
-nmap ,, <Plug>NERDCommenterToggle
-vmap ,, <Plug>NERDCommenterToggle
 
 " fzf.vim
 " - use Enter key for opening file as new tab
 " - type `;f` to search files
 " - type `;r` to search file contents
 let g:fzf_action = { 'enter': 'tab drop' }
-nnoremap <silent> ;f :GFiles<CR>
-nnoremap <silent> ;F :Files<CR>
-nnoremap <silent> ;r :Rg<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
@@ -112,11 +153,8 @@ command! -bang -nargs=* Rg
   \ )
 
 " coc.nvim
-" extensionは `:CocInstall :extension_name` でVimPlugとは別にinstallする必要がある
-" 不要になったextensionは `:CocUninstall :extension_name` で削除する
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" - extensionは最低限としている
+" - 不要になったextensionは `:CocUninstall :extension_name` で削除する
 let g:coc_status_error_sign = 'E'
 let g:coc_status_warning_sign = 'W'
 let g:coc_global_extensions = [
@@ -126,8 +164,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ ]
 
-" ale
-nmap <leader>fp <Plug>(ale_fix)
+" ALE
 let g:ale_disable_lsp = 1
 let g:ale_linters_explicit = 1 " ale_lintersとして定義したもののみ実行
 let g:ale_lint_on_enter = 1
@@ -146,12 +183,9 @@ let g:ale_fixers = {
 \ }
 let g:ale_javascript_prettier_use_local_config = 1
 
-" test-vim
+" test.vim
 let test#strategy = "neovim"
 let g:test#runner_commands = ['RSpec']
-nmap <silent> tn :TestNearest<CR>
-nmap <silent> tf :TestFile<CR>
-nmap <silent> tl :TestLast<CR>
 
 " lightline.vim
 let g:lightline = {
