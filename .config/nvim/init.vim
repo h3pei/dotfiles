@@ -6,14 +6,14 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript']}
+Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript'] }
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'slim-template/vim-slim'
@@ -21,7 +21,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vim-auto-save'
-Plug 'vim-test/vim-test'
+Plug 'vim-test/vim-test', { 'for': 'ruby' }
 call plug#end()
 
 " ----------------
