@@ -27,30 +27,32 @@ call plug#end()
 " ----------------
 " General settings
 " ----------------
-set number
-set noswapfile
-set nostartofline
-set nobackup
-set nowritebackup
-set hidden
-set confirm
-set ignorecase
-set smartcase " ignorecaseと合わせることで、小文字で検索した場合はcase insensitive, 大文字で検索した場合はcase sensitiveになる
-set scrolloff=5 " 指定行数分の余裕を持たせて上下にスクロールさせる
-set expandtab
-set cindent
-set smartindent
-set wildchar=<tab>
-set wildmode=list:longest,full
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set laststatus=2
+set autoread " 開いているバッファに外部で変更があった場合に読みこみ直す
 set cmdheight=2
-set foldmethod=indent
+set confirm
+set expandtab " <Tab>の代わりに空白を使う
 set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
-set updatetime=300
+set foldmethod=indent
+set hidden
+set ignorecase
+set laststatus=2
+set nobackup
+set nostartofline
+set noswapfile
+set nowritebackup
+set number
+set scrolloff=5 " 指定行数分の余裕を持たせて上下にスクロールさせる
+set shiftwidth=4 " 自動インデントの各段階に使われる空白の数
 set shortmess+=c
 set signcolumn=yes
-set autoread " 開いているバッファに外部で変更があった場合に読みこみ直す
+set smartcase " ignorecaseと合わせることで、小文字で検索した場合はcase insensitive, 大文字で検索した場合はcase sensitiveになる
+set smartindent
+set softtabstop=4 " INSERT modeで<Tab>の値として使用する空白の数
+set tabstop=4 " ファイル内の<Tab>に対応する空白の数
+set updatetime=300
+set wildchar=<tab>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip " ワイルドカードの展開時とファイル・ディレクトリ名の補完時に無視する
+set wildmode=list:longest,full
 
 colorscheme PaperColor
 
