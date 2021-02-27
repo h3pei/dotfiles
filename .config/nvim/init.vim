@@ -1,6 +1,6 @@
-" ----------------
+" --------
 " vim-plug
-" ----------------
+" --------
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'NLKNguyen/papercolor-theme'
