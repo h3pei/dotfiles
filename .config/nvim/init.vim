@@ -12,6 +12,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
@@ -188,6 +189,9 @@ let g:ale_javascript_prettier_use_local_config = 1
 " test.vim
 let test#strategy = "neovim"
 let g:test#runner_commands = ['RSpec']
+
+" typescript-vim
+let g:typescript_indent_disable = 1
 
 " lightline.vim
 let g:lightline = {
