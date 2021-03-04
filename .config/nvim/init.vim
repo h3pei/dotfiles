@@ -12,6 +12,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -165,6 +166,7 @@ let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-tsserver',
   \ 'coc-html',
+  \ 'coc-svelte',
   \ ]
 
 " ALE
