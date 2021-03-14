@@ -1,3 +1,6 @@
+# generic view
+bind generic S none
+
 # status view
 bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push -f %(remote) %(repo:head)
@@ -12,6 +15,14 @@ bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs F ?git fetch
 bind refs p ?git pull %(remote) %(repo:head)
+
+# stash view
+# - S: stashのS. このためにgenericに割り当てられた `S` を無効化した
+# - U: `-u(--include-untracked)` のU
+# - P: popのP
+bind stash S ?git stash push "%(prompt Enter stash comment: )"
+bind stash U ?git stash push -u "%(prompt Enter stash comment: )"
+bind stash P ?git stash pop %(stash)
 
 # -- MEMO --
 #
