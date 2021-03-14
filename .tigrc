@@ -7,7 +7,7 @@ bind status <Ctrl-p> ?git push -f %(remote) %(repo:head)
 bind status + !git commit --amend
 bind status E !git commit --allow-empty
 bind status ^ ?git reset --soft HEAD^
-bind status <Ctrl-r> ?hub pull-request -o -m "%(prompt PullRequest title: )"
+bind status <Ctrl-r> ?gh pr create --assignee "@me" --title "%(prompt PullRequest title: )"
 
 # refs view
 bind refs d ?git branch -d %(branch)
