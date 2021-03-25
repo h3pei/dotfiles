@@ -15,6 +15,7 @@ bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs F ?git fetch
 bind refs p ?git pull %(remote) %(repo:head)
+bind refs M ?git merge %(branch)
 
 # stash view
 # - S: stashのS. このためにgenericに割り当てられた `S` を無効化した
