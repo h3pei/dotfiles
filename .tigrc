@@ -5,9 +5,11 @@ set vertical-split = no
 bind generic S none
 
 # main view
+# - 主にcommitに対しての操作をする
 bind main ! ?git revert %(commit)
 
 # status view
+# - 作業中に広く利用する
 bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
 bind status + !git commit --amend
@@ -16,6 +18,7 @@ bind status ! ?git reset --soft HEAD^
 bind status <Ctrl-r> ?gh pr create --fill --web --assignee "@me" --title "%(prompt PullRequest title: )"
 
 # refs view
+# - 主にbranchに対しての操作をする
 bind refs d ?git branch -d %(branch)
 bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
