@@ -3,6 +3,7 @@ set vertical-split = no
 
 # generic view
 bind generic S none
+bind generic ` @bash -c "echo -n '%(commit)' | pbcopy" # copy selected commit hash
 
 # main view
 # - 主にcommitに対しての操作をする
