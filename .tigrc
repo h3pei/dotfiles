@@ -27,7 +27,15 @@ bind stash P ?git stash pop %(stash)
 
 # -- MEMO --
 #
-# コマンドの先頭の記号について
+# user-defined command の先頭の記号について
 # - !: 通常のコマンド実行
 # - ?: コマンド実行前に実行内容を確認
 # - @: バックグラウンド実行する. 出力は捨てる
+# - +: コマンドを同期実行し、結果の1行目をステータスラインに出力
+#
+# tig内部の変数について
+# - %(branch): The currently selected branch name.
+# - %(remote): The currently selected remote name. For remote branches %(branch) will contain the branch name.
+# - %(repo:head): The name of the checked out branch.
+#
+# https://jonas.github.io/tig/doc/tigrc.5.html
