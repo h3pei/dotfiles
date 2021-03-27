@@ -4,6 +4,9 @@ set vertical-split = no
 # generic view
 bind generic S none
 
+# main view
+bind main ! ?git revert %(commit)
+
 # status view
 bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
