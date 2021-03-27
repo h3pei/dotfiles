@@ -1,3 +1,6 @@
+# 横分割を強制
+set vertical-split = no
+
 # generic view
 bind generic S none
 
