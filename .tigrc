@@ -12,7 +12,7 @@ bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
 bind status + !git commit --amend
 bind status E !git commit --allow-empty
-bind status ^ ?git reset --soft HEAD^
+bind status ! ?git reset --soft HEAD^
 bind status <Ctrl-r> ?gh pr create --fill --web --assignee "@me" --title "%(prompt PullRequest title: )"
 
 # refs view
