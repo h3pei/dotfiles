@@ -30,5 +30,5 @@
 [status]
   showUntrackedFiles = all
 
-[init]
-  templatedir = ~/.git_template/
+; [init]
+  ; templatedir = ~/.git_template/
