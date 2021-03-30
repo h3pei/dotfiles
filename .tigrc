@@ -15,7 +15,7 @@ bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
 bind status + !git commit --amend
 bind status E !git commit --allow-empty
-bind status ! ?git reset --soft HEAD^
+bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
 bind status <Ctrl-r> ?gh pr create --fill --web --assignee "@me"
 
 # refs view
