@@ -72,9 +72,6 @@ if [ -d $HOME/.nodenv ]; then
   eval "$(nodenv init -)"
 fi
 
-# direnv
-eval "$(direnv hook zsh)"
-
 # For local settings
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
