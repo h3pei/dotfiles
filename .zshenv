@@ -16,6 +16,5 @@ export VISUAL='less'
 export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export GOPATH=$HOME/go
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PYENV_ROOT/bin:$GOPATH/bin:$HOME/bin:$PATH
