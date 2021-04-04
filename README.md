@@ -12,8 +12,10 @@ sh setup.sh
 ## Homebrew
 
 ```console
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# Install homebrew before executing the following commands.
+# see: https://brew.sh/
 
+# Install packages by using Homebrew Bundle
 cd ~/dotfiles
 brew bundle
 ```
