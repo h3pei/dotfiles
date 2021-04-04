@@ -17,4 +17,4 @@ export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH=$PYENV_ROOT/bin:$GOPATH/bin:$HOME/bin:$PATH
+export PATH=$HOME/bin:$PYENV_ROOT/bin:$GOPATH/bin:/usr/local/sbin:$PATH
