@@ -11,7 +11,6 @@ mkdir -p $HOME/.config/nvim/ftplugin
 cd
 
 dotfiles=(
-  ".vimrc"
   ".tmux.conf"
   ".tigrc"
   ".gitconfig"
@@ -43,6 +42,7 @@ for dotfile in ${dotfiles[@]}; do
   ln -s $HOME/dotfiles/$dotfile $HOME/$dotfile
 done
 
+# Neovim
 nvim_files=("init.vim" "coc-settings.json")
 for nvim_file in ${nvim_files[@]}; do
   ln -s -f $HOME/dotfiles/.config/nvim/$nvim_file $HOME/.config/nvim/$nvim_file
@@ -52,11 +52,6 @@ for file in $HOME/dotfiles/.config/nvim/ftplugin/*.vim ; do
 done
 
 # vim-plug
-if [ ! -e "${HOME}/.vim/autoload/plug.vim" ]; then
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-# vim-plug for Neovim
 if [ ! -e "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim" ]; then
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
