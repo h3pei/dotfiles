@@ -18,6 +18,12 @@ cd ~/dotfiles
 brew bundle
 ```
 
+## zplug
+
+```console
+zplug install
+```
+
 ## Neovim
 
 ```vim
@@ -42,7 +48,3 @@ $(brew --prefix)/opt/fzf/install
 ```
 
 see: https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
-
-## TODOs
-
-- zplug
