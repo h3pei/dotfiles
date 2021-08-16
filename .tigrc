@@ -16,7 +16,7 @@ bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
 bind status + !git commit --amend
 bind status E !git commit --allow-empty
 bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
-bind status <Ctrl-r> ?gh pr create --fill --web --assignee "@me"
+bind status <Ctrl-r> ?gh pr create --web --assignee "@me"
 
 # refs view
 # - 主にbranchに対しての操作をする
@@ -32,9 +32,9 @@ bind refs + ?git rebase %(branch)
 # - S: stashのS. このためにgenericに割り当てられた `S` を無効化した
 # - U: `-u(--include-untracked)` のU
 # - P: popのP
-bind stash S ?git stash push "%(prompt Enter stash comment: )"
-bind stash U ?git stash push -u "%(prompt Enter stash comment: )"
-bind stash P ?git stash pop %(stash)
+bind stash S !git stash push
+bind stash U !git stash push -u
+bind stash P !git stash pop %(stash)
 
 # -- MEMO --
 #
