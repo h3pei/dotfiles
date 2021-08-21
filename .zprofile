@@ -14,6 +14,9 @@ fi
 #
 # FIXME: これを残さないと、tmux起動時にCtrl+nとCtrl+pが効かなくなってしまう...
 export EDITOR='nano'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 #
 # Paths
