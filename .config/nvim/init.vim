@@ -12,6 +12,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jxnblk/vim-mdx-js'
 Plug 'leafOfTree/vim-svelte-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
