@@ -30,5 +30,6 @@
 [status]
   showUntrackedFiles = all
 
-; [init]
+[init]
+  defaultBranch = main
   ; templatedir = ~/.git_template/
