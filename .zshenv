@@ -18,10 +18,6 @@ fi
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export HISTFILE=~/.zsh_history
-export HISTSIZE=30000
-export SAVEHIST=30000
-export HISTCONTROL=ignoredups:erasedups
 export EDITOR='vim'
 export PAGER='less'
 export VISUAL='less'

@@ -15,7 +15,6 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "mafredri/zsh-async", from:github
 zplug "sorin-ionescu/prezto", from:github
 zplug "modules/completion", from:prezto
-zplug "modules/history", from:prezto
 zplug "modules/terminal", from:prezto
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2
@@ -34,11 +33,21 @@ zstyle ":prompt:pure:git:stash" show yes
 zstyle ":prompt:pure:path" color "white"
 zstyle ":prompt:pure:prompt:success" color "green"
 
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
+# zsh options
+setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
+setopt hist_ignore_all_dups # 履歴が重複した場合に古い履歴を削除する
+setopt hist_ignore_dups # 前回のイベントと重複する場合、履歴に保存しない
+setopt hist_ignore_space # 空白から始まるイベントを履歴に保存しない
+setopt hist_save_no_dups # 履歴ファイルに書き出す際、新しいコマンドと重複する古いコマンドは切り捨てる
+setopt share_history # 全てのセッションで履歴を共有する
 
-# Aliases
+# environment variables
+# NOTE: ~/.zshenvに書くと後から読み込まれるファイルによって上書きされる場合があり、そういったものは.zshrcに書くようにした
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+# aliases
 alias ls="ls -G"
 alias ll="ls -alG"
 alias h='echo "$(hostname) ($(hostname -i))"'
