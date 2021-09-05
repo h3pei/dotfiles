@@ -1,3 +1,13 @@
+# MEMO: Load order of zsh files
+# 1. /etc/zshenv
+# 2. ~/.zshenv
+# 3. /etc/zprofile
+# 4. ~/.zprofile
+# 5. /etc/zshrc
+# 6. ~/.zshrc
+# 7. /etc/zlogin
+# 8. ~/.zlogin
+
 # zplug
 source ~/.zplug/init.zsh
 
@@ -27,17 +37,6 @@ zstyle ":prompt:pure:prompt:success" color "green"
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-
-# %n: username
-# %m: hostname
-# %y: tty name
-# %~: current directory
-# %B..%b: bolding ..
-# %F..%f: coloring .. foreground
-# %? : return value of previous command
-# export PROMPT="
-# %n@%m(%y): %F{magenta}%B%~%b%f
-# %(?.%F{green}${1:-$}%f.%F{red}${1:-$}%f) "
 
 # Aliases
 alias ls="ls -G"
