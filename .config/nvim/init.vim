@@ -117,9 +117,9 @@ nnoremap <silent> <leader>fw :FixWhitespace<CR>
 " Toggle file explorer (NERDTree)
 map <silent> <C-n> :NERDTreeToggle<CR>
 
-" Comment out / Comment in (NERD Commenter)
-nmap ,, <Plug>NERDCommenterToggle
-vmap ,, <Plug>NERDCommenterToggle
+" Comment in / out (NERD COMMENTER)
+nmap <leader>, <Plug>NERDCommenterToggle
+vmap <leader>, <Plug>NERDCommenterToggle
 
 " Search files (fzf.vim)
 nnoremap <silent> ;f :GFiles<CR>
