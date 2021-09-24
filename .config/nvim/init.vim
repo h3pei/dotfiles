@@ -140,6 +140,12 @@ nmap <silent> tf :TestFile<CR>
 nmap <silent> tl :TestLast<CR>
 
 " ---------------
+" commands
+" ---------------
+" Format json by jq command
+command! FormatJson %!jq
+
+" ---------------
 " plugin settings
 " ---------------
 " vim-auto-save
