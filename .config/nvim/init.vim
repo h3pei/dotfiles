@@ -89,6 +89,9 @@ inoremap <C-e> <End>
 inoremap <C-k> <C-o>D
 inoremap <C-d> <Del>
 
+" Delete from the beggining of the line till the cursor
+nnoremap <S-h> d^
+
 " Toggle folding
 nnoremap <leader>F za
 
