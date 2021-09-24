@@ -72,8 +72,11 @@ autocmd BufNewFile,BufRead *.thor set filetype=ruby
 " Use <Space> as Leader key (default: '\')
 let mapleader = "\<Space>"
 
-" Disables Ex mode
+" Disables Ex mode && For QuickFix
 nnoremap Q <Nop>
+nnoremap Qn :cnext<CR>
+nnoremap Qp :cprev<CR>
+nnoremap Ql :clist<CR>
 
 " For INSERT mode
 inoremap <C-n> <Down>
