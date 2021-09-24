@@ -84,6 +84,10 @@ inoremap <C-p> <Up>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-h> <BS>
+inoremap <C-a> <C-o>^
+inoremap <C-e> <End>
+inoremap <C-k> <C-o>D
+inoremap <C-d> <Del>
 
 " Toggle folding
 nnoremap <leader>F za
