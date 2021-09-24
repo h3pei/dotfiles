@@ -17,6 +17,7 @@ Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
@@ -209,11 +210,8 @@ let g:ale_fixers = {
 let g:ale_javascript_prettier_use_local_config = 1
 
 " test.vim
-let test#strategy = "neovim"
+let test#strategy = "dispatch"
 let g:test#runner_commands = ['RSpec']
-
-" typescript-vim
-let g:typescript_indent_disable = 1
 
 " lightline.vim
 let g:lightline = {
