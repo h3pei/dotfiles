@@ -23,6 +23,7 @@ Plug 'slim-template/vim-slim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'vim-scripts/vim-auto-save'
 Plug 'vim-test/vim-test', { 'for': 'ruby' }
 call plug#end()
