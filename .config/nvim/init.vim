@@ -102,6 +102,13 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 nnoremap <silent> <leader>n gt
 nnoremap <silent> <leader>p gT
 
+" Move lines
+" see: https://qiita.com/itmammoth/items/312246b4b7688875d023
+nnoremap <C-Up> "zdd<Up>"zP
+nnoremap <C-Down> "zdd"zp
+vnoremap <C-Up> "zx<Up>"zP`[V`]
+vnoremap <C-Down> "zx"zp`[V`]
+
 " Move jump list
 " memo: plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
 " see: https://vimhelp.org/vim_faq.txt.html#faq-20.5
