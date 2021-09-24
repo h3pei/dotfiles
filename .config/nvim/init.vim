@@ -2,7 +2,6 @@
 " vim-plug
 " --------
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
@@ -12,14 +11,11 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'jxnblk/vim-mdx-js'
-Plug 'leafOfTree/vim-svelte-plugin'
-Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'slim-template/vim-slim'
+Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
