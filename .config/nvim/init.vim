@@ -100,7 +100,7 @@ nnoremap <leader>F za
 " Turn off highlithing
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
-" Switch buffers
+" Operate buffers
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
 nnoremap <silent> <leader>d :bdelete<CR>
@@ -159,6 +159,21 @@ nmap <silent> tl :TestLast<CR>
 " Format json by jq command
 command! FormatJson %!jq
 
+" Customize Rg command (fzf.vim)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
+  \   1,
+  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
+  \   <bang>0,
+  \ )
+
+" List untracked files (fzf.vim)
+command! -bang -nargs=0 GUntrackedFiles
+  \ call fzf#run(
+  \   fzf#wrap({'source': 'git ls-files --others --exclude-standard'})
+  \ )
+
 " ---------------
 " plugin settings
 " ---------------
@@ -173,20 +188,6 @@ let NERDTreeWinSize = 50
 
 " NERD Commenter
 let NERDSpaceDelims = 1
-
-" fzf.vim
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
-  \   1,
-  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
-  \   <bang>0,
-  \ )
-
-command! -bang -nargs=0 GUntrackedFiles
-  \ call fzf#run(
-  \   fzf#wrap({'source': 'git ls-files --others --exclude-standard'})
-  \ )
 
 " coc.nvim
 " - extensionは最低限としている
