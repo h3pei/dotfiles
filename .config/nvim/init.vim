@@ -102,6 +102,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " Switch buffers
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
+nnoremap <silent> <leader>d :bdelete<CR>
 
 " Move lines
 " see: https://qiita.com/itmammoth/items/312246b4b7688875d023
