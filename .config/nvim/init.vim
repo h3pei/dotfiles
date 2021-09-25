@@ -22,6 +22,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'vim-test/vim-test', { 'for': 'ruby' }
 call plug#end()
@@ -103,6 +104,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
 nnoremap <silent> <leader>d :bdelete<CR>
+nnoremap <silent> <leader>D :BufOnly<CR>
 
 " Move lines
 " see: https://qiita.com/itmammoth/items/312246b4b7688875d023
