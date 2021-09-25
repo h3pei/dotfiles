@@ -99,7 +99,7 @@ nnoremap <leader>F za
 " Turn off highlithing
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
-" Switch tabs
+" Switch buffers
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
 
