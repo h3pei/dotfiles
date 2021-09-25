@@ -126,10 +126,14 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 nmap <leader>, <Plug>NERDCommenterToggle
 vmap <leader>, <Plug>NERDCommenterToggle
 
-" Search files (fzf.vim)
+" Search files or buffers (fzf.vim)
+" - type `;f` to search files under git control
+" - type `;a` to search all files
+" - type `;r` to search file contents
 nnoremap <silent> ;f :GFiles<CR>
 nnoremap <silent> ;F :Buffers<CR>
 nnoremap <silent> ;b :Buffers<CR>
+nnoremap <silent> ;U :GUntrackedFiles<CR>
 nnoremap <silent> ;a :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 
@@ -174,6 +178,11 @@ command! -bang -nargs=* Rg
   \   1,
   \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
   \   <bang>0,
+  \ )
+
+command! -bang -nargs=0 GUntrackedFiles
+  \ call fzf#run(
+  \   fzf#wrap({'source': 'git ls-files --others --exclude-standard'})
   \ )
 
 " coc.nvim
