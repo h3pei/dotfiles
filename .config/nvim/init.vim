@@ -4,6 +4,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
 Plug 'itchyny/lightline.vim'
@@ -99,8 +100,8 @@ nnoremap <leader>F za
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " Switch tabs
-nnoremap <silent> <leader>n gt
-nnoremap <silent> <leader>p gT
+nnoremap <silent> <leader>n :bnext<CR>
+nnoremap <silent> <leader>p :bprevious<CR>
 
 " Move lines
 " see: https://qiita.com/itmammoth/items/312246b4b7688875d023
@@ -127,7 +128,9 @@ vmap <leader>, <Plug>NERDCommenterToggle
 
 " Search files (fzf.vim)
 nnoremap <silent> ;f :GFiles<CR>
-nnoremap <silent> ;F :Files<CR>
+nnoremap <silent> ;F :Buffers<CR>
+nnoremap <silent> ;b :Buffers<CR>
+nnoremap <silent> ;a :Files<CR>
 nnoremap <silent> ;r :Rg<CR>
 
 " Go to definition/implementation/references (coc.nvim)
@@ -157,7 +160,6 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 
 " NERDTree
-let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 't'}, 'dir': {}}
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 3 " close after opening file and bookmark
 let NERDTreeWinSize = 50
@@ -166,10 +168,6 @@ let NERDTreeWinSize = 50
 let NERDSpaceDelims = 1
 
 " fzf.vim
-" - use Enter key for opening file as new tab
-" - type `;f` to search files
-" - type `;r` to search file contents
-let g:fzf_action = { 'enter': 'tab drop' }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
