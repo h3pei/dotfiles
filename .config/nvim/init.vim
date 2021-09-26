@@ -59,6 +59,9 @@ set wildmode=list:longest,full
 
 colorscheme PaperColor
 
+" ---------------
+" commands
+" ---------------
 " 開いているバッファに外部で変更があった場合に読みこみ直す
 " - `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
 " - FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
@@ -67,6 +70,24 @@ autocmd FocusGained * checktime
 
 " thorファイルを `filetype=ruby` で開く
 autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
+" Format json by jq command
+command! FormatJson %!jq
+
+" Customize Rg command (fzf.vim)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
+  \   1,
+  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
+  \   <bang>0,
+  \ )
+
+" List untracked files (fzf.vim)
+command! -bang -nargs=0 GUntrackedFiles
+  \ call fzf#run(
+  \   fzf#wrap({'source': 'git ls-files --others --exclude-standard'})
+  \ )
 
 " ------------
 " key mappings
@@ -152,27 +173,6 @@ nmap <silent> <leader>fp <Plug>(ale_fix)
 nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
 nmap <silent> tl :TestLast<CR>
-
-" ---------------
-" commands
-" ---------------
-" Format json by jq command
-command! FormatJson %!jq
-
-" Customize Rg command (fzf.vim)
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>),
-  \   1,
-  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'),
-  \   <bang>0,
-  \ )
-
-" List untracked files (fzf.vim)
-command! -bang -nargs=0 GUntrackedFiles
-  \ call fzf#run(
-  \   fzf#wrap({'source': 'git ls-files --others --exclude-standard'})
-  \ )
 
 " ---------------
 " plugin settings
