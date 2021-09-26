@@ -68,9 +68,6 @@ colorscheme PaperColor
 " - なおvim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
 autocmd FocusGained * checktime
 
-" thorファイルを `filetype=ruby` で開く
-autocmd BufNewFile,BufRead *.thor set filetype=ruby
-
 " Format json by jq command
 command! FormatJson %!jq
 
