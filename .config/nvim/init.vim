@@ -225,6 +225,21 @@ let g:ale_javascript_prettier_use_local_config = 1
 let test#strategy = "dispatch"
 let g:test#runner_commands = ['RSpec']
 
+" fzf.vim
+" Send results of grep to quickfix list
+" see: https://github.com/junegunn/fzf.vim/issues/185#issuecomment-322120216
+function! s:build_quickfix_list(lines)
+    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+    copen
+    cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ }
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all,ctrl-d:deselect-all'
+
 " lightline.vim
 let g:lightline = {
       \ 'active': {
