@@ -119,10 +119,12 @@ nnoremap <leader>F za
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " Operate buffers
-nnoremap <silent> <leader>n :bnext<CR>
-nnoremap <silent> <leader>p :bprevious<CR>
-nnoremap <silent> <leader>d :bdelete<CR>
-nnoremap <silent> <leader>D :BufOnly<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprevious<CR>
+nnoremap <silent> <leader>bn :bnext<CR>
+nnoremap <silent> <leader>bp :bprevious<CR>
+nnoremap <silent> <leader>bd :bdelete<CR>
+nnoremap <silent> <leader>bD :BufOnly<CR>
 
 " Move lines
 " see: https://qiita.com/itmammoth/items/312246b4b7688875d023
@@ -134,8 +136,8 @@ vnoremap <C-Down> "zx"zp`[V`]
 " Move jump list
 " memo: plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
 " see: https://vimhelp.org/vim_faq.txt.html#faq-20.5
-nnoremap <C-l> <C-I>
-nnoremap <C-h> <C-O>
+nnoremap <silent> <leader>n <C-I>
+nnoremap <silent> <leader>p <C-O>
 
 " Remove whitespece
 nnoremap <silent> <leader>fw :FixWhitespace<CR>
