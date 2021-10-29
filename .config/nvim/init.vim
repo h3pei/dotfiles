@@ -1,3 +1,5 @@
+let g:polyglot_disabled = ['markdown']
+
 " --------
 " vim-plug
 " --------
