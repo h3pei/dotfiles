@@ -63,7 +63,11 @@ fi
 
 # z
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
+  # Intel Mac
   source /usr/local/etc/profile.d/z.sh
+elif [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
+  # Apple Silicon Mac
+  source /opt/homebrew/etc/profile.d/z.sh
 fi
 
 # rbenv
