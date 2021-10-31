@@ -5,6 +5,7 @@ mkdir -p $HOME/work
 mkdir -p $HOME/bin
 mkdir -p $HOME/trash
 mkdir -p $HOME/memo
+mkdir -p $HOME/screenshots
 mkdir -p $HOME/.ssh
 mkdir -p $HOME/.config/nvim/ftplugin
 
