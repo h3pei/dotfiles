@@ -25,4 +25,5 @@ export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH=$HOME/bin:$PYENV_ROOT/bin:$GOPATH/bin:/usr/local/sbin:$PATH
+export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
+export PATH="$PATH:$PYENV_ROOT/bin:$GOPATH/bin:/opt/homebrew/opt/postgresql@10/bin"
