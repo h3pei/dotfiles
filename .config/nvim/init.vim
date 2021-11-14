@@ -19,6 +19,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
+Plug 'thinca/vim-quickrun'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
@@ -244,6 +245,18 @@ let g:fzf_action = {
   \ }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
+
+" quickrun.vim
+" - opener:
+"   - 実行結果を水平分割でウィンドウ下部に表示する
+"   - 実行結果のウィンドウにカーソルを移動させない
+" - close_on_empty: 実行結果が空の場合、バッファを自動で閉じる
+let g:quickrun_config = {
+      \ "_": {
+      \   "outputter/buffer/opener": ":botright split",
+      \   "outputter/buffer/close_on_empty": 1
+      \ },
+      \ }
 
 " rails.vim
 let g:rails_projections = {
