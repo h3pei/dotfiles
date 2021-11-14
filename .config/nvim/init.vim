@@ -22,6 +22,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'vim-scripts/BufOnly.vim'
@@ -243,6 +244,19 @@ let g:fzf_action = {
   \ }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
+
+" rails.vim
+let g:rails_projections = {
+      \ "app/controllers/*_controller.rb": {
+      \   "test": [
+      \     "spec/requests/{}_spec.rb",
+      \     "spec/controllers/{}_spec.rb"
+      \   ],
+      \ },
+      \ "spec/requests/*_spec.rb": {
+      \   "alternate": ["app/controllers/{}_controller.rb"]
+      \ },
+      \ }
 
 " lightline.vim
 let g:lightline = {
