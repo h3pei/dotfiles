@@ -225,6 +225,7 @@ let g:ale_fixers = {
 \ 'typescript': ['prettier'],
 \ }
 let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_rubocop_auto_correct_all = 1
 let g:ale_javascript_prettier_use_local_config = 1
 
 " test.vim
