@@ -207,11 +207,11 @@ let NERDSpaceDelims = 1
 let g:coc_status_error_sign = 'E'
 let g:coc_status_warning_sign = 'W'
 let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-solargraph',
-  \ 'coc-tsserver',
-  \ 'coc-html',
-  \ 'coc-svelte',
+  \   'coc-json',
+  \   'coc-solargraph',
+  \   'coc-tsserver',
+  \   'coc-html',
+  \   'coc-svelte',
   \ ]
 
 " ALE
@@ -223,16 +223,16 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_linters = {
-\ 'ruby': ['rubocop'],
-\ 'javascript': ['prettier'],
-\ 'typescript': ['prettier'],
-\}
+  \   'ruby': ['rubocop'],
+  \   'javascript': ['prettier'],
+  \   'typescript': ['prettier'],
+  \ }
 let g:ale_fix_on_save = 0
 let g:ale_fixers = {
-\ 'ruby': ['rubocop'],
-\ 'javascript': ['prettier'],
-\ 'typescript': ['prettier'],
-\ }
+  \   'ruby': ['rubocop'],
+  \   'javascript': ['prettier'],
+  \   'typescript': ['prettier'],
+  \ }
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_ruby_rubocop_auto_correct_all = 1
 let g:ale_javascript_prettier_use_local_config = 1
@@ -251,7 +251,7 @@ function! s:build_quickfix_list(lines)
 endfunction
 
 let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \   'ctrl-q': function('s:build_quickfix_list'),
   \ }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
@@ -262,42 +262,42 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
 "   - 実行結果のウィンドウにカーソルを移動させない
 " - close_on_empty: 実行結果が空の場合、バッファを自動で閉じる
 let g:quickrun_config = {
-      \ "_": {
-      \   "outputter/buffer/opener": ":botright split",
-      \   "outputter/buffer/close_on_empty": 1
-      \ },
-      \ }
+  \   "_": {
+  \     "outputter/buffer/opener": ":botright split",
+  \     "outputter/buffer/close_on_empty": 1
+  \   },
+  \ }
 
 " rails.vim
 let g:rails_projections = {
-      \ "app/controllers/*_controller.rb": {
-      \   "test": [
-      \     "spec/requests/{}_spec.rb",
-      \     "spec/controllers/{}_spec.rb"
-      \   ],
-      \ },
-      \ "spec/requests/*_spec.rb": {
-      \   "alternate": ["app/controllers/{}_controller.rb"]
-      \ },
-      \ }
+  \   "app/controllers/*_controller.rb": {
+  \     "test": [
+  \       "spec/requests/{}_spec.rb",
+  \       "spec/controllers/{}_spec.rb"
+  \     ],
+  \   },
+  \   "spec/requests/*_spec.rb": {
+  \     "alternate": ["app/controllers/{}_controller.rb"]
+  \   },
+  \ }
 
 " lightline.vim
 let g:lightline = {
-      \ 'active': {
-      \   'left': [
-      \     [ 'mode', 'paste' ],
-      \     [ 'cocstatus', 'relativepath', 'modified', 'readonly', 'gitbranch' ],
-      \   ],
-      \   'right': [
-      \     [ 'column', 'line_info' ],
-      \     [ 'fileformat', 'fileencoding', 'filetype' ],
-      \   ],
-      \ },
-      \ 'component': {
-      \   'line_info' : '%l/%L',
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name',
-      \   'cocstatus': 'coc#status',
-      \ },
-      \ }
+  \   'active': {
+  \     'left': [
+  \       [ 'mode', 'paste' ],
+  \       [ 'cocstatus', 'relativepath', 'modified', 'readonly', 'gitbranch' ],
+  \     ],
+  \     'right': [
+  \       [ 'column', 'line_info' ],
+  \       [ 'fileformat', 'fileencoding', 'filetype' ],
+  \     ],
+  \   },
+  \   'component': {
+  \     'line_info' : '%l/%L',
+  \   },
+  \   'component_function': {
+  \     'gitbranch': 'gitbranch#name',
+  \     'cocstatus': 'coc#status',
+  \   },
+  \ }
