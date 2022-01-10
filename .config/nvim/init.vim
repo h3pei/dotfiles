@@ -35,6 +35,7 @@ call plug#end()
 " General settings
 " ----------------
 set autoread " 開いているバッファに外部で変更があった場合に読みこみ直す
+set background=dark
 set cmdheight=2
 set confirm
 set expandtab " <Tab>の代わりに空白を使う
@@ -80,6 +81,11 @@ colorscheme PaperColor
 " - FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
 " - なおvim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
 autocmd FocusGained * checktime
+
+" Workaround a problem with vim-gitgutter.
+" https://github.com/airblade/vim-gitgutter/issues/696
+highlight! link SignColumn LineNr
+autocmd ColorScheme * highlight! link SignColumn LineNr
 
 " Format json by jq command
 command! FormatJson %!jq
