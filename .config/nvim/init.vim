@@ -61,6 +61,15 @@ set wildchar=<tab>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " ワイルドカードの展開時とファイル・ディレクトリ名の補完時に無視する
 set wildmode=list:longest,full
 
+" NOTE: `PaperColor_Theme_Options` variable must be placed anywhere before color PaperColor command.
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1,
+  \     },
+  \   }
+  \ }
+
 colorscheme PaperColor
 
 " ---------------
