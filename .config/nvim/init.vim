@@ -269,7 +269,7 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
 " - close_on_empty: 実行結果が空の場合、バッファを自動で閉じる
 let g:quickrun_config = {
   \   "_": {
-  \     "outputter/buffer/opener": ":botright split",
+  \     "outputter/buffer/opener": ":botright 8split",
   \     "outputter/buffer/close_on_empty": 1
   \   },
   \ }
