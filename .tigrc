@@ -6,7 +6,11 @@ bind generic S none
 bind generic ` @bash -c "echo -n '%(commit)' | pbcopy" # copy selected commit hash
 
 # main view: 主にcommitに対しての操作をする
+# -I: rebaseの "-i" オプションから
+# -F: commitの "--fixup" オプションから
 bind main ! ?git revert %(commit)
+bind main I ?git rebase -i %(commit)
+bind main F ?git commit --fixup %(commit)
 
 # status view: 作業中のメインview. 最も多く利用する
 bind status P ?git push %(remote) %(repo:head)
