@@ -38,7 +38,10 @@ set autoread " 開いているバッファに外部で変更があった場合�
 set background=dark
 set cmdheight=2
 set confirm
+set encoding=utf-8 " Vim内部で使われる文字エンコーディング
 set expandtab " <Tab>の代わりに空白を使う
+set fileencoding=utf-8
+set fileencodings=utf-8,sjis,cp932
 set foldlevel=99 " NOTE: This setting makes `zm` command ineffective
 set foldmethod=indent
 set hidden
