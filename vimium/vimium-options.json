@@ -17,7 +17,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmap J\nunmap K\nmap <c-h> previousTab\nmap <c-l> nextTab",
+  "keyMappings": "unmap J\nunmap K\nunmap <c-e>\nunmap <c-y>\n\nmap <c-u> scrollPageUp\nmap <c-d> scrollPageDown\nmap <c-h> previousTab\nmap <c-l> nextTab\n\n# https://github.com/philc/vimium/wiki/Tips-and-Tricks#hard-reload\nmap R reload hard",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
