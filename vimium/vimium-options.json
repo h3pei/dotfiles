@@ -17,7 +17,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nunmap J\nunmap K\nmap <c-h> previousTab\nmap <c-l> nextTab",
+  "keyMappings": "unmap J\nunmap K\nmap <c-h> previousTab\nmap <c-l> nextTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
@@ -30,5 +30,5 @@
   "grabBackFocus": false,
   "searchEngines": "g: https://www.google.com/search?q=%s Google",
   "searchUrl": "https://www.google.com/search?q=",
-  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n  /* linkhint boxes */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\n  border: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n  /* linkhint text */\n  color: black;\n  font-weight: bold;\n  font-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
 }
