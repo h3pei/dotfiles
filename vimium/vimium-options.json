@@ -6,10 +6,6 @@
       "passKeys": "t,y"
     },
     {
-      "pattern": "https://trello.com/*",
-      "passKeys": ""
-    },
-    {
       "pattern": "https://scrapbox.io/*",
       "passKeys": ""
     }
