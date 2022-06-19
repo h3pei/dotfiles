@@ -36,3 +36,10 @@ fi
 if [ ! -d "${HOME}/.zplug" ]; then
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
+
+# iTerm2
+ITERM2_DYNAMIC_PROFILES_PATH="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
+PROFILE_NAME="mogulla3_profile.json"
+if [ -d "$ITERM2_DYNAMIC_PROFILES_PATH" ]; then
+  ln -s -f `realpath iterm2/${PROFILE_NAME}` "${ITERM2_DYNAMIC_PROFILES_PATH}/${PROFILE_NAME}"
+fi
