@@ -81,7 +81,7 @@
   },
   "BM Growl" : false,
   "AWDS Window Directory" : "",
-  "Icon" : 0,
+  "Icon" : 1,
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -358,7 +358,7 @@
   "Silence Bell" : true,
   "Ansi 12 Color" : {
     "Green Component" : 0.34725069999694824,
-    "Red Component" : 0.074933364987373352,
+    "Red Component" : 0.074933364987373324,
     "Blue Component" : 0.47479093074798584
   },
   "Window Type" : 0,
@@ -376,7 +376,7 @@
   },
   "Default Bookmark" : "No",
   "Disable Smcup Rmcup" : false,
-  "Name" : "mogulla3's profile",
+  "Name" : "mogulla3_profile",
   "Blinking Cursor" : false,
   "Cursor Color" : {
     "Green Component" : 0.81186991930007935,
@@ -448,7 +448,7 @@
     "Red Component" : 0.22138151526451111,
     "Blue Component" : 0.67739421129226685
   },
-  "Transparency" : 0.12358224936548222,
+  "Transparency" : 0.09646775265957451,
   "Initial Text" : "tmux new-session",
   "Background Color" : {
     "Green Component" : 0.11759574711322784,
