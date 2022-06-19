@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Default Bookmark Guid</key>
-	<string>2C9E2833-C62B-4B99-8BB0-42BF41B64660</string>
+	<string>E9EAFB52-BE11-46CF-A083-82DE5CB8C2E1</string>
 	<key>DeleteProfile_SilenceUntil</key>
 	<real>657217340.82611299</real>
 	<key>DeleteProfile_selection</key>
@@ -14,8 +14,12 @@
 	<true/>
 	<key>DimOnlyText</key>
 	<false/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<true/>
+	<key>EnterCopyModeAutomatically</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideActivityIndicator</key>
@@ -305,6 +309,8 @@
 			<true/>
 			<key>Draw Powerline Glyphs</key>
 			<false/>
+			<key>Dynamic Profile Filename</key>
+			<string>/Users/hiroki/Library/Application Support/iTerm2/DynamicProfiles/mogulla3_profile.json</string>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -317,7 +323,7 @@
 				<real>0.97033727169036865</real>
 			</dict>
 			<key>Guid</key>
-			<string>2C9E2833-C62B-4B99-8BB0-42BF41B64660</string>
+			<string>E9EAFB52-BE11-46CF-A083-82DE5CB8C2E1</string>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -825,7 +831,9 @@
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
-			<array/>
+			<array>
+				<string>Dynamic</string>
+			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
@@ -903,6 +911,10 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>PromptOnQuit</key>
+	<false/>
+	<key>SeparateWindowTitlePerTab</key>
+	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -919,6 +931,8 @@
 	<false/>
 	<key>UseBorder</key>
 	<false/>
+	<key>UseTmuxStatusBar</key>
+	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
