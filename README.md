@@ -29,7 +29,7 @@ zplug install
 ## Neovim
 
 ```vim
-:checkhealt
+:checkhealth
 :PlugInstall
 ```
 
