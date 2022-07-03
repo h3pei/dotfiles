@@ -25,4 +25,5 @@ export GREP_OPTIONS='--color=auto'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
+export PURE_PROMPT_SYMBOL='$'
 export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/opt/postgresql@10/bin:$GOPATH/bin:$PYENV_ROOT/bin:$PATH"
