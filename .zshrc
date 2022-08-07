@@ -95,6 +95,10 @@ function cd() {
   builtin cd $@ && ls;
 }
 
+function gd() {
+  cd $(ghq list -p | fzf)
+}
+
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --exact --reverse --query="$LBUFFER" --prompt="History > ")
   CURSOR=${#BUFFER}
