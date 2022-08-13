@@ -124,7 +124,6 @@ vim.g.rails_projections = {
   },
 }
 
--- lualine
 require('lualine').setup({
   options = {
      icons_enabled = false,
