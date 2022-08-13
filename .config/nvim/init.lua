@@ -157,8 +157,8 @@ vim.keymap.set('n', '<leader>F', 'za', { noremap = true })
 vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><ESC>', { noremap = true, silent = true })
 
 -- Operate buffers
-vim.keymap.set('n', '<C-l>', ':bnext', { noremap = true })
-vim.keymap.set('n', '<C-h>', ':bprevious', { noremap = true })
+vim.keymap.set('n', '<C-l>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-h>', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
