@@ -10,7 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
@@ -29,6 +28,7 @@ Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'vim-test/vim-test', { 'for': 'ruby' }
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 ]]
 
@@ -324,3 +324,6 @@ require('lualine').setup({
     lualine_z = { 'location' }
   }
 })
+
+-- nvim-autopairs
+require('nvim-autopairs').setup {}
