@@ -10,13 +10,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
-Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -308,23 +308,20 @@ vim.g.rails_projections = {
   },
 }
 
--- lightline.vim
-vim.g.lightline = {
-  active = {
-    left = {
-        { 'mode', 'paste' },
-        { 'cocstatus', 'relativepath', 'modified', 'readonly', 'gitbranch' },
-    },
-    right = {
-        { 'column', 'line_info' },
-        { 'fileformat', 'fileencoding', 'filetype' },
-    },
+-- lualine
+require('lualine').setup({
+  options = {
+     icons_enabled = false,
+     theme = 'dracula',
+     component_separators = '',
+     section_separators = '',
   },
-  component = {
-    line_info = '%l/%L',
-  },
-  component_function = {
-    gitbranch = 'gitbranch#name',
-    cocstatus = 'coc#status',
-  },
-}
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'filename' },
+    lualine_c = { 'branch', 'diff', 'diagnostics' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
+  }
+})
