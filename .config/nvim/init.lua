@@ -6,12 +6,12 @@ vim.g.polyglot_disabled = { 'markdown' }
 vim.cmd [[
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'nvim-lualine/lualine.nvim'
@@ -94,14 +94,16 @@ vim.api.nvim_create_autocmd('FocusGained', {
   command = 'checktime'
 })
 
--- Workaround a problem with vim-gitgutter.
--- https://github.com/airblade/vim-gitgutter/issues/696
+-- signcolumn の背景色がずれてしまう事象への対策.
+-- see: https://github.com/airblade/vim-gitgutter/issues/696
 vim.cmd 'highlight! link SignColumn LineNr'
-vim.cmd 'autocmd ColorScheme * highlight! link SignColumn LineNr'
 
 -- Format json by jq command
 -- `%` はファイル全体を対象とすることを意味する
 vim.api.nvim_create_user_command('FormatJson', '%!jq', {})
+
+-- git blame の現在行の情報を表示する
+vim.api.nvim_create_user_command('GitBlame', 'Gitsigns toggle_current_line_blame', {})
 
 -- Customize Rg command (fzf.vim)
 vim.api.nvim_create_user_command(
@@ -325,5 +327,14 @@ require('lualine').setup({
   }
 })
 
--- nvim-autopairs
-require('nvim-autopairs').setup {}
+require('nvim-autopairs').setup()
+
+require('gitsigns').setup({
+  signs = {
+    add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn' },
+    change       = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+    delete       = { hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+    topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+    changedelete = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+  },
+})
