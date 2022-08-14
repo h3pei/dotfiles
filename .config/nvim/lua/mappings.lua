@@ -24,9 +24,6 @@ vim.keymap.set('n', '<S-h>', 'd^', { noremap = true })
 -- Toggle folding
 vim.keymap.set('n', '<leader>F', 'za', { noremap = true })
 
--- Turn off highlithing
-vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><ESC>', { noremap = true, silent = true })
-
 -- Operate buffers
 vim.keymap.set('n', '<C-l>', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-h>', ':bprevious<CR>', { noremap = true, silent = true })
