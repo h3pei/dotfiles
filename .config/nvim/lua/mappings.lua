@@ -55,16 +55,15 @@ vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>')
 vim.keymap.set('n', '<leader>,', '<Plug>NERDCommenterToggle')
 vim.keymap.set('v', '<leader>,', '<Plug>NERDCommenterToggle')
 
--- Search files or buffers (fzf.vim)
--- * type `;f` to search files under git control
--- * type `;a` to search all files
--- * type `;r` to search file contents
-vim.keymap.set('n', ';f', ':GFiles<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', ';F', ':Buffers<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', ';b', ':Buffers<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', ';U', ':GUntrackedFiles<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', ';a', ':Files<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', ';r', ':Rg<CR>', { noremap = true, silent = true })
+-- Search files or buffers (telescope)
+vim.keymap.set('n', ';f', ':Telescope git_files<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';U', function()
+  require('telescope.builtin').git_files({ git_command = { 'git', 'ls-files', '--others', '--exclude-standard' } })
+end, { noremap = true, silent = true })
+vim.keymap.set('n', ';F', ':Telescope find_files<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';r', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';b', ':Telescope buffers<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', ';q', ':Telescope quickfix<CR>', { noremap = true })
 
 -- Go to definition/implementation/references (coc.nvim)
 vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { silent = true })

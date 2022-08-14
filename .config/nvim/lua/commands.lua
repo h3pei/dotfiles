@@ -17,23 +17,3 @@ vim.api.nvim_create_user_command('FormatJson', '%!jq', {})
 
 -- git blame の現在行の情報を表示する
 vim.api.nvim_create_user_command('GitBlame', 'Gitsigns toggle_current_line_blame', {})
-
--- Customize Rg command (fzf.vim)
-vim.api.nvim_create_user_command(
-  'Rg',
-  [[call fzf#vim#grep('rg --line-number --no-heading --hidden --color=always --smart-case --glob "!.git" -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}, 'right:50%:wrap'), <bang>0)]],
-  { nargs = '*', bang = true }
-)
-
--- List untracked files (fzf.vim)
--- "call fzf#run(fzf#wrap({'source': 'git ls-files --others --exclude-standard'}))",
--- "call fzf#run(fzf#wrap({'source': 'git ls-files --others --exclude-standard'}))",
-vim.api.nvim_create_user_command(
-  'GUntrackedFiles',
-  function()
-    vim.fn["fzf#run"](
-      vim.fn["fzf#wrap"]("{'source': 'git ls-files --others --exclude-standard'}")
-    )
-  end,
-  { nargs = 0, bang = true }
-)

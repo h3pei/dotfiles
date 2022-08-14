@@ -7,12 +7,13 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -80,23 +81,6 @@ vim.g.ale_javascript_prettier_use_local_config = true
 vim.g['test#strategy'] = 'dispatch'
 vim.g['test#runner_commands'] = { 'RSpec' }
 
--- fzf.vim
--- Send results of grep to quickfix list
--- see: https://github.com/junegunn/fzf.vim/issues/185#issuecomment-322120216
-vim.cmd [[
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \   'ctrl-q': function('s:build_quickfix_list'),
-  \ }
-
-let $FZF_DEFAULT_OPTS = '--bind ctrl-alt-a:select-all,ctrl-d:deselect-all'
-]]
-
 -- quickrun.vim
 -- * opener:
 --   - 実行結果を水平分割でウィンドウ下部に表示する
@@ -152,3 +136,41 @@ require('gitsigns').setup({
     changedelete = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
   },
 })
+
+-- telescope
+local telescope = require('telescope')
+local telescope_actions = require('telescope.actions')
+
+-- see: https://github.com/nvim-telescope/telescope.nvim/blob/d793de0f12d874c463e81edabee741b802c1a37a/lua/telescope/mappings.lua
+telescope.setup({
+  defaults = {
+    mappings = {
+      -- `n` => normal mode
+      n = {
+        ['<C-q>'] = telescope_actions.smart_send_to_qflist + telescope_actions.open_qflist,
+      },
+      -- `i` => insert mode
+      i = {
+        ['<Esc>'] = telescope_actions.close,
+        -- WARN: 本来はカーソル位置より前を全削除にしたかったが、全体削除の挙動になっている
+        ['<C-u>'] = { '<C-O>d^', type = 'command' },
+        ['<C-q>'] = telescope_actions.smart_send_to_qflist + telescope_actions.open_qflist,
+      }
+    },
+  },
+  pickers = {
+    -- find_files を使う場合は広めに検索をしたいはず、という状況を想定.
+    -- よって .gitignore に登録されたファイルも対象にするし、隠しファイルも対象にする
+    find_files = {
+      hidden = true,
+      no_ignore = true,
+    },
+    -- live_grep では隠しファイルは対象にしたいが、.gitignoreされたファイルは不要なはず
+    live_grep = {
+      additional_args = function()
+        return { '--hidden' }
+      end
+    },
+  }
+})
+telescope.load_extension('fzf')
