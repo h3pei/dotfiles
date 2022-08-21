@@ -65,13 +65,11 @@ vim.keymap.set('n', ';r', ':Telescope live_grep<CR>', { noremap = true, silent =
 vim.keymap.set('n', ';b', ':Telescope buffers<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ';q', ':Telescope quickfix<CR>', { noremap = true })
 
--- Go to definition/implementation/references (coc.nvim)
-vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { silent = true })
-vim.keymap.set('n', 'gi', '<Plug>(coc-implementation)', { silent = true })
-vim.keymap.set('n', 'gr', '<Plug>(coc-references)', { silent = true })
+-- LSP
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { noremap = true, silent = true })
 
--- Fix linter problems (ALE)
-vim.keymap.set('n', '<leader>fp', '<Plug>(ale_fix)', { silent = true })
+-- Formatter
+-- vim.keymap.set('n', '<leader>fp', 'TODO', { noremap = true, silent = true })
 
 -- " Run tests (test.vim)
 vim.keymap.set('n', 'tn', ':TestNearest<CR>', { silent = true })

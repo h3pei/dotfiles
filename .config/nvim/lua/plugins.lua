@@ -6,10 +6,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'dense-analysis/ale', { 'for': ['ruby', 'javascript', 'typescript'] }
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -27,6 +26,8 @@ Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'vim-test/vim-test', { 'for': 'ruby' }
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 call plug#end()
 ]]
@@ -41,41 +42,6 @@ vim.g.NERDTreeWinSize = 50
 
 -- NERD Commenter
 vim.g.NERDSpaceDelims = true
-
--- coc.nvim
--- * extensionは最低限としている
--- * 不要になったextensionは `:CocUninstall :extension_name` で削除する
-vim.g.coc_status_error_sign = 'E'
-vim.g.coc_status_warning_sign = 'W'
-vim.g.coc_global_extensions = {
-  'coc-json',
-  'coc-solargraph',
-  'coc-tsserver',
-  'coc-html',
-}
-
--- ALE
-vim.g.ale_disable_lsp = true
-vim.g.ale_linters_explicit = true -- ale_lintersとして定義したもののみ実行
-vim.g.ale_lint_on_enter = true
-vim.g.ale_lint_on_save = true
-vim.g.ale_lint_on_text_changed = false
-vim.g.ale_lint_on_filetype_changed = false
-vim.g.ale_lint_on_insert_leave = false
-vim.g.ale_linters = {
-    ruby = { 'rubocop' },
-    javascript = { 'prettier' },
-    typescript = { 'prettier' },
-}
-vim.g.ale_fix_on_save = false
-vim.g.ale_fixers = {
-  ruby = { 'rubocop' },
-  javascript = { 'prettier' },
-  typescript = { 'prettier' },
-}
-vim.g.ale_ruby_rubocop_executable = 'bundle'
-vim.g.ale_ruby_rubocop_auto_correct_all = true
-vim.g.ale_javascript_prettier_use_local_config = true
 
 -- test.vim
 vim.g['test#strategy'] = 'dispatch'
@@ -138,10 +104,9 @@ require('gitsigns').setup({
 })
 
 -- telescope
+-- see: https://github.com/nvim-telescope/telescope.nvim/blob/d793de0f12d874c463e81edabee741b802c1a37a/lua/telescope/mappings.lua
 local telescope = require('telescope')
 local telescope_actions = require('telescope.actions')
-
--- see: https://github.com/nvim-telescope/telescope.nvim/blob/d793de0f12d874c463e81edabee741b802c1a37a/lua/telescope/mappings.lua
 telescope.setup({
   defaults = {
     mappings = {
@@ -174,3 +139,52 @@ telescope.setup({
   }
 })
 telescope.load_extension('fzf')
+
+-- LSP (nvim-lspconfig, mason, mason-lspconfig)
+local nvim_lspconfig = require('lspconfig')
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+end
+
+nvim_lspconfig.solargraph.setup({
+  on_attach = on_attach,
+})
+nvim_lspconfig.sumneko_lua.setup({
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+})
+nvim_lspconfig.jsonls.setup({
+  on_attach = on_attach,
+})
+nvim_lspconfig.tsserver.setup({
+  on_attach = on_attach,
+})
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'solargraph',
+    'sumneko_lua',
+    'jsonls',
+    'tsserver',
+  },
+})
