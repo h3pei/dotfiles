@@ -71,3 +71,7 @@ vim.keymap.set("n", ";q", ":Telescope quickfix<CR>", noremap_and_silent)
 vim.keymap.set("n", "tn", ":TestNearest<CR>", noremap_and_silent)
 vim.keymap.set("n", "tf", ":TestFile<CR>", noremap_and_silent)
 vim.keymap.set("n", "tl", ":TestLast<CR>", noremap_and_silent)
+
+-- Linting & Formatting
+vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting)
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
