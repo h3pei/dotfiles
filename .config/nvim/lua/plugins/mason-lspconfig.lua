@@ -1,8 +1,8 @@
-require('mason-lspconfig').setup({
+require("mason-lspconfig").setup({
   ensure_installed = {
-    'solargraph',
-    'sumneko_lua',
-    'jsonls',
-    'tsserver',
+    "solargraph",
+    "sumneko_lua",
+    "jsonls",
+    "tsserver",
   },
 })

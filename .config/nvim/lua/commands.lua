@@ -1,19 +1,19 @@
 -- signcolumn の背景色がずれてしまう事象への対策.
 -- see: https://github.com/airblade/vim-gitgutter/issues/696
-vim.cmd 'highlight! link SignColumn LineNr'
+vim.cmd("highlight! link SignColumn LineNr")
 
 -- 開いているバッファに外部で変更があった場合に読みこみ直す
 -- * `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
 -- * FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
 -- * なおvim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
-vim.api.nvim_create_autocmd('FocusGained', {
-  pattern = '*',
-  command = 'checktime'
+vim.api.nvim_create_autocmd("FocusGained", {
+  pattern = "*",
+  command = "checktime",
 })
 
 -- Format json by jq command
 -- `%` はファイル全体を対象とすることを意味する
-vim.api.nvim_create_user_command('FormatJson', '%!jq', {})
+vim.api.nvim_create_user_command("FormatJson", "%!jq", {})
 
 -- git blame の現在行の情報を表示する
-vim.api.nvim_create_user_command('GitBlame', 'Gitsigns toggle_current_line_blame', {})
+vim.api.nvim_create_user_command("GitBlame", "Gitsigns toggle_current_line_blame", {})

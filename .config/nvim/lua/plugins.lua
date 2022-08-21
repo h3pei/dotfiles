@@ -1,7 +1,7 @@
 -- see: https://github.com/sheerun/vim-polyglot#troubleshooting
-vim.g.polyglot_disabled = { 'markdown' }
+vim.g.polyglot_disabled = { "markdown" }
 
-vim.cmd [[
+vim.cmd([[
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'L3MON4D3/LuaSnip'
 Plug 'NLKNguyen/papercolor-theme'
@@ -35,23 +35,23 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 call plug#end()
-]]
+]])
 
 -- written in Vim script
-require('plugins/vim-auto-save')
-require('plugins/nerdtree')
-require('plugins/nerdcommenter')
-require('plugins/vim-test')
-require('plugins/vim-quickrun')
-require('plugins/vim-rails')
+require("plugins/vim-auto-save")
+require("plugins/nerdtree")
+require("plugins/nerdcommenter")
+require("plugins/vim-test")
+require("plugins/vim-quickrun")
+require("plugins/vim-rails")
 
 -- written in Lua
-require('plugins/telescope')
-require('plugins/nvim-autopairs')
-require('plugins/lualine')
-require('plugins/gitsigns')
-require('plugins/nvim-lspconfig')
-require('plugins/mason')
-require('plugins/mason-lspconfig')
-require('plugins/null-ls')
-require('plugins/nvim-cmp')
+require("plugins/telescope")
+require("plugins/nvim-autopairs")
+require("plugins/lualine")
+require("plugins/gitsigns")
+require("plugins/nvim-lspconfig")
+require("plugins/mason")
+require("plugins/mason-lspconfig")
+require("plugins/null-ls")
+require("plugins/nvim-cmp")

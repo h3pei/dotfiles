@@ -4,10 +4,10 @@ vim.g.PaperColor_Theme_Options = {
     default = {
       transparent_background = true,
       override = {
-        linenumber_fg  = { '#767676', '243' },
+        linenumber_fg = { "#767676", "243" },
       },
     },
   },
 }
 
-vim.cmd 'colorscheme PaperColor'
+vim.cmd("colorscheme PaperColor")
