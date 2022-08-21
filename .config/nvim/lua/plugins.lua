@@ -3,9 +3,13 @@ vim.g.polyglot_disabled = { 'markdown' }
 
 vim.cmd [[
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'L3MON4D3/LuaSnip'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'neovim/nvim-lspconfig'
@@ -187,4 +191,26 @@ require('mason-lspconfig').setup({
     'jsonls',
     'tsserver',
   },
+})
+
+local cmp = require('cmp')
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  }),
+  sources = cmp.config.sources(
+    {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+    {
+      { name = 'buffer' },
+    }
+  )
 })
