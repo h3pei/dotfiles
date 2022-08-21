@@ -1,17 +1,34 @@
+local function is_root(path)
+  return path == "/"
+end
+
+local function is_exists_rubocop_yml(path)
+  if is_root(path) then
+    return vim.fn.filereadable("/.rubocop.yml") == 1
+  else
+    return vim.fn.filereadable(path .. "/.rubocop.yml") == 1
+  end
+end
+
+local function is_exists_gemfile(path)
+  if is_root(path) then
+    return vim.fn.filereadable("/Gemfile") == 1
+  else
+    return vim.fn.filereadable(path .. "/Gemfile") == 1
+  end
+end
+
 local function should_use_bundler(path)
   local current_path = require("plenary.path"):new(path)
-  if
-    vim.fn.filereadable(current_path .. "/Gemfile") == 1 and vim.fn.filereadable(current_path .. "/.rubocop.yml") == 1
-  then
-    return true
+
+  -- rootディレクトリで bundler を使うケースは考えにくいためskip
+  if is_root(tostring(current_path)) then
+    return false
   end
 
-  for _, parent_path in pairs(current_path:parents()) do
-    if
-      (parent_path ~= "/")
-      and vim.fn.filereadable(parent_path .. "/Gemfile") == 1
-      and vim.fn.filereadable(parent_path .. "/.rubocop.yml") == 1
-    then
+  local ancestor_paths = vim.list_extend({ tostring(current_path) }, current_path:parents())
+  for _, a_path in pairs(ancestor_paths) do
+    if is_exists_gemfile(a_path) and is_exists_rubocop_yml(a_path) then
       return true
     end
   end
