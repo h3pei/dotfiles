@@ -1,0 +1,57 @@
+-- see: https://github.com/sheerun/vim-polyglot#troubleshooting
+vim.g.polyglot_disabled = { "markdown" }
+
+vim.cmd([[
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'L3MON4D3/LuaSnip'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ap/vim-buftabline'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'mattn/emmet-vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'preservim/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'sheerun/vim-polyglot'
+Plug 'thinca/vim-quickrun'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'vim-test/vim-test', { 'for': 'ruby' }
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'windwp/nvim-autopairs'
+call plug#end()
+]])
+
+-- written in Vim script
+require("plugins/vim-auto-save")
+require("plugins/nerdtree")
+require("plugins/nerdcommenter")
+require("plugins/vim-test")
+require("plugins/vim-quickrun")
+require("plugins/vim-rails")
+
+-- written in Lua
+require("plugins/telescope")
+require("plugins/nvim-autopairs")
+require("plugins/lualine")
+require("plugins/gitsigns")
+require("plugins/nvim-lspconfig")
+require("plugins/mason")
+require("plugins/mason-lspconfig")
+require("plugins/null-ls")
+require("plugins/nvim-cmp")

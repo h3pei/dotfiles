@@ -9,6 +9,8 @@ mkdir -p $HOME/memo
 mkdir -p $HOME/screenshots
 mkdir -p $HOME/.ssh
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/solargraph
+mkdir -p $HOME/.config/rubocop
 
 # dotfiles 直下のドットファイル
 for dotfile in `ls -1a . | grep "^\." | grep -v '.gitignore'`; do
@@ -19,6 +21,12 @@ done
 
 # Neovim
 ln -s -f -n `realpath .config/nvim` $HOME/.config/
+
+# solargraph
+ln -s -f -n `realpath .config/solargraph` $HOME/.config/
+
+# rubocop
+ln -s -f -n `realpath .config/rubocop` $HOME/.config/
 
 # rbenv
 if [ -d $HOME/.rbenv ]; then
