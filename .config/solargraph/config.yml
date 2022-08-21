@@ -1,0 +1,17 @@
+# rubocop は reporters と formatter には指定しない.
+# solargraph を経由させると bundler や rubocop-xxx の gem の読み込みなどややこしいポイントが多い
+# LSP とは別のプラグイン機構を利用することとした
+include:
+  - "**/*.rb"
+exclude:
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+require: []
+domains: []
+reporters:
+  - require_not_found
+require_paths: []
+plugins: []
+max_files: 2000
