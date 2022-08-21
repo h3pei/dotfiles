@@ -10,6 +10,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'neovim/nvim-lspconfig'
@@ -153,18 +154,20 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 end
 
 nvim_lspconfig.solargraph.setup({
   on_attach = on_attach,
+  init_options = {
+    formatting = false,
+  },
+  settings = {
+    diagnostics = false,
+  },
 })
 nvim_lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
@@ -213,4 +216,84 @@ cmp.setup({
       { name = 'buffer' },
     }
   )
+})
+
+local function should_use_bundler(path)
+  local current_path = require('plenary.path'):new(path)
+  if vim.fn.filereadable(current_path .. '/Gemfile') == 1 and vim.fn.filereadable(current_path .. '/.rubocop.yml') == 1 then
+    return true
+  end
+
+  for _, parent_path in pairs(current_path:parents()) do
+    if (parent_path ~= '/') and vim.fn.filereadable(parent_path .. '/Gemfile') == 1 and vim.fn.filereadable(parent_path .. '/.rubocop.yml') == 1 then
+      return true
+    end
+  end
+
+  return false
+end
+
+require('null-ls').setup({
+  log_level = 'info',
+  sources = {
+    require('null-ls').builtins.diagnostics.rubocop.with({
+      command = function()
+        if should_use_bundler(vim.fn.getcwd()) then
+          return 'bundle'
+        else
+          return 'rubocop'
+        end
+      end,
+      args = function()
+        local args = {
+          "-f",
+          "json",
+          "--force-exclusion",
+          "--stdin",
+          "$FILENAME",
+        }
+
+        if should_use_bundler(vim.fn.getcwd()) then
+          table.insert(args, 1, 'exec')
+          table.insert(args, 2, 'rubocop')
+
+          return args
+        else
+          return args
+        end
+      end,
+      env = {
+        RUBYOPT = "-W0"
+      },
+      diagnostics_format = "[#{c}] #{m}",
+    }),
+    require('null-ls').builtins.formatting.rubocop.with({
+      command = function()
+        if should_use_bundler(vim.fn.getcwd()) then
+          return 'bundle'
+        else
+          return 'rubocop'
+        end
+      end,
+      args = function()
+        local args = {
+          "-A",
+          "-f",
+          "quiet",
+          "--stderr",
+          "--stdin",
+          "$FILENAME",
+        }
+
+        if should_use_bundler(vim.fn.getcwd()) then
+          table.insert(args, 1, 'exec')
+          table.insert(args, 2, 'rubocop')
+
+          return args
+        else
+          return args
+        end
+      end,
+    }),
+  },
 })
