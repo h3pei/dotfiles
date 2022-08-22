@@ -66,6 +66,8 @@ null_ls.setup({
           return args
         end
       end,
+      -- ruby の version と parser(gem) の version が不一致だと警告が出るが、
+      -- それにより diagnostics が動かなくなってしまう. 警告を抑制するために指定
       env = {
         RUBYOPT = "-W0",
       },
