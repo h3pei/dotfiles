@@ -28,7 +28,7 @@ telescope.setup({
     -- live_grep では隠しファイルは対象にしたいが、.gitignoreされたファイルは不要なはず
     live_grep = {
       additional_args = function()
-        return { "--hidden" }
+        return { "--hidden", "--glob=!.git" }
       end,
     },
   },
