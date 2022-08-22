@@ -58,7 +58,12 @@ vim.keymap.set("n", "<leader>,", "<Plug>NERDCommenterToggle", noremap_and_silent
 vim.keymap.set("v", "<leader>,", "<Plug>NERDCommenterToggle", noremap_and_silent)
 
 -- Search files or buffers (telescope)
-vim.keymap.set("n", ";f", ":Telescope git_files<CR>", noremap_and_silent)
+vim.keymap.set("n", ";f", function()
+  local ok = pcall(require("telescope.builtin").git_files)
+  if not ok then
+    require("telescope.utils").notify("git_files", { msg = "Can't find .git directory. Use `find_files` instead.", level = "ERROR" })
+  end
+end, noremap_and_silent)
 vim.keymap.set("n", ";U", function()
   require("telescope.builtin").git_files({ git_command = { "git", "ls-files", "--others", "--exclude-standard" } })
 end, noremap_and_silent)
