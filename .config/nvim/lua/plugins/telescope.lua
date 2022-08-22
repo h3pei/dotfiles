@@ -22,7 +22,7 @@ telescope.setup({
     -- find_files を使う場合は広めに検索をしたいはず、という状況を想定.
     -- よって .gitignore に登録されたファイルも対象にするし、隠しファイルも対象にする
     find_files = {
-      hidden = true,
+      find_command = { "rg", "--files", "--color", "never", "--hidden", "--glob=!.git" },
       no_ignore = true,
     },
     -- live_grep では隠しファイルは対象にしたいが、.gitignoreされたファイルは不要なはず
