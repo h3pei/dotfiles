@@ -13,6 +13,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
+Plug 'mogulla3/rspec.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
@@ -30,7 +31,6 @@ Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/vim-auto-save'
-Plug 'vim-test/vim-test', { 'for': 'ruby' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -41,7 +41,6 @@ call plug#end()
 require("plugins/vim-auto-save")
 require("plugins/nerdtree")
 require("plugins/nerdcommenter")
-require("plugins/vim-test")
 require("plugins/vim-quickrun")
 require("plugins/vim-rails")
 
@@ -53,5 +52,6 @@ require("plugins/gitsigns")
 require("plugins/nvim-lspconfig")
 require("plugins/mason")
 require("plugins/mason-lspconfig")
+require("plugins/rspec")
 require("plugins/null-ls")
 require("plugins/nvim-cmp")
