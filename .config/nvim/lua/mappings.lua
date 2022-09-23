@@ -72,12 +72,12 @@ vim.keymap.set("n", ";r", ":Telescope live_grep<CR>", noremap_and_silent)
 vim.keymap.set("n", ";b", ":Telescope buffers<CR>", noremap_and_silent)
 vim.keymap.set("n", ";q", ":Telescope quickfix<CR>", noremap_and_silent)
 
--- Run rspec (rspec.nvim)
-vim.keymap.set("n", "<leader>tn", ":RunNearestSpec<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>tf", ":RunCurrentSpec<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>tl", ":RunLastSpec<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>ts", ":ShowLastSpecResult<CR>", noremap_and_silent)
-
 -- Linting & Formatting
 vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting)
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+
+-- Run rspec (rspec.nvim)
+vim.keymap.set("n", "<leader>rn", ":RSpecNearest<CR>", noremap_and_silent)
+vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", noremap_and_silent)
+vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", noremap_and_silent)
+vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", noremap_and_silent)

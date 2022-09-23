@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename)
+  vim.keymap.set("n", "rn", vim.lsp.buf.rename)
 end
 
 -- MEMO: solargraphは `.git` or `Gemfile` が祖先を含めて見つからないと実行されないようだ
