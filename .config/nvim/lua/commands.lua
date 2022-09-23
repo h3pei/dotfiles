@@ -5,7 +5,6 @@ vim.cmd("highlight! link SignColumn LineNr")
 -- 開いているバッファに外部で変更があった場合に読みこみ直す
 -- * `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
 -- * FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
--- * なおvim-tmux-focus-eventsプラグインは、tmux上で起動したvimでもこの設定がうまく動くようにするために入れている
 vim.api.nvim_create_autocmd("FocusGained", {
   pattern = "*",
   command = "checktime",
