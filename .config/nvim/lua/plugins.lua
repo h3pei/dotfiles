@@ -3,8 +3,8 @@ vim.g.polyglot_disabled = { "markdown" }
 
 vim.cmd([[
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'EdenEast/nightfox.nvim'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'ap/vim-buftabline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hrsh7th/cmp-buffer'
