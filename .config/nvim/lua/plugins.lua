@@ -1,6 +1,3 @@
--- see: https://github.com/sheerun/vim-polyglot#troubleshooting
-vim.g.polyglot_disabled = { "markdown" }
-
 vim.cmd([[
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'EdenEast/nightfox.nvim'
@@ -19,9 +16,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails'
@@ -53,3 +50,4 @@ require("plugins/mason-lspconfig")
 require("plugins/rspec")
 require("plugins/null-ls")
 require("plugins/nvim-cmp")
+require("plugins/nvim-treesitter")
