@@ -35,3 +35,15 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+
+-- Telescope window の Title と Border をすべて白にする
+-- https://github.com/nvim-telescope/telescope.nvim/blob/d4204618dddf1628e7a19ad4a7b910864d1120a5/plugin/telescope.lua#L24-L38
+vim.api.nvim_set_hl(0, "TelescopeBorder" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopeTitle" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopePromptCounter" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopePromptTitle" , { link = "Normal" })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle" , { link = "Normal" })
