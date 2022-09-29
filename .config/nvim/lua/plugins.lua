@@ -19,6 +19,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails'
