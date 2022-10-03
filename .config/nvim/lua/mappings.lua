@@ -5,11 +5,12 @@ local noremap_and_silent = { noremap = true, silent = true }
 
 -- Disables Ex mode && For QuickFix
 vim.keymap.set("n", "Q", "<Nop>", noremap_and_silent)
-vim.keymap.set("n", "Qn", ":cnext<CR>", noremap_and_silent)
-vim.keymap.set("n", "Qp", ":cprev<CR>", noremap_and_silent)
+vim.keymap.set("n", "Qo", ":copen<CR>", noremap_and_silent)
+vim.keymap.set("n", "Qc", ":cclose<CR>", noremap_and_silent)
 vim.keymap.set("n", "Ql", ":clist<CR>", noremap_and_silent)
 
--- For INSERT mode
+-- For INSERT mode (shell-like mapping setup)
+-- memo: <C-u> -> Delete from the beggining of the line till the cursor
 vim.keymap.set("i", "<C-n>", "<Down>", noremap_and_silent)
 vim.keymap.set("i", "<C-p>", "<Up>", noremap_and_silent)
 vim.keymap.set("i", "<C-b>", "<Left>", noremap_and_silent)
@@ -20,17 +21,12 @@ vim.keymap.set("i", "<C-e>", "<End>", noremap_and_silent)
 vim.keymap.set("i", "<C-k>", "<C-o>D", noremap_and_silent)
 vim.keymap.set("i", "<C-d>", "<Del>", noremap_and_silent)
 
--- Delete from the beggining of the line till the cursor
-vim.keymap.set("n", "<S-h>", "d^", noremap_and_silent)
-
 -- Toggle folding
 vim.keymap.set("n", "<leader>F", "za", noremap_and_silent)
 
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>bD", ":BufOnly<CR>", noremap_and_silent)
 
