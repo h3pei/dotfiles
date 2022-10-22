@@ -38,7 +38,6 @@ require("plugins/nerdcommenter")
 require("plugins/nerdtree")
 require("plugins/vim-auto-save")
 require("plugins/vim-quickrun")
-require("plugins/vim-rails")
 
 -- written in Lua
 require("plugins/gitsigns")
