@@ -25,7 +25,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
-Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'tversteeg/registers.nvim'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'williamboman/mason-lspconfig.nvim'
