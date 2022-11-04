@@ -12,6 +12,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mogulla3/rspec.nvim'
+Plug 'mogulla3/autosave.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
@@ -27,7 +28,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'vim-scripts/vim-auto-save'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -37,10 +37,10 @@ call plug#end()
 -- written in Vim script
 require("plugins/nerdcommenter")
 require("plugins/nerdtree")
-require("plugins/vim-auto-save")
 require("plugins/vim-quickrun")
 
 -- written in Lua
+require("plugins/autosave")
 require("plugins/gitsigns")
 require("plugins/lualine")
 require("plugins/mason")
