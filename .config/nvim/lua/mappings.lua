@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>F", "za", noremap_and_silent)
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bD", ":BufOnly<CR>", noremap_and_silent)
+vim.keymap.set("n", "<leader>bD", ":BufSweep<CR>", noremap_and_silent)
 
 -- Move lines
 -- see: https://qiita.com/itmammoth/items/312246b4b7688875d023
