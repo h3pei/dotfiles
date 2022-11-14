@@ -10,6 +10,15 @@ vim.api.nvim_create_autocmd("FocusGained", {
   command = "checktime",
 })
 
+-- yankしたテキストの範囲をハイライトで可視化する
+-- see: https://neovim.io/doc/user/lua.html#lua-highlight
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ on_visual = false })
+  end,
+})
+
 -- Format json by jq command
 -- `%` はファイル全体を対象とすることを意味する
 vim.api.nvim_create_user_command("FormatJson", "%!jq", {})
