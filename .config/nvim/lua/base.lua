@@ -19,13 +19,13 @@ vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.number = true
 vim.opt.scrolloff = 5 -- 指定行数分の余裕を持たせて上下にスクロールさせる
-vim.opt.shiftwidth = 4 -- 自動インデントの各段階に使われる空白の数
+vim.opt.shiftwidth = 2 -- 自動インデントの各段階に使われる空白の数
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true -- ignorecaseと合わせることで、小文字で検索した場合はcase insensitive, 大文字で検索した場合はcase sensitiveになる
-vim.opt.smartindent = true
-vim.opt.softtabstop = 4 -- INSERT modeで<Tab>の値として使用する空白の数
-vim.opt.tabstop = 4 -- ファイル内の<Tab>に対応する空白の数
+vim.opt.smartindent = true -- 行頭の余白内で<Tab>を押すとshiftwidth分の空白が入る. 他ではtabstopまたはsofttabstop分の空白が入る
+vim.opt.softtabstop = 2 -- INSERT modeで<Tab>を押したときに入る空白の数
+vim.opt.tabstop = 2 -- ファイル内の<Tab>に対応する空白の数. 見た目上の設定であり実際にはTabが存在する. expandtabにより実際に空白が使われる
 vim.opt.updatetime = 300
 vim.opt.wildchar = ("\t"):byte()
 vim.opt.wildignore = vim.opt.wildignore + { "*/tmp/*", "*.so", "*.swp", "*.zip" } -- ワイルドカードの展開時とファイル・ディレクトリ名の補完時に無視する
