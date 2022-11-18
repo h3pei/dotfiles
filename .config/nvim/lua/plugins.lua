@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'EdenEast/nightfox.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ap/vim-buftabline'
+Plug 'arecarn/vim-fold-cycle'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -37,6 +38,7 @@ call plug#end()
 -- written in Vim script
 require("plugins/nerdcommenter")
 require("plugins/nerdtree")
+require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
 
 -- written in Lua

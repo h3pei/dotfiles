@@ -78,3 +78,7 @@ vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", noremap_and_silent)
+
+-- vim-fold-cycle
+vim.keymap.set("n", "<Tab><Tab>", "<Plug>(fold-cycle-open)")
+vim.keymap.set("n", "<S-Tab><S-Tab>", "<Plug>(fold-cycle-close)")
