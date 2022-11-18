@@ -1,1 +1,1 @@
-vim.g.fold_cycle_default_mapping = false
+vim.g.fold_cycle_default_mapping = true
