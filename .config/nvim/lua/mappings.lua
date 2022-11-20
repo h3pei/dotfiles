@@ -22,7 +22,7 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", noremap_and_silent)
 vim.keymap.set("i", "<C-d>", "<Del>", noremap_and_silent)
 
 -- Toggle folding
-vim.keymap.set("n", "<leader>F", "za", noremap_and_silent)
+vim.keymap.set("n", "<leader>ff", "za", noremap_and_silent)
 
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", noremap_and_silent)
@@ -79,6 +79,7 @@ vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", noremap_and_silent)
 
--- Folding (vim-fold-cycle)
--- CR -> fold-cycle-open, BS -> fold-cycle-close
-vim.keymap.set("n", "<Tab><Tab>", "<Plug>(fold-cycle-open-all)")
+-- vim-fold-cycle
+vim.keymap.set("n", "<Tab>", "<Plug>(fold-cycle-open)")
+vim.keymap.set("n", "<S-Tab>", "<Plug>(fold-cycle-close)")
+vim.keymap.set("n", "<leader>F", "<Plug>(fold-cycle-open-all)")
