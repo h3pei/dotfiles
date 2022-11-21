@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local os = require("os")
 
 wezterm.on("toggle-opacity", function(window, _)
   local overrides = window:get_config_overrides() or {}
@@ -14,6 +15,7 @@ end)
 return {
   keys = {
     { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
+    { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
   },
   color_scheme = "zenburn (terminal.sexy)",
   font = wezterm.font("Cica", { weight = "Bold" }),
