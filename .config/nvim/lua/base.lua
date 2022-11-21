@@ -1,6 +1,6 @@
 vim.opt.autoread = true -- 開いているバッファに外部で変更があった場合に読みこみ直す
 vim.opt.background = "dark"
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.confirm = true
 vim.opt.encoding = "utf-8" -- Vim内部で使われる文字エンコーディング
