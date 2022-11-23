@@ -17,7 +17,7 @@ return {
     { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
     { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
   },
-  color_scheme = "zenburn (terminal.sexy)",
+  color_scheme = "Jellybeans",
   font = wezterm.font("Cica", { weight = "Bold" }),
   font_size = 15.0,
   line_height = 1.25,
