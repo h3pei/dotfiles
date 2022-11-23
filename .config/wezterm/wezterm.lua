@@ -21,7 +21,7 @@ return {
   font = wezterm.font("Cica", { weight = "Bold" }),
   font_size = 15.0,
   line_height = 1.25,
-  window_background_opacity = 0.8,
+  window_background_opacity = 0.85,
   hide_tab_bar_if_only_one_tab = true,
   adjust_window_size_when_changing_font_size = false,
 }
