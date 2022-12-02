@@ -101,7 +101,10 @@ function cd() {
 }
 
 function gd() {
-  cd $(ghq list -p | fzf)
+  dir=$(ghq list -p | fzf --query="$1")
+  if [ -n $dir ]; then
+    cd $dir
+  fi
 }
 
 function select-history() {
