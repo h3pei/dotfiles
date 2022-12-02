@@ -55,6 +55,7 @@ alias memo="vim ${HOME}/memo/$(date +%Y%m%d).md"
 alias memo_path="echo ${HOME}/memo/$(date +%Y%m%d).md"
 alias be='bundle exec'
 alias tree='tree -a -C'
+alias t='tmux'
 
 # fzf
 if [ -f $HOME/.fzf.zsh ]; then
