@@ -24,4 +24,19 @@ return {
   window_background_opacity = 0.85,
   hide_tab_bar_if_only_one_tab = true,
   adjust_window_size_when_changing_font_size = false,
+  hyperlink_rules = {
+    -- Linkify things that look like URL.
+    -- The wezterm default config doesn't support `localhost`, so I customized it.
+    -- see: https://wezfurlong.org/wezterm/hyperlinks.html#implicit-hyperlinks
+    {
+      regex = [[\bhttps?://[\w.-]+\S*\b]],
+      format = '$0',
+    },
+    -- Linkify things that look like URLs with numeric addresses as hosts.
+    -- Based on examples in the wezterm doc.
+    {
+      regex = [[\bhttps?://(?:[\d]{1,3}\.){3}[\d]{1,3}\S*\b]],
+      format = '$0',
+    },
+  },
 }
