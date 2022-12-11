@@ -9,6 +9,7 @@ mkdir -p $HOME/memo
 mkdir -p $HOME/screenshots
 mkdir -p $HOME/.ssh
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/wezterm
 mkdir -p $HOME/.config/solargraph
 mkdir -p $HOME/.config/rubocop
 
@@ -21,6 +22,9 @@ done
 
 # Neovim
 ln -s -f -n `realpath .config/nvim` $HOME/.config/
+
+# wezterm
+ln -s -f -n `realpath .config/wezterm` $HOME/.config/
 
 # solargraph
 ln -s -f -n `realpath .config/solargraph` $HOME/.config/
