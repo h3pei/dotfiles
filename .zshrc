@@ -102,7 +102,7 @@ function cd() {
 
 function gd() {
   dir=$(ghq list -p | fzf --query="$1")
-  if [ -n $dir ]; then
+  if [ -e "$dir" ]; then
     cd $dir
   fi
 }
