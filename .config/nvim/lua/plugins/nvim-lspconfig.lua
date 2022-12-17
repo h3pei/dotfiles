@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local on_attach = function(client, bufnr)
+local common_on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -13,17 +13,19 @@ end
 
 -- MEMO: solargraphは `.git` or `Gemfile` が祖先を含めて見つからないと実行されないようだ
 lspconfig.solargraph.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   init_options = {
     formatting = false,
   },
   settings = {
-    diagnostics = false,
+    solargraph = {
+      diagnostics = false,
+    },
   },
 })
 
 lspconfig.sumneko_lua.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -34,9 +36,16 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.jsonls.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
 })
 
+-- MEMO: Project root に tsconfig.json or jsconfig.json を配置する必要がある
 lspconfig.tsserver.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    -- Prettierを使うことになると思われるため、LSPのformatは無効化
+    -- 参考: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts#neovim-08
+    client.server_capabilities.documentFormattingProvider = false
+
+    common_on_attach(client, bufnr)
+  end,
 })
