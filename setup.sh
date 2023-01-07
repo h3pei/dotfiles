@@ -40,18 +40,13 @@ if [ -d $HOME/.rbenv ]; then
 fi
 
 # vim-plug
-if [ ! -e "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim" ]; then
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+VIMPLUG_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim"
+if [ ! -e "${VIMPLUG_HOME}" ]; then
+  sh -c 'curl -fLo "${VIMPLUG_HOME}" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
 
-# zplug
-if [ ! -d "${HOME}/.zplug" ]; then
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-fi
-
-# iTerm2
-ITERM2_DYNAMIC_PROFILES_PATH="${HOME}/Library/Application Support/iTerm2/DynamicProfiles"
-PROFILE_NAME="mogulla3_profile.json"
-if [ -d "$ITERM2_DYNAMIC_PROFILES_PATH" ]; then
-  ln -s -f `realpath iterm2/${PROFILE_NAME}` "${ITERM2_DYNAMIC_PROFILES_PATH}/${PROFILE_NAME}"
+# zinit
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [ ! -e "${ZINIT_HOME}" ]; then
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi

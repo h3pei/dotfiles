@@ -8,22 +8,18 @@
 # 7. /etc/zlogin
 # 8. ~/.zlogin
 
-# zplug
-source ~/.zplug/init.zsh
+# zinit
+source "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "mafredri/zsh-async", from:github
-zplug "sorin-ionescu/prezto", from:github
-zplug "modules/completion", from:prezto
-zplug "sindresorhus/pure", from:github, at:main, as:theme, use:pure.zsh
-zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2
+zinit light mafredri/zsh-async
+zinit light sorin-ionescu/prezto
+zinit light zsh-users/zsh-syntax-highlighting
+zinit snippet PZTM::completion # PZTM -> Prezto module
 
-zplug load
-
-# prezto
-if [[ -s "${ZPLUG_REPOS}/sorin-ionescu/prezto/init.zsh" ]]; then
-  source "${ZPLUG_REPOS}/sorin-ionescu/prezto/init.zsh"
-fi
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
 # pure (zsh theme)
 autoload -U promptinit; promptinit
