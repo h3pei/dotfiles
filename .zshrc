@@ -18,15 +18,15 @@ zinit light sorin-ionescu/prezto
 zinit light zsh-users/zsh-syntax-highlighting
 zinit snippet PZTM::completion # PZTM -> Prezto module
 
-zinit ice pick"async.zsh" src"pure.zsh"
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
 # pure (zsh theme)
 autoload -U promptinit; promptinit
-zstyle ":prompt:pure:git:branch" color "yellow"
-zstyle ":prompt:pure:git:stash" show yes
-zstyle ":prompt:pure:path" color "white"
-zstyle ":prompt:pure:prompt:success" color "green"
+zstyle :prompt:pure:git:branch color yellow
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:path color white
+zstyle :prompt:pure:prompt:success color green
 
 # zsh options
 setopt hist_expire_dups_first # 履歴を切り詰める際に、重複する最も古いイベントから消す
