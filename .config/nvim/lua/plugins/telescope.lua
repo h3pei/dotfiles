@@ -12,8 +12,9 @@ telescope.setup({
       -- `i` => insert mode
       i = {
         ["<Esc>"] = actions.close,
-        -- WARN: 本来はカーソル位置より前を全削除にしたかったが、全体削除の挙動になっている
-        ["<C-u>"] = { "<C-O>d^", type = "command" },
+        -- デフォルトでは scroll up の挙動になるため無効化. カーソル位置より前を削除する挙動になる
+        -- see: https://www.reddit.com/r/neovim/comments/qjxhif/telescope_use_cu_to_clear_search_field/
+        ["<C-u>"] = false,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
       },
     },
