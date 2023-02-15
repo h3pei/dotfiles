@@ -24,7 +24,7 @@ lspconfig.solargraph.setup({
   },
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   on_attach = common_on_attach,
   settings = {
     Lua = {
