@@ -1,8 +1,9 @@
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "solargraph",
-    "lua_ls",
+    "dockerls",
     "jsonls",
+    "lua_ls",
+    "solargraph",
     "tsserver",
   },
 })
