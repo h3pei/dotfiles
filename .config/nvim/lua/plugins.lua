@@ -4,8 +4,7 @@ Plug 'EdenEast/nightfox.nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ap/vim-buftabline'
 Plug 'arecarn/vim-fold-cycle'
-" TerminalOpen event not supported?
-Plug 'bronson/vim-trailing-whitespace', { 'commit': '9b472b1f6e825990ad8fa444142e749b55fe05aa' }
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'github/copilot.vim'
 Plug 'gpanders/editorconfig.nvim'
 Plug 'hrsh7th/cmp-buffer'
