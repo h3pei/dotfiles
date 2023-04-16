@@ -38,5 +38,7 @@ return {
     { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
   },
   line_height = 1.25,
+  macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
+  use_ime = true,
   window_background_opacity = 0.85,
 }
