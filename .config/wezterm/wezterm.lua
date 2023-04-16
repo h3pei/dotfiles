@@ -13,17 +13,11 @@ wezterm.on("toggle-opacity", function(window, _)
 end)
 
 return {
-  keys = {
-    { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
-    { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
-  },
+  adjust_window_size_when_changing_font_size = false,
   color_scheme = "Jellybeans",
   font = wezterm.font("Cica", { weight = "Bold" }),
   font_size = 15.0,
-  line_height = 1.25,
-  window_background_opacity = 0.85,
   hide_tab_bar_if_only_one_tab = true,
-  adjust_window_size_when_changing_font_size = false,
   hyperlink_rules = {
     -- Linkify things that look like URL.
     -- The wezterm default config doesn't support `localhost`, so I customized it.
@@ -39,4 +33,10 @@ return {
       format = '$0',
     },
   },
+  keys = {
+    { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
+    { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
+  },
+  line_height = 1.25,
+  window_background_opacity = 0.85,
 }
