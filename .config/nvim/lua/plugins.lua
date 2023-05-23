@@ -34,6 +34,7 @@ Plug 'tversteeg/registers.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 call plug#end()
 ]])
 
@@ -54,6 +55,7 @@ require("plugins/nvim-autopairs")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
 require("plugins/nvim-treesitter")
+require("plugins/nvim-ts-autotag")
 require("plugins/registers")
 require("plugins/rspec")
 require("plugins/telescope")
