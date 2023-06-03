@@ -103,6 +103,11 @@ function gd() {
   fi
 }
 
+# see: https://yulii.github.io/brew-cleanup-installed-formulae-20200509.html
+function list-unused-brew-formulae() {
+  brew list --formulae | xargs -P9 -I{} sh -c 'brew uses --installed {} | wc -l | xargs printf "%20s is used by %2d formulae.\n" {}' | grep ' 0 formulae'
+}
+
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --exact --reverse --query="$LBUFFER" --prompt="History > ")
   CURSOR=${#BUFFER}
