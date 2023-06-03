@@ -2,7 +2,6 @@ vim.cmd([[
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'EdenEast/nightfox.nvim'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'ap/vim-buftabline'
 Plug 'arecarn/vim-fold-cycle'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'github/copilot.vim'
@@ -22,8 +21,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'preservim/nerdtree'
+Plug 'romgrk/barbar.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
@@ -46,6 +47,7 @@ require("plugins/vim-quickrun")
 
 -- written in Lua
 require("plugins/autosave")
+require("plugins/barbar")
 require("plugins/gitsigns")
 require("plugins/lualine")
 require("plugins/mason")

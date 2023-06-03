@@ -26,9 +26,10 @@ vim.keymap.set("n", "<leader>ff", "za", noremap_and_silent)
 vim.keymap.set("n", "<leader>F", ":%foldopen!<CR>", noremap_and_silent)
 
 -- Operate buffers
-vim.keymap.set("n", "<C-l>", ":bnext<CR>", noremap_and_silent)
-vim.keymap.set("n", "<C-h>", ":bprevious<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", noremap_and_silent)
+vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
+vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
+vim.keymap.set("n", "<C-p>", "<Cmd>BufferPick<CR>", noremap_and_silent)
+vim.keymap.set("n", "<leader>bd", "<Cmd>BufferClose<CR>", noremap_and_silent)
 vim.keymap.set("n", "<leader>bD", ":BufSweep<CR>", noremap_and_silent)
 
 -- Move lines

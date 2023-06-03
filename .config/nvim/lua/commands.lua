@@ -1,7 +1,3 @@
--- signcolumn の背景色がずれてしまう事象への対策.
--- see: https://github.com/airblade/vim-gitgutter/issues/696
-vim.cmd("highlight! link SignColumn LineNr")
-
 -- 開いているバッファに外部で変更があった場合に読みこみ直す
 -- * `set autoread` だけだと `checktime` の実行タイミングでしかバッファの更新がされない
 -- * FocusGainedのタイミングでもchecktimeを実行し、バッファが更新されるようにする
