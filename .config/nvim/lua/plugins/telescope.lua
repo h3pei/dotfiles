@@ -1,6 +1,26 @@
 -- see: https://github.com/nvim-telescope/telescope.nvim/blob/d793de0f12d874c463e81edabee741b802c1a37a/lua/telescope/mappings.lua
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
+-- 選択した複数のファイルを一括で開くための関数
+-- 現時点では、Tab で複数選択あとに CR を押した場合でも、1つのファイルしか開けない
+-- see: https://github.com/nvim-telescope/telescope.nvim/issues/1048
+local multiple_select = function(prompt_bufnr)
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local selected_entries = picker:get_multi_selection()
+
+  if #selected_entries > 1 then
+    for _, entry in pairs(selected_entries) do
+      if entry.path ~= nil then
+        vim.api.nvim_command("edit! " .. entry.path)
+      end
+    end
+  else
+    -- default behavior
+    actions.select_default(prompt_bufnr)
+  end
+end
 
 telescope.setup({
   defaults = {
@@ -8,6 +28,7 @@ telescope.setup({
       -- `n` => normal mode
       n = {
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<CR>"] = multiple_select,
       },
       -- `i` => insert mode
       i = {
@@ -16,6 +37,7 @@ telescope.setup({
         -- see: https://www.reddit.com/r/neovim/comments/qjxhif/telescope_use_cu_to_clear_search_field/
         ["<C-u>"] = false,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<CR>"] = multiple_select,
       },
     },
   },
