@@ -36,6 +36,7 @@ local function should_use_bundler(path)
   return false
 end
 
+local null_ls_util = require("null-ls.utils")
 local null_ls = require("null-ls")
 null_ls.setup({
   log_level = "info",
@@ -46,6 +47,22 @@ null_ls.setup({
           return "bundle"
         else
           return "rubocop"
+        end
+      end,
+      -- null-ls はデフォルトで cwd を project-root にしてしまうようなため、monorepo 構成だとうまく動かない
+      -- 具体的には project-root で bundle exec rubocop.. を実行しようとするが、Gemfile などはその1つ下のディレクトリに存在するので rubocop の実行に失敗する
+      -- そのため、project-root ではなく、Gemfile などが存在するディレクトリを cwd にするようにしている
+      cwd = function()
+        local cwd = vim.fn.getcwd()
+        if should_use_bundler(cwd) then
+          local paths = vim.fs.find({ ".rubocop.yml", "Gemfile" }, { upward = true, path = cwd })
+          if #paths == 0 then
+            return null_ls_util.get_root()
+          end
+
+          return vim.fs.dirname(paths[1])
+        else
+          return null_ls_util.get_root()
         end
       end,
       args = function()
