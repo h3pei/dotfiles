@@ -51,10 +51,6 @@ vim.keymap.set("n", "<leader>fw", ":FixWhitespace<CR>", noremap_and_silent)
 -- Toggle file explorer (NERDTree)
 vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>", noremap_and_silent)
 
--- Comment in / out (NERD COMMENTER)
-vim.keymap.set("n", "<leader>,", "<Plug>NERDCommenterToggle", noremap_and_silent)
-vim.keymap.set("v", "<leader>,", "<Plug>NERDCommenterToggle", noremap_and_silent)
-
 -- Search files or buffers (telescope)
 vim.keymap.set("n", ";f", function()
   local ok = pcall(require("telescope.builtin").git_files)

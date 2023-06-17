@@ -17,6 +17,7 @@ Plug 'mogulla3/autosave.nvim'
 Plug 'mogulla3/buf-sweep.nvim'
 Plug 'mogulla3/rspec.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -25,7 +26,6 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'preservim/nerdtree'
 Plug 'romgrk/barbar.nvim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
@@ -40,7 +40,6 @@ call plug#end()
 ]])
 
 -- written in Vim script
-require("plugins/nerdcommenter")
 require("plugins/nerdtree")
 require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
@@ -48,6 +47,7 @@ require("plugins/vim-quickrun")
 -- written in Lua
 require("plugins/autosave")
 require("plugins/barbar")
+require("plugins/Comment")
 require("plugins/gitsigns")
 require("plugins/lualine")
 require("plugins/mason")
