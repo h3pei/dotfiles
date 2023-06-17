@@ -24,7 +24,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'preservim/nerdtree'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'romgrk/barbar.nvim'
 Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
@@ -40,7 +40,6 @@ call plug#end()
 ]])
 
 -- written in Vim script
-require("plugins/nerdtree")
 require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
 
@@ -56,6 +55,7 @@ require("plugins/null-ls")
 require("plugins/nvim-autopairs")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
+require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
 require("plugins/registers")
