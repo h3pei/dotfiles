@@ -11,6 +11,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'kylechui/nvim-surround'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mogulla3/autosave.nvim'
@@ -30,7 +31,6 @@ Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
 Plug 'tversteeg/registers.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
@@ -55,6 +55,7 @@ require("plugins/null-ls")
 require("plugins/nvim-autopairs")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
+require("plugins/nvim-surround")
 require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
