@@ -1,9 +1,19 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local function my_on_attach(bufnr)
-  local api = require('nvim-tree.api')
+local api = require('nvim-tree.api')
 
+-- @see https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#nerdtree-style-copy-file-to
+local function copy_file_to()
+  local file_src = api.tree.get_node_under_cursor().absolute_path
+  local file_out = vim.fn.input("Copy to: ", file_src, "file")
+  local dir = vim.fn.fnamemodify(file_out, ":h")
+
+  vim.fn.system { "mkdir", "-p", dir }
+  vim.fn.system { "cp", "-R", file_src, file_out }
+end
+
+local function my_on_attach(bufnr)
   local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
@@ -11,9 +21,12 @@ local function my_on_attach(bufnr)
   -- default mappings
   api.config.mappings.default_on_attach(bufnr)
 
-  -- MEMO: `m` は bookmark が割り当てられているがおそらく使わないので NERDTree-like な mapping で上書き
-  -- よく使っていた add, delete, copy は NERDTree とほぼ同じマッピングなので何もしない
+  -- MEMO:
+  -- `m` は bookmark が割り当てられているがおそらく使わないので NERDTree-like な mapping で上書き
+  -- `c` は copy として使いたいが、`c` で copy -> `p` でペースト -> `r` で rename というフローになり面倒なため、NERDTree-like な操作ができるように上書きした
+  -- add, delete はこれまでと同じ操作感なので何もしていない
   vim.keymap.set("n", "m", api.fs.rename, opts("Rename"))
+  vim.keymap.set("n", "c", copy_file_to, opts("Copy File To"))
 end
 
 require("nvim-tree").setup({
