@@ -104,8 +104,12 @@ function gd() {
 }
 
 # see: https://yulii.github.io/brew-cleanup-installed-formulae-20200509.html
-function list-unused-brew-formulae() {
+function brew-list-unused-formulae() {
   brew list --formulae | xargs -P9 -I{} sh -c 'brew uses --installed {} | wc -l | xargs printf "%20s is used by %2d formulae.\n" {}' | grep ' 0 formulae'
+}
+
+function brew-upgrade() {
+  brew update -v && brew upgrade -v && HOMEBREW_CLEANUP_MAX_AGE_DAYS=1 brew cleanup -v
 }
 
 function select-history() {
