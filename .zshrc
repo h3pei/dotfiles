@@ -41,6 +41,7 @@ setopt share_history # 全てのセッションで履歴を共有する
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 
 # aliases
 alias ls="ls -G"
