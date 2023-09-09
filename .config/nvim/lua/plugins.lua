@@ -40,6 +40,7 @@ call plug#end()
 ]])
 
 -- written in Vim script
+require("plugins/copilot")
 require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
 
