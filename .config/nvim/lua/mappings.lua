@@ -67,7 +67,6 @@ end, noremap_and_silent)
 vim.keymap.set("n", ";F", ":Telescope find_files<CR>", noremap_and_silent)
 vim.keymap.set("n", ";r", ":Telescope live_grep<CR>", noremap_and_silent)
 vim.keymap.set("n", ";b", ":Telescope buffers<CR>", noremap_and_silent)
-vim.keymap.set("n", ";q", ":Telescope quickfix<CR>", noremap_and_silent)
 
 -- Linting & Formatting
 vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end)
