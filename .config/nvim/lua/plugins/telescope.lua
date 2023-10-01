@@ -42,7 +42,9 @@ telescope.setup({
     },
   },
   pickers = {
-    -- find_files を使う場合は広めに検索をしたいはず、という状況を想定.
+    -- find_files は以下のようなケースで使うことを想定
+    -- - git 管理下ではないファイルも検索したい
+    -- - そもそも git 管理下にないディレクトリ配下を検索したい
     -- よって .gitignore に登録されたファイルも対象にするし、隠しファイルも対象にする
     find_files = {
       find_command = { "rg", "--files", "--color", "never", "--hidden", "--glob=!.git" },

@@ -42,8 +42,9 @@ vim.keymap.set("v", "<C-Down>", "\"zx\"zp`[V`]", noremap)
 -- Move jump list
 -- * plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
 -- * see: https://vimhelp.org/vim_faq.txt.html#faq-20.5
-vim.keymap.set("n", "<leader>n", "<C-I>", noremap_and_silent)
-vim.keymap.set("n", "<leader>p", "<C-O>", noremap_and_silent)
+-- * CTRL+f と CTRL+b はページのスクロールで時々使うことがあるが、実験的にジャンプリストの移動にしてみる. 合わなかったら戻そう
+vim.keymap.set("n", "<C-f>", "<C-I>", noremap_and_silent)
+vim.keymap.set("n", "<C-b>", "<C-O>", noremap_and_silent)
 
 -- Remove whitespece
 vim.keymap.set("n", "<leader>fw", ":FixWhitespace<CR>", noremap_and_silent)
