@@ -36,6 +36,10 @@ return {
   keys = {
     { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
     { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
+    { key = "-", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+    { key = "=", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+    { key = "+", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
+    { key = "_", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
   },
   line_height = 1.25,
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
