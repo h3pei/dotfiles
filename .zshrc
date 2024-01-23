@@ -43,82 +43,11 @@ export HISTSIZE=1000000
 export SAVEHIST=1000000
 export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 
-# aliases
-alias ls="ls -G"
-alias ll="ls -alG"
-alias h='echo "$(hostname) ($(hostname -i))"'
-alias vim='nvim'
-alias memo="vim ${HOME}/memo/$(date +%Y%m%d).md"
-alias memo_path="echo ${HOME}/memo/$(date +%Y%m%d).md"
-alias be='bundle exec'
-alias tree='tree -a -C'
-alias t='tmux'
-
-# fzf
-if [ -f $HOME/.fzf.zsh ]; then
-  source ~/.fzf.zsh
-fi
-
-# z
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-  # Intel Mac
-  source /usr/local/etc/profile.d/z.sh
-elif [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
-  # Apple Silicon Mac
-  source /opt/homebrew/etc/profile.d/z.sh
-fi
-
-# rbenv
-if [ -d $HOME/.rbenv ]; then
-  eval "$(rbenv init -)"
-fi
-
-# pyenv
-if [ -d $HOME/.pyenv ]; then
-  eval "$(pyenv init -)"
-fi
-
-# nodenv
-if [ -d $HOME/.nodenv ]; then
-  eval "$(nodenv init -)"
-fi
+source ~/.zsh_libs
+source ~/.zsh_aliases
+source ~/.zsh_functions
 
 # For local settings
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
 fi
-
-# iterm2 shell integrations
-# see: https://iterm2.com/documentation-shell-integration.html
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Utilities
-function cd() {
-  builtin cd $@ && ls;
-}
-
-function gd() {
-  dir=$(ghq list -p | fzf --query="$1")
-  if [ -e "$dir" ]; then
-    cd $dir
-  fi
-}
-
-# see: https://yulii.github.io/brew-cleanup-installed-formulae-20200509.html
-function brew-list-unused-formulae() {
-  brew list --formulae | xargs -P9 -I{} sh -c 'brew uses --installed {} | wc -l | xargs printf "%20s is used by %2d formulae.\n" {}' | grep ' 0 formulae'
-}
-
-function brew-upgrade() {
-  brew update -v && brew upgrade -v && HOMEBREW_CLEANUP_MAX_AGE_DAYS=1 brew cleanup -v
-}
-
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --exact --reverse --query="$LBUFFER" --prompt="History > ")
-  CURSOR=${#BUFFER}
-}
-zle -N select-history
-
-# bindkey
-bindkey '^r' select-history
-bindkey '^U' backward-kill-line
