@@ -6,11 +6,11 @@ require("nightfox").setup({
     nightfox = {
       -- visual selection bg color
       sel0 = "#196a89",
-    }
-  }
+    },
+  },
 })
 
-vim.cmd.colorscheme "duskfox"
+vim.cmd.colorscheme("duskfox")
 
 -- NOTE: barbar.nvim の highlight の上書き (意図的にcolorschemeの後に書く)
 -- current buffer の背景色とウィンドウの背景色を同化

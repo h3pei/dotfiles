@@ -72,7 +72,9 @@ vim.keymap.set("n", ";j", function()
 end, noremap_and_silent)
 
 -- Linting & Formatting
-vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end)
+vim.keymap.set("n", "<space>f", function()
+  vim.lsp.buf.format({ async = true })
+end)
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 
 -- Run rspec (rspec.nvim)

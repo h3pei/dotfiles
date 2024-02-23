@@ -9,8 +9,8 @@ local common_on_attach = function(client, bufnr)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "<space>re", vim.lsp.buf.rename)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+  vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
 
 -- MEMO: solargraphは `.git` or `Gemfile` が祖先を含めて見つからないと実行されないようだ
@@ -54,11 +54,11 @@ lspconfig.tsserver.setup({
 
 lspconfig.volar.setup({
   filetypes = {
-    'javascript',
-    'javascriptreact',
-    'json',
-    'typescript',
-    'typescriptreact',
-    'vue',
-  }
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  },
 })

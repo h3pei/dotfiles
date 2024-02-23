@@ -1,7 +1,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local api = require('nvim-tree.api')
+local api = require("nvim-tree.api")
 
 -- @see https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#nerdtree-style-copy-file-to
 local function copy_file_to()
@@ -9,13 +9,13 @@ local function copy_file_to()
   local file_out = vim.fn.input("Copy to: ", file_src, "file")
   local dir = vim.fn.fnamemodify(file_out, ":h")
 
-  vim.fn.system { "mkdir", "-p", dir }
-  vim.fn.system { "cp", "-R", file_src, file_out }
+  vim.fn.system({ "mkdir", "-p", dir })
+  vim.fn.system({ "cp", "-R", file_src, file_out })
 end
 
 local function my_on_attach(bufnr)
   local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
   -- default mappings
@@ -34,7 +34,7 @@ require("nvim-tree").setup({
     open_file = {
       -- ファイルを開いたら NvimTree を閉じる
       quit_on_open = true,
-    }
+    },
   },
   -- disgnostics はおそらく使わないので無効化
   diagnostics = {
