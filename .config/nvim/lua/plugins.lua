@@ -1,44 +1,46 @@
-vim.cmd([[
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'EdenEast/nightfox.nvim'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'arecarn/vim-fold-cycle'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'github/copilot.vim'
-Plug 'gpanders/editorconfig.nvim'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'kylechui/nvim-surround'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'mattn/emmet-vim'
-Plug 'mogulla3/autosave.nvim'
-Plug 'mogulla3/copy-file-path.nvim'
-Plug 'mogulla3/buf-sweep.nvim'
-Plug 'mogulla3/rspec.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'numToStr/Comment.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'romgrk/barbar.nvim'
-Plug 'slim-template/vim-slim'
-Plug 'thinca/vim-quickrun'
-Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-Plug 'tpope/vim-rails'
-Plug 'tversteeg/registers.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'williamboman/mason.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'windwp/nvim-ts-autotag'
-call plug#end()
-]])
+-- Setup lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  { "EdenEast/nightfox.nvim" },
+  { "L3MON4D3/LuaSnip", version = "v2.*" },
+  { "arecarn/vim-fold-cycle" },
+  { "bronson/vim-trailing-whitespace" },
+  { "github/copilot.vim" },
+  { "gpanders/editorconfig.nvim" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/nvim-cmp" },
+  { "jose-elias-alvarez/null-ls.nvim" },
+  { "kylechui/nvim-surround", event = "VeryLazy" },
+  { "lewis6991/gitsigns.nvim" },
+  { "mattn/emmet-vim" },
+  { "mogulla3/autosave.nvim" },
+  { "mogulla3/copy-file-path.nvim" },
+  { "mogulla3/buf-sweep.nvim" },
+  { "mogulla3/rspec.nvim" },
+  { "neovim/nvim-lspconfig" },
+  { "numToStr/Comment.nvim" },
+  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "thinca/vim-quickrun" },
+  { "tpope/vim-endwise", ft = "ruby" },
+  { "tpope/vim-rails" },
+  { "tversteeg/registers.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  { "williamboman/mason.nvim" },
+  { "windwp/nvim-autopairs", event = "InsertEnter" },
+  { "windwp/nvim-ts-autotag" },
+})
 
 -- written in Vim script
 require("plugins/copilot")

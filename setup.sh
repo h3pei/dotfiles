@@ -23,12 +23,6 @@ if [ -d $HOME/.rbenv ]; then
   done
 fi
 
-# vim-plug
-VIMPLUG_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim"
-if [ ! -e "${VIMPLUG_HOME}" ]; then
-  curl -fLo $VIMPLUG_HOME --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [ ! -e "${ZINIT_HOME}" ]; then

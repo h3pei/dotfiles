@@ -27,7 +27,6 @@ brew bundle
 
 ```vim
 :checkhealth
-:PlugInstall
 :Mason
 ```
 
