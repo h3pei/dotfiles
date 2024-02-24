@@ -5,9 +5,9 @@ local noremap_and_silent = { noremap = true, silent = true }
 
 -- Disables Ex mode && For QuickFix
 vim.keymap.set("n", "Q", "<Nop>", noremap_and_silent)
-vim.keymap.set("n", "Qo", ":copen<CR>", noremap_and_silent)
-vim.keymap.set("n", "Qc", ":cclose<CR>", noremap_and_silent)
-vim.keymap.set("n", "Ql", ":clist<CR>", noremap_and_silent)
+vim.keymap.set("n", "Qo", "<Cmd>copen<CR>", noremap_and_silent)
+vim.keymap.set("n", "Qc", "<Cmd>cclose<CR>", noremap_and_silent)
+vim.keymap.set("n", "Ql", "<Cmd>clist<CR>", noremap_and_silent)
 
 -- For INSERT mode (shell-like mapping setup)
 -- memo: <C-u> -> Delete from the beggining of the line till the cursor
@@ -22,14 +22,14 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", noremap_and_silent)
 vim.keymap.set("i", "<C-d>", "<Del>", noremap_and_silent)
 
 -- Toggle folding
-vim.keymap.set("n", "<leader>ff", "za", noremap_and_silent)
-vim.keymap.set("n", "<leader>F", ":%foldopen!<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>ff", "za", noremap_and_silent)
+vim.keymap.set("n", "<Leader>F", "<Cmd>%foldopen!<CR>", noremap_and_silent)
 
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bd", "<Cmd>BufferClose<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>bD", ":BufSweep<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>bd", "<Cmd>BufferClose<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>bD", "<Cmd>BufSweep<CR>", noremap_and_silent)
 
 -- Move lines
 -- see: https://qiita.com/itmammoth/items/312246b4b7688875d023
@@ -46,10 +46,10 @@ vim.keymap.set("n", "<C-f>", "<C-I>", noremap_and_silent)
 vim.keymap.set("n", "<C-b>", "<C-O>", noremap_and_silent)
 
 -- Remove whitespece
-vim.keymap.set("n", "<leader>fw", ":FixWhitespace<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>fw", "<Cmd>FixWhitespace<CR>", noremap_and_silent)
 
 -- Toggle file explorer (NvimTree)
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", noremap_and_silent)
+vim.keymap.set("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", noremap_and_silent)
 
 -- Search files or buffers (telescope)
 vim.keymap.set("n", ";f", function()
@@ -64,29 +64,29 @@ end, noremap_and_silent)
 vim.keymap.set("n", ";m", function()
   require("telescope.builtin").git_files({ git_command = { "git", "ls-files", "--modified", "--exclude-standard" } })
 end, noremap_and_silent)
-vim.keymap.set("n", ";F", ":Telescope find_files<CR>", noremap_and_silent)
-vim.keymap.set("n", ";r", ":Telescope live_grep<CR>", noremap_and_silent)
-vim.keymap.set("n", ";b", ":Telescope buffers<CR>", noremap_and_silent)
+vim.keymap.set("n", ";F", "<Cmd>Telescope find_files<CR>", noremap_and_silent)
+vim.keymap.set("n", ";r", "<Cmd>Telescope live_grep<CR>", noremap_and_silent)
+vim.keymap.set("n", ";b", "<Cmd>Telescope buffers<CR>", noremap_and_silent)
 vim.keymap.set("n", ";j", function()
   require("telescope.builtin").jumplist({ show_line = false })
 end, noremap_and_silent)
 
 -- Linting & Formatting
-vim.keymap.set("n", "<space>f", function()
+vim.keymap.set("n", "<Space>f", function()
   vim.lsp.buf.format({ async = true })
 end)
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<Space>e", vim.diagnostic.open_float)
 
 -- Run rspec (rspec.nvim)
-vim.keymap.set("n", "<leader>rn", ":RSpecNearest<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", noremap_and_silent)
-vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rn", "<Cmd>RSpecNearest<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rf", "<Cmd>RSpecCurrentFile<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rF", "<Cmd>RSpecOnlyFailures<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rr", "<Cmd>RSpecRerun<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_silent)
 
 -- vim-fold-cycle
 vim.keymap.set("n", "<Tab>", "<Plug>(fold-cycle-open)")
 vim.keymap.set("n", "<S-Tab>", "<Plug>(fold-cycle-close)")
 
 -- copy-file-path.nvim
-vim.keymap.set("n", "<leader>cp", "<cmd>CopyFilePath<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>cp", "<Cmd>CopyFilePath<CR>", noremap_and_silent)
