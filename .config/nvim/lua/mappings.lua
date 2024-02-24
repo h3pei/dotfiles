@@ -87,3 +87,6 @@ vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", noremap_and_silent
 -- vim-fold-cycle
 vim.keymap.set("n", "<Tab>", "<Plug>(fold-cycle-open)")
 vim.keymap.set("n", "<S-Tab>", "<Plug>(fold-cycle-close)")
+
+-- copy-file-path.nvim
+vim.keymap.set("n", "<leader>cp", "<cmd>CopyFilePath<CR>", noremap_and_silent)
