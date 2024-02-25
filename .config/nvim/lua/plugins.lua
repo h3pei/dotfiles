@@ -23,6 +23,7 @@ require("lazy").setup({
   { "mogulla3/autosave.nvim" },
   { "mogulla3/buf-sweep.nvim" },
   { "mogulla3/copy-file-path.nvim" },
+  { "mogulla3/go-to-factory-bot.nvim", dev = true },
   { "mogulla3/rspec.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },
@@ -40,6 +41,10 @@ require("lazy").setup({
   { "williamboman/mason.nvim" },
   { "windwp/nvim-autopairs", event = "InsertEnter" },
   { "windwp/nvim-ts-autotag" },
+}, {
+  dev = {
+    path = "~/ghq/github.com/mogulla3",
+  },
 })
 
 -- written in Vim script
