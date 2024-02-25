@@ -46,6 +46,7 @@ require("lazy").setup({
 require("plugins/copilot")
 require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
+require("plugins/vim-rails")
 
 -- written in Lua
 require("plugins/autosave")
