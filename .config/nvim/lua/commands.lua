@@ -29,3 +29,5 @@ vim.api.nvim_create_user_command("Profile", function()
   vim.cmd("profile func *")
   vim.cmd("profile file *")
 end, {})
+
+vim.api.nvim_create_user_command("FJ", "FactoryBotJump", {})
