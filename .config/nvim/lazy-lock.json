@@ -9,7 +9,6 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "copilot.vim": { "branch": "release", "commit": "3b39e786d865df9ba77fe61624d6ee646528a809" },
   "copy-file-path.nvim": { "branch": "main", "commit": "ef90826be0bd2bb6bee4f920b26853d93eed3e9f" },
-  "editorconfig.nvim": { "branch": "master", "commit": "5b9e303e1d6f7abfe616ce4cc8d3fffc554790bf" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
   "lazy.nvim": { "branch": "main", "commit": "83493db50a434a4c5c648faf41e2ead80f96e478" },

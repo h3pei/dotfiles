@@ -11,7 +11,6 @@ require("lazy").setup({
   { "arecarn/vim-fold-cycle" },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
-  { "gpanders/editorconfig.nvim" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-path" },
