@@ -3,7 +3,9 @@ require("mason-lspconfig").setup({
     "dockerls",
     "jsonls",
     "lua_ls",
-    "solargraph",
+    "rubocop",
+    "ruby_ls",
     "tsserver",
+    "volar",
   },
 })

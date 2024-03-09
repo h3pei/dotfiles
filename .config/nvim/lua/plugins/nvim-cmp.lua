@@ -9,11 +9,18 @@ cmp.setup({
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
+  sources = {
     { name = "luasnip" },
-  }, {
+    { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "buffer" },
     { name = "path" },
-  }),
+  },
+})
+
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "nvim_lsp_document_symbol" },
+  },
 })

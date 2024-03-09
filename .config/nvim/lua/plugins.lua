@@ -13,8 +13,11 @@ require("lazy").setup({
   { "github/copilot.vim" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },
   { "hrsh7th/cmp-path" },
   { "hrsh7th/nvim-cmp" },
+  { "j-hui/fidget.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
   { "kylechui/nvim-surround", event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
@@ -56,6 +59,7 @@ require("plugins/vim-rails")
 require("plugins/autosave")
 require("plugins/barbar")
 require("plugins/Comment")
+require("plugins/fidget")
 require("plugins/gitsigns")
 require("plugins/lualine")
 require("plugins/mason")

@@ -6,6 +6,7 @@ local common_on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "<space>re", vim.lsp.buf.rename)
@@ -13,17 +14,14 @@ local common_on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
 
--- MEMO: solargraphは `.git` or `Gemfile` が祖先を含めて見つからないと実行されないようだ
-lspconfig.solargraph.setup({
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rubocop
+lspconfig.rubocop.setup({
   on_attach = common_on_attach,
-  init_options = {
-    formatting = false,
-  },
-  settings = {
-    solargraph = {
-      diagnostics = false,
-    },
-  },
+})
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_ls
+lspconfig.ruby_ls.setup({
+  on_attach = common_on_attach,
 })
 
 lspconfig.lua_ls.setup({
@@ -56,7 +54,6 @@ lspconfig.volar.setup({
   filetypes = {
     "javascript",
     "javascriptreact",
-    "json",
     "typescript",
     "typescriptreact",
     "vue",
