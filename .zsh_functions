@@ -19,7 +19,7 @@ function brew-upgrade() {
 }
 
 function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --exact --reverse --query="$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | fzf --exact --no-sort --reverse --query="$LBUFFER" --prompt="History > ")
   CURSOR=${#BUFFER}
 }
 
