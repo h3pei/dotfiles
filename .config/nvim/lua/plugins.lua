@@ -22,7 +22,7 @@ require("lazy").setup({
   { "mogulla3/autosave.nvim" },
   { "mogulla3/buf-sweep.nvim" },
   { "mogulla3/copy-file-path.nvim" },
-  { "mogulla3/go-to-factory-bot.nvim", dev = true },
+  { "mogulla3/go-to-factory-bot.nvim" },
   { "mogulla3/rspec.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },

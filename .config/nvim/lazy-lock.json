@@ -11,6 +11,7 @@
   "copy-file-path.nvim": { "branch": "main", "commit": "ef90826be0bd2bb6bee4f920b26853d93eed3e9f" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
+  "go-to-factory-bot.nvim": { "branch": "main", "commit": "aef541f2361550cf2889c6c09cf5dd5c682422aa" },
   "lazy.nvim": { "branch": "main", "commit": "83493db50a434a4c5c648faf41e2ead80f96e478" },
   "lualine.nvim": { "branch": "master", "commit": "8b56462bfb746760465264de41b4907310f113ec" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "21d33d69a81f6351e5a5f49078b2e4f0075c8e73" },
