@@ -56,9 +56,9 @@ require("plugins/vim-quickrun")
 require("plugins/vim-rails")
 
 -- written in Lua
+require("plugins/Comment")
 require("plugins/autosave")
 require("plugins/barbar")
-require("plugins/Comment")
 require("plugins/fidget")
 require("plugins/gitsigns")
 require("plugins/lualine")
