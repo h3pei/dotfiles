@@ -10,7 +10,7 @@ require("nightfox").setup({
   },
 })
 
-vim.cmd.colorscheme("terafox")
+vim.cmd.colorscheme("nordfox")
 
 -- NOTE: barbar.nvim の highlight の上書き (意図的にcolorschemeの後に書く)
 -- current buffer の背景色とウィンドウの背景色を同化
