@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_user_command("FormatJson", "%!jq", {})
 
 -- git blame の現在行の情報を表示する
-vim.api.nvim_create_user_command("GitBlame", "Gitsigns toggle_current_line_blame", {})
+vim.api.nvim_create_user_command("GB", "Gitsigns toggle_current_line_blame", {})
 
 -- プロファイリングの開始
 -- 使い方: Profile コマンドを実行 -> 計測したい操作を行う -> :q などで終了 -> profile.txt に結果が出力される
