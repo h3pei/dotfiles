@@ -21,7 +21,13 @@ lspconfig.rubocop.setup({
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_ls
 lspconfig.ruby_ls.setup({
-  on_attach = common_on_attach,
+  on_attach = function(client, bufnr)
+    -- 無効状態のほうがインスタンス変数などが、見やすいハイライトになるため
+    -- see: https://www.reddit.com/r/neovim/comments/109vgtl/how_to_disable_highlight_from_lsp/
+    client.server_capabilities.semanticTokensProvider = false
+
+    common_on_attach(client, bufnr)
+  end,
 })
 
 lspconfig.lua_ls.setup({
