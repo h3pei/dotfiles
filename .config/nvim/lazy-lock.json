@@ -13,6 +13,7 @@
   "copy-file-path.nvim": { "branch": "main", "commit": "ef90826be0bd2bb6bee4f920b26853d93eed3e9f" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "fidget.nvim": { "branch": "main", "commit": "60404ba67044c6ab01894dd5bf77bd64ea5e09aa" },
+  "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },
   "gitsigns.nvim": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
   "go-to-factory-bot.nvim": { "branch": "main", "commit": "aef541f2361550cf2889c6c09cf5dd5c682422aa" },
   "lazy.nvim": { "branch": "main", "commit": "83493db50a434a4c5c648faf41e2ead80f96e478" },

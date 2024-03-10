@@ -9,6 +9,7 @@ require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
   { "EdenEast/nightfox.nvim" },
   { "L3MON4D3/LuaSnip", version = "v2.*" },
+  { "akinsho/git-conflict.nvim", version = "*" },
   { "arecarn/vim-fold-cycle" },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
@@ -60,6 +61,7 @@ require("plugins/Comment")
 require("plugins/autosave")
 require("plugins/barbar")
 require("plugins/fidget")
+require("plugins/git-conflict")
 require("plugins/gitsigns")
 require("plugins/lualine")
 require("plugins/mason")
