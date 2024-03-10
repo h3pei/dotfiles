@@ -71,6 +71,10 @@ vim.keymap.set("n", ";j", function()
   require("telescope.builtin").jumplist({ show_line = false })
 end, noremap_and_silent)
 
+-- Register (neoclip)
+vim.keymap.set("n", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("v", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+
 -- Linting & Formatting
 vim.keymap.set("n", "<Space>f", function()
   vim.lsp.buf.format({ async = true })

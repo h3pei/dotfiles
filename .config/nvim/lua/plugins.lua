@@ -6,6 +6,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
   { "EdenEast/nightfox.nvim" },
   { "L3MON4D3/LuaSnip", version = "v2.*" },
   { "arecarn/vim-fold-cycle" },
@@ -38,7 +39,6 @@ require("lazy").setup({
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
-  { "tversteeg/registers.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "williamboman/mason.nvim" },
   { "windwp/nvim-autopairs", event = "InsertEnter" },
@@ -68,10 +68,10 @@ require("plugins/null-ls")
 require("plugins/nvim-autopairs")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
+require("plugins/nvim-neoclip")
 require("plugins/nvim-surround")
 require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
-require("plugins/registers")
 require("plugins/rspec")
 require("plugins/telescope")
