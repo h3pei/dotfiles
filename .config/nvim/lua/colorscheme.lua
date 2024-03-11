@@ -1,16 +1,12 @@
-require("nightfox").setup({
-  options = {
-    transparent = true,
-  },
-  palettes = {
-    nightfox = {
-      -- visual selection bg color
-      sel0 = "#196a89",
-    },
+require("kanagawa").setup({
+  transparent = true,
+  theme = "wave",
+  background = {
+    dark = "dragon",
   },
 })
 
-vim.cmd.colorscheme("nordfox")
+vim.cmd.colorscheme("kanagawa")
 
 -- NOTE: barbar.nvim の highlight の上書き (意図的にcolorschemeの後に書く)
 -- current buffer の背景色とウィンドウの背景色を同化

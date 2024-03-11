@@ -45,5 +45,5 @@ return {
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
   selection_word_boundary = " \t\n{}[]()\"'`│",
   use_ime = true,
-  window_background_opacity = 0.85,
+  window_background_opacity = 0.9,
 }

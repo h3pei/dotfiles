@@ -7,7 +7,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
-  { "EdenEast/nightfox.nvim" },
   { "L3MON4D3/LuaSnip", version = "v2.*" },
   { "akinsho/git-conflict.nvim", version = "*" },
   { "arecarn/vim-fold-cycle" },
@@ -36,6 +35,7 @@ require("lazy").setup({
   { "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "rebelot/kanagawa.nvim" },
   { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
