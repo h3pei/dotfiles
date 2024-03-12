@@ -30,4 +30,5 @@ vim.api.nvim_create_user_command("Profile", function()
   vim.cmd("profile file *")
 end, {})
 
+-- go-to-factory-bot.nvim
 vim.api.nvim_create_user_command("FJ", "FactoryBotJump", {})

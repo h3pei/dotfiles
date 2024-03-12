@@ -18,7 +18,7 @@ vim.opt.startofline = true
 vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.mouse = nil
-vim.opt.number = true
+-- vim.opt.number = true
 vim.opt.scrolloff = 5 -- 指定行数分の余裕を持たせて上下にスクロールさせる
 vim.opt.shiftwidth = 2 -- 自動インデントの各段階に使われる空白の数
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
