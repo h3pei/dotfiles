@@ -14,7 +14,7 @@ end)
 
 return {
   adjust_window_size_when_changing_font_size = false,
-  color_scheme = "Jellybeans",
+  color_scheme = "Hybrid (terminal.sexy)",
   font = wezterm.font("Cica", { weight = "Bold" }),
   font_size = 15.0,
   hide_tab_bar_if_only_one_tab = true,
@@ -45,5 +45,5 @@ return {
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
   selection_word_boundary = " \t\n{}[]()\"'`│",
   use_ime = true,
-  window_background_opacity = 0.9,
+  window_background_opacity = 0.88,
 }
