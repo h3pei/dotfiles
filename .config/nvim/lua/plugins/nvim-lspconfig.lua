@@ -24,7 +24,7 @@ lspconfig.ruby_ls.setup({
   on_attach = function(client, bufnr)
     -- 無効状態のほうがインスタンス変数などが、見やすいハイライトになるため
     -- see: https://www.reddit.com/r/neovim/comments/109vgtl/how_to_disable_highlight_from_lsp/
-    client.server_capabilities.semanticTokensProvider = false
+    client.server_capabilities.semanticTokensProvider = nil
 
     common_on_attach(client, bufnr)
   end,
