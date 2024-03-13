@@ -32,7 +32,7 @@ require("lazy").setup({
   { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   { "rebelot/kanagawa.nvim" },
