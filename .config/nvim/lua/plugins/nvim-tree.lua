@@ -1,6 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 local api = require("nvim-tree.api")
 
 -- @see https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#nerdtree-style-copy-file-to

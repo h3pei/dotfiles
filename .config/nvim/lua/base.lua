@@ -31,5 +31,20 @@ vim.opt.updatetime = 300
 vim.opt.wildchar = ("\t"):byte()
 vim.opt.wildignore = vim.opt.wildignore + { "*/tmp/*", "*.so", "*.swp", "*.zip" } -- ワイルドカードの展開時とファイル・ディレクトリ名の補完時に無視する
 vim.opt.wildmode = { "list:longest", "full" }
+
 -- [検証中] 時間経過すると移動が重くなる原因になっている可能性があるため、無効化. loaded_matchparen とすることで読み込みをスキップできる
-vim.g.loaded_matchparen = true
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_gzip = 1
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_zipPlugin = 1
+
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
