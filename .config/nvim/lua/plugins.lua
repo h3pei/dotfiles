@@ -9,6 +9,7 @@ require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
   { "L3MON4D3/LuaSnip", version = "v2.*" },
   { "akinsho/git-conflict.nvim", version = "*" },
+  { "akinsho/toggleterm.nvim", version = "*", config = true },
   { "arecarn/vim-fold-cycle" },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
@@ -73,3 +74,4 @@ require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
 require("plugins/rspec")
 require("plugins/telescope")
+require("plugins/toggleterm")
