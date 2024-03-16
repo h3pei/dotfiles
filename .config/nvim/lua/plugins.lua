@@ -20,13 +20,13 @@ require("lazy").setup({
   { "hrsh7th/nvim-cmp" },
   { "j-hui/fidget.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
-  { "kylechui/nvim-surround", event = "VeryLazy" },
+  { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
-  { "mogulla3/autosave.nvim" },
+  { "mogulla3/autosave.nvim", config = true },
   { "mogulla3/buf-sweep.nvim" },
   { "mogulla3/copy-file-path.nvim" },
-  { "mogulla3/go-to-factory-bot.nvim" },
+  { "mogulla3/go-to-factory-bot.nvim", config = true },
   { "mogulla3/rspec.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },
@@ -41,8 +41,8 @@ require("lazy").setup({
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
   { "williamboman/mason-lspconfig.nvim" },
-  { "williamboman/mason.nvim" },
-  { "windwp/nvim-autopairs", event = "InsertEnter" },
+  { "williamboman/mason.nvim", config = true },
+  { "windwp/nvim-autopairs", config = true, event = "InsertEnter" },
   { "windwp/nvim-ts-autotag" },
 }, {
   dev = {
@@ -58,21 +58,16 @@ require("plugins/vim-rails")
 
 -- written in Lua
 require("plugins/Comment")
-require("plugins/autosave")
 require("plugins/barbar")
 require("plugins/fidget")
 require("plugins/git-conflict")
-require("plugins/go-to-factory-bot")
 require("plugins/gitsigns")
 require("plugins/lualine")
-require("plugins/mason")
 require("plugins/mason-lspconfig")
 require("plugins/null-ls")
-require("plugins/nvim-autopairs")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
 require("plugins/nvim-neoclip")
-require("plugins/nvim-surround")
 require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
