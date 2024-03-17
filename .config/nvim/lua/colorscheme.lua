@@ -4,6 +4,11 @@ require("kanagawa").setup({
   background = {
     dark = "wave",
   },
+  colors = {
+    palette = {
+      fujiWhite = "#ffffff"
+    }
+  }
 })
 
 vim.cmd.colorscheme("kanagawa")
