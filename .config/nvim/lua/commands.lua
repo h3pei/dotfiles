@@ -31,4 +31,4 @@ vim.api.nvim_create_user_command("Profile", function()
 end, {})
 
 -- go-to-factory-bot.nvim
-vim.api.nvim_create_user_command("GF", "GoToFactorybot", {})
+vim.api.nvim_create_user_command("GF", "GoToFactoryBot", {})
