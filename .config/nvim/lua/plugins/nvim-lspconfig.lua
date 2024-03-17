@@ -1,5 +1,10 @@
 local lspconfig = require("lspconfig")
 local common_on_attach = function(client, bufnr)
+  -- 無効状態のほうがインスタンス変数などが、見やすいハイライトになるため
+  -- see: https://www.reddit.com/r/neovim/comments/109vgtl/how_to_disable_highlight_from_lsp/
+  -- see: :help vim.lsp.semantic_tokens.start
+  client.server_capabilities.semanticTokensProvider = nil
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -21,13 +26,7 @@ lspconfig.rubocop.setup({
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_ls
 lspconfig.ruby_ls.setup({
-  on_attach = function(client, bufnr)
-    -- 無効状態のほうがインスタンス変数などが、見やすいハイライトになるため
-    -- see: https://www.reddit.com/r/neovim/comments/109vgtl/how_to_disable_highlight_from_lsp/
-    client.server_capabilities.semanticTokensProvider = nil
-
-    common_on_attach(client, bufnr)
-  end,
+  on_attach = common_on_attach,
 })
 
 lspconfig.lua_ls.setup({
