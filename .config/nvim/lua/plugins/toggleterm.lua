@@ -5,7 +5,8 @@ local tigTerminal = Terminal:new({
   direction = "float",
   hidden = true,
   on_open = function(term)
-    -- 起動と同じコマンドで Terminal を close する. tig のプロセス自体は残り続ける
+    -- 起動と同じコマンドで Terminal を close する
+    -- hidden = true のため、close しても Terminal は残り、 tig のプロセスも残る
     vim.api.nvim_buf_set_keymap(term.bufnr, "t", ";t", "<CMD>close<CR>", { noremap = true, silent = true })
   end,
 })
