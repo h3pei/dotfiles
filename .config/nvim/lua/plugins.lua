@@ -37,7 +37,7 @@ require("lazy").setup({
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   { "rebelot/kanagawa.nvim" },
-  { "rmagatti/auto-session", config = true },
+  { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
@@ -60,6 +60,7 @@ require("plugins/vim-rails")
 
 -- written in Lua
 require("plugins/Comment")
+require("plugins/auto-session")
 require("plugins/barbar")
 require("plugins/fidget")
 require("plugins/git-conflict")
