@@ -26,8 +26,8 @@ lspconfig.rubocop.setup({
   on_attach = common_on_attach,
 })
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_ls
-lspconfig.ruby_ls.setup({
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_lsp
+lspconfig.ruby_lsp.setup({
   on_attach = common_on_attach,
 })
 
