@@ -58,11 +58,13 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.volar.setup({
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-  },
+  on_attach = common_on_attach,
+})
+
+lspconfig.svelte.setup({
+  on_attach = common_on_attach,
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = common_on_attach,
 })
