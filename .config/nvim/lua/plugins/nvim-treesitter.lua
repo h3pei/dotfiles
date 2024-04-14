@@ -1,4 +1,5 @@
 require("nvim-treesitter.configs").setup({
+  auto_install = true,
   autotag = {
     enable = true,
   },
@@ -14,11 +15,11 @@ require("nvim-treesitter.configs").setup({
     "python",
     "ruby",
     "sql",
+    "svelte",
     "toml",
     "typescript",
     "vim",
     "vue",
     "yaml",
   },
-  auto_install = true,
 })
