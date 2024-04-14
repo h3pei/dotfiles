@@ -22,4 +22,7 @@ require("nvim-treesitter.configs").setup({
     "vue",
     "yaml",
   },
+  highlight = {
+    enable = true,
+  },
 })
