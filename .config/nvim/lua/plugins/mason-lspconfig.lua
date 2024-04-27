@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
     "jsonls",
     "lua_ls",
     "rubocop",
-    "ruby_ls",
+    "ruby_lsp",
     "tsserver",
     "volar",
   },
