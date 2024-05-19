@@ -7,13 +7,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
-  { "L3MON4D3/LuaSnip", version = "v2.*" },
   { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", config = true },
   { "arecarn/vim-fold-cycle" },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
   { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-cmdline" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-nvim-lsp-document-symbol" },
   { "hrsh7th/cmp-nvim-lsp-signature-help" },

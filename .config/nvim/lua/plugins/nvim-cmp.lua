@@ -1,8 +1,9 @@
 local cmp = require("cmp")
+
 cmp.setup({
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      vim.snippet.expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -20,14 +21,23 @@ cmp.setup({
 
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
+  sources = cmp.config.sources({
     { name = "nvim_lsp_document_symbol" },
-  },
+  }, {
+    { name = "buffer" },
+  }),
 })
 
 cmp.setup.cmdline(":", {
-  autocomplete = false,
-  sources = {
-    { name = "cmdline" },
-  },
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    {
+      name = "cmdline",
+      option = {
+        ignore_cmds = { "Man", "!" },
+      },
+    },
+  }),
 })
