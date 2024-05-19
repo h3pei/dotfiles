@@ -30,6 +30,9 @@ vim.keymap.set("n", "<Leader>F", "<Cmd>%foldopen!<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>,", "gcc", { remap = true })
 vim.keymap.set("v", "<Leader>,", "gc", { remap = true })
 
+-- Clear search highlighting
+vim.keymap.set("n", "<Leader>h", ":noh<CR>")
+
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
