@@ -67,8 +67,7 @@ telescope.load_extension("neoclip")
 vim.keymap.set("n", ";f", function()
   local ok = pcall(builtin.git_files)
   if not ok then
-    require("telescope.utils").notify("git_files",
-      { msg = "Can't find .git directory. Use `find_files` instead.", level = "ERROR" })
+    require("telescope.utils").notify("git_files", { msg = "Can't find .git directory. Use `find_files` instead.", level = "ERROR" })
   end
 end, {})
 vim.keymap.set("n", ";U", function()

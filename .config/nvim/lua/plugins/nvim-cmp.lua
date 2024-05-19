@@ -25,9 +25,9 @@ cmp.setup.cmdline("/", {
   },
 })
 
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
   autocomplete = false,
   sources = {
-    { name = 'cmdline' }
-  }
+    { name = "cmdline" },
+  },
 })

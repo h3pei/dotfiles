@@ -14,4 +14,3 @@ require("neoclip").setup({
     },
   },
 })
-

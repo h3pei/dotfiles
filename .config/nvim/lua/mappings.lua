@@ -27,8 +27,8 @@ vim.keymap.set("n", "<Leader>F", "<Cmd>%foldopen!<CR>", noremap_and_silent)
 
 -- Toggle comment
 -- see: `:h commenting`
-vim.keymap.set('n', '<Leader>,', 'gcc', { remap = true })
-vim.keymap.set('v', '<Leader>,', 'gc', { remap = true })
+vim.keymap.set("n", "<Leader>,", "gcc", { remap = true })
+vim.keymap.set("v", "<Leader>,", "gc", { remap = true })
 
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)

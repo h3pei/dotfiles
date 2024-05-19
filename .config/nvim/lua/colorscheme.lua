@@ -15,10 +15,10 @@ require("kanagawa").setup({
           fg = "#ffffff", -- 文字色の変更
           bg_visual = "#0d408c", -- 範囲選択時の背景色の変更
           bg_gutter = "none", -- signcolumn の背景色の変更
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })
 
 vim.cmd.colorscheme("kanagawa")
