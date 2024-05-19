@@ -1,5 +1,4 @@
 {
-  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "auto-session": { "branch": "main", "commit": "9e0a169b6fce8791278abbd110717b921afe634d" },
   "autosave.nvim": { "branch": "main", "commit": "17f2179ded0164b4bda344d4edc07896bb212688" },
@@ -13,7 +12,7 @@
   "copilot.vim": { "branch": "release", "commit": "25feddf8e3aa79f0573c8f43ddb13c44c530cfa5" },
   "copy-file-path.nvim": { "branch": "main", "commit": "ef90826be0bd2bb6bee4f920b26853d93eed3e9f" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
-  "fidget.nvim": { "branch": "main", "commit": "a2ece932b663898d4015f458ce7ad92c389690ba" },
+  "fidget.nvim": { "branch": "main", "commit": "ef99df04a1c53a453602421bc0f756997edc8289" },
   "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },
   "gitsigns.nvim": { "branch": "main", "commit": "805610a9393fa231f2c2b49cb521bfa413fadb3d" },
   "go-to-factory-bot.nvim": { "branch": "main", "commit": "48e7959bee7bb9463dd3402e14024dab5b00c9e1" },

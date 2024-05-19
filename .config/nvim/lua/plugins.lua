@@ -30,7 +30,6 @@ require("lazy").setup({
   { "mogulla3/go-to-factory-bot.nvim", config = true },
   { "mogulla3/rspec.nvim" },
   { "neovim/nvim-lspconfig" },
-  { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -59,7 +58,6 @@ require("plugins/vim-quickrun")
 require("plugins/vim-rails")
 
 -- written in Lua
-require("plugins/Comment")
 require("plugins/auto-session")
 require("plugins/barbar")
 require("plugins/fidget")
