@@ -1,5 +1,5 @@
 {
-  "align.nvim": { "branch": "master", "commit": "12ed24b34df81d57e777fea5a535611bab10a620" },
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "auto-session": { "branch": "main", "commit": "af2219b9fa99c1d7ac409bd9eac094c459d3f52d" },
   "autosave.nvim": { "branch": "main", "commit": "17f2179ded0164b4bda344d4edc07896bb212688" },
   "barbar.nvim": { "branch": "master", "commit": "79f7d16578a167bdf5355725551ef7d90613a601" },
