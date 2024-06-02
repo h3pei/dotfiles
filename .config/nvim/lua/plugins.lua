@@ -20,7 +20,6 @@ require("lazy").setup({
   { "hrsh7th/cmp-path" },
   { "hrsh7th/nvim-cmp" },
   { "j-hui/fidget.nvim" },
-  { "jose-elias-alvarez/null-ls.nvim" },
   { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
@@ -36,6 +35,7 @@ require("lazy").setup({
   { "nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvimtools/none-ls.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -68,7 +68,7 @@ require("plugins/gitsigns")
 require("plugins/go-to-factory-bot")
 require("plugins/lualine")
 require("plugins/mason-lspconfig")
-require("plugins/null-ls")
+require("plugins/none-ls")
 require("plugins/nvim-cmp")
 require("plugins/nvim-lspconfig")
 require("plugins/nvim-neoclip")
