@@ -59,10 +59,10 @@ vim.keymap.set("n", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 vim.keymap.set("v", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 
 -- Linting & Formatting
-vim.keymap.set("n", "<Space>f", function()
+vim.keymap.set("n", "<Leader>f", function()
   vim.lsp.buf.format({ async = true })
 end)
-vim.keymap.set("n", "<Space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
 
 -- Run rspec (rspec.nvim)
 vim.keymap.set("n", "<Leader>rn", "<Cmd>RSpecNearest<CR>", noremap_and_silent)
