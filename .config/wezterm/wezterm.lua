@@ -46,4 +46,11 @@ return {
   selection_word_boundary = " \t\n{}[]()\"'`│",
   use_ime = true,
   window_background_opacity = 0.82,
+  window_decorations = "RESIZE",
+  window_padding = {
+    left = '1.5cell',
+    right = '1.5cell',
+    top = '1cell',
+    bottom = '1cell',
+  }
 }
