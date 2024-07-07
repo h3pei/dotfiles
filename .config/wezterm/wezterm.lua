@@ -45,12 +45,12 @@ return {
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
   use_ime = true,
-  window_background_opacity = 0.82,
+  window_background_opacity = 0.80,
   window_decorations = "RESIZE",
   window_padding = {
     left = '1.5cell',
     right = '1.5cell',
     top = '1cell',
-    bottom = '1cell',
+    bottom = '0.5cell',
   }
 }
