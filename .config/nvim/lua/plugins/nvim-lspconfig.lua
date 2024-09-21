@@ -47,7 +47,7 @@ lspconfig.jsonls.setup({
 })
 
 -- MEMO: Project root に tsconfig.json or jsconfig.json を配置する必要がある
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = function(client, bufnr)
     -- Prettierを使うことになると思われるため、LSPのformatは無効化
     -- 参考: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts#neovim-08

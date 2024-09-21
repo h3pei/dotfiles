@@ -5,7 +5,7 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "rubocop",
     "ruby_lsp",
-    "tsserver",
+    "ts_ls",
     "volar",
   },
 })
