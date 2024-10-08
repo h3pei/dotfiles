@@ -20,6 +20,7 @@ require("lazy").setup({
   { "hrsh7th/cmp-path" },
   { "hrsh7th/nvim-cmp" },
   { "j-hui/fidget.nvim" },
+  { "junegunn/vim-easy-align" },
   { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
@@ -54,6 +55,7 @@ require("lazy").setup({
 
 -- written in Vim script
 require("plugins/copilot")
+require("plugins/vim-easy-align")
 require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
 require("plugins/vim-rails")
