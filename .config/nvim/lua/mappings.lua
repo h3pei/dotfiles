@@ -20,6 +20,13 @@ vim.keymap.set("i", "<C-a>", "<C-o>^", noremap_and_silent)
 vim.keymap.set("i", "<C-e>", "<End>", noremap_and_silent)
 vim.keymap.set("i", "<C-k>", "<C-o>D", noremap_and_silent)
 vim.keymap.set("i", "<C-d>", "<Del>", noremap_and_silent)
+vim.keymap.set("i", "<C-l>", function()
+  local line = vim.fn.getline(".")
+  local col = vim.fn.getpos(".")[3]
+  local substring = line:sub(1, col - 1)
+  local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
+  return "<C-w>" .. result:upper()
+end, { expr = true })
 
 -- Toggle folding
 vim.keymap.set("n", "<Leader>ff", "za", noremap_and_silent)
