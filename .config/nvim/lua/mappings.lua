@@ -35,6 +35,9 @@ vim.keymap.set("n", "<Leader>F", "<Cmd>%foldopen!<CR>", noremap_and_silent)
 -- Clear search highlighting
 vim.keymap.set("n", "<Leader>h", ":noh<CR>")
 
+-- Copy from the cursor position to the end of the line (not the whole line)
+vim.keymap.set("n", "Y", "y$", noremap_and_silent)
+
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
