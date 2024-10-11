@@ -29,6 +29,8 @@ vim.keymap.set("i", "<C-l>", function()
 end, { expr = true })
 
 -- Toggle folding
+vim.keymap.set("n", "<Tab>", "zo", noremap_and_silent)
+vim.keymap.set("n", "<S-Tab>", "zc", noremap_and_silent)
 vim.keymap.set("n", "<Leader>ff", "za", noremap_and_silent)
 vim.keymap.set("n", "<Leader>F", "<Cmd>%foldopen!<CR>", noremap_and_silent)
 
@@ -83,10 +85,6 @@ vim.keymap.set("n", "<Leader>rf", "<Cmd>RSpecCurrentFile<CR>", noremap_and_silen
 vim.keymap.set("n", "<Leader>rF", "<Cmd>RSpecOnlyFailures<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>rr", "<Cmd>RSpecRerun<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_silent)
-
--- vim-fold-cycle
-vim.keymap.set("n", "<Tab>", "<Plug>(fold-cycle-open)")
-vim.keymap.set("n", "<S-Tab>", "<Plug>(fold-cycle-close)")
 
 -- copy-file-path.nvim
 vim.keymap.set("n", "<Leader>cp", "<Cmd>CopyFilePath<CR>", noremap_and_silent)

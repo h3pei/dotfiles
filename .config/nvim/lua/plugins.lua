@@ -9,7 +9,6 @@ require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
   { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", config = true },
-  { "arecarn/vim-fold-cycle" },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
   { "hrsh7th/cmp-buffer" },
@@ -56,7 +55,6 @@ require("lazy").setup({
 -- written in Vim script
 require("plugins/copilot")
 require("plugins/vim-easy-align")
-require("plugins/vim-fold-cycle")
 require("plugins/vim-quickrun")
 require("plugins/vim-rails")
 
