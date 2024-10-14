@@ -28,17 +28,6 @@ vim.keymap.set("i", "<C-l>", function()
   return "<C-w>" .. result:upper()
 end, { expr = true })
 
--- folding
--- * zo: カーソル位置の折り畳みを1段開く
--- * zc: カーソル位置の折り畳みを1段閉じる
--- * zR: 全ての折り畳みを開く
--- * zM: 全ての折り畳みを閉じる
--- https://vim-jp.org/vimdoc-ja/fold.html#fold-behavior
-vim.keymap.set("n", "<Tab>", "zo", noremap_and_silent)
-vim.keymap.set("n", "<S-Tab>", "zc", noremap_and_silent)
-vim.keymap.set("n", "<Leader><Tab>", "zR", noremap_and_silent)
-vim.keymap.set("n", "<Leader><S-Tab>", "zM", noremap_and_silent)
-
 -- Clear search highlighting
 vim.keymap.set("n", "<Leader>h", ":noh<CR>")
 

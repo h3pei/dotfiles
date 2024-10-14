@@ -9,3 +9,13 @@ vim.opt.foldignore = "" -- デフォルトでは "#" となっているが、コ
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldtext = "v:lua.Foldtext()" -- 折りたたんだときの表示をカスタマイズ
+
+-- * zo: カーソル位置の折り畳みを1段開く
+-- * zc: カーソル位置の折り畳みを1段閉じる
+-- * zR: 全ての折り畳みを開く
+-- * zM: 全ての折り畳みを閉じる
+-- https://vim-jp.org/vimdoc-ja/fold.html#fold-behavior
+vim.keymap.set("n", "<Tab>", "zo")
+vim.keymap.set("n", "<S-Tab>", "zc")
+vim.keymap.set("n", "<Leader><Tab>", "zR")
+vim.keymap.set("n", "<Leader><S-Tab>", "zM")
