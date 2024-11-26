@@ -1,5 +1,6 @@
 vim.opt.autoread = true -- 開いているバッファに外部で変更があった場合に読みこみ直す
 vim.opt.background = "dark"
+vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.confirm = true
