@@ -48,9 +48,9 @@ return {
   window_background_opacity = 0.80,
   window_decorations = "RESIZE",
   window_padding = {
-    left = '1.5cell',
-    right = '1.5cell',
-    top = '1cell',
-    bottom = '0.5cell',
+    left = '1.2cell',
+    right = '1.2cell',
+    top = '0.8cell',
+    bottom = '0.3cell',
   }
 }
