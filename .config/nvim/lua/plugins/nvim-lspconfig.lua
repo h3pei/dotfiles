@@ -62,3 +62,7 @@ lspconfig.svelte.setup({
 lspconfig.tailwindcss.setup({
   on_attach = common_on_attach,
 })
+
+lspconfig.pylsp.setup({
+  on_attach = common_on_attach,
+})
