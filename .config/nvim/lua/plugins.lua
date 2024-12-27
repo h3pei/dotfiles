@@ -44,6 +44,7 @@ require("lazy").setup({
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
+  { "vim-scripts/ReplaceWithRegister" },
   { "williamboman/mason-lspconfig.nvim" },
   { "williamboman/mason.nvim", config = true },
   { "windwp/nvim-autopairs", config = true, event = "InsertEnter" },
