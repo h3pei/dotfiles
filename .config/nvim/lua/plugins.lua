@@ -11,6 +11,7 @@ require("lazy").setup({
   { "akinsho/toggleterm.nvim", version = "*", config = true },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
+  { "haya14busa/vim-asterisk" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-cmdline" },
   { "hrsh7th/cmp-nvim-lsp" },
@@ -55,6 +56,7 @@ require("lazy").setup({
 
 -- written in Vim script
 require("plugins/copilot")
+require("plugins/vim-asterisk")
 require("plugins/vim-easy-align")
 require("plugins/vim-quickrun")
 require("plugins/vim-rails")
