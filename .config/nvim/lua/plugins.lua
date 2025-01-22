@@ -29,6 +29,7 @@ require("lazy").setup({
   { "mogulla3/copy-file-path.nvim" },
   { "mogulla3/go-to-factory-bot.nvim", config = true },
   { "mogulla3/rspec.nvim" },
+  { "mogulla3/trace-pr.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -80,6 +81,7 @@ require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
 require("plugins/rspec")
+require("plugins/trace-pr")
 require("plugins/overseer")
 require("plugins/telescope")
 require("plugins/toggleterm")
