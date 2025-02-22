@@ -41,7 +41,6 @@ require("lazy").setup({
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "stevearc/overseer.nvim", opts = {} },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
@@ -82,6 +81,5 @@ require("plugins/nvim-treesitter")
 require("plugins/nvim-ts-autotag")
 require("plugins/rspec")
 require("plugins/trace-pr")
-require("plugins/overseer")
 require("plugins/telescope")
 require("plugins/toggleterm")
