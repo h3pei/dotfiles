@@ -24,12 +24,12 @@ require("lazy").setup({
   { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
-  { "mogulla3/autosave.nvim", config = true },
-  { "mogulla3/buf-sweep.nvim" },
-  { "mogulla3/copy-file-path.nvim" },
-  { "mogulla3/go-to-factory-bot.nvim", config = true },
-  { "mogulla3/rspec.nvim" },
-  { "mogulla3/trace-pr.nvim" },
+  { "h3pei/autosave.nvim", config = true },
+  { "h3pei/buf-sweep.nvim" },
+  { "h3pei/copy-file-path.nvim" },
+  { "h3pei/go-to-factory-bot.nvim", config = true },
+  { "h3pei/rspec.nvim" },
+  { "h3pei/trace-pr.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -51,7 +51,7 @@ require("lazy").setup({
   { "windwp/nvim-ts-autotag" },
 }, {
   dev = {
-    path = "~/ghq/github.com/mogulla3",
+    path = "~/ghq/github.com/h3pei",
   },
 })
 
