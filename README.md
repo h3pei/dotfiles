@@ -4,7 +4,7 @@
 
 ```console
 cd ~
-git clone git@github.com:mogulla3/dotfiles.git
+git clone git@github.com:h3pei/dotfiles.git
 cd dotfiles
 sh setup.sh
 ```
