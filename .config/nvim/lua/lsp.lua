@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
 
-vim.lsp.config('*', {
+vim.lsp.config("*", {
   on_attach = on_attach,
 })
 
