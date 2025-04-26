@@ -5,12 +5,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- MEMO: `opts = {}` を渡すと、`require(PLUGIN_NAME).setup(opts)` を呼び出す
 require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
   { "akinsho/git-conflict.nvim", version = "*" },
-  { "akinsho/toggleterm.nvim", version = "*", config = true },
+  { "akinsho/toggleterm.nvim", version = "*", opts = {} },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
+  { "h3pei/autosave.nvim", opts = {} },
+  { "h3pei/buf-sweep.nvim" },
+  { "h3pei/copy-file-path.nvim" },
+  { "h3pei/go-to-factory-bot.nvim", opts = {} },
+  { "h3pei/rspec.nvim" },
+  { "h3pei/trace-pr.nvim" },
   { "haya14busa/vim-asterisk" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-cmdline" },
@@ -21,34 +28,29 @@ require("lazy").setup({
   { "hrsh7th/nvim-cmp" },
   { "j-hui/fidget.nvim" },
   { "junegunn/vim-easy-align" },
-  { "kylechui/nvim-surround", config = true, event = "VeryLazy" },
+  { "kylechui/nvim-surround", opts = {}, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
-  { "h3pei/autosave.nvim", config = true },
-  { "h3pei/buf-sweep.nvim" },
-  { "h3pei/copy-file-path.nvim" },
-  { "h3pei/go-to-factory-bot.nvim", config = true },
-  { "h3pei/rspec.nvim" },
-  { "h3pei/trace-pr.nvim" },
   { "neovim/nvim-lspconfig" },
   { "numToStr/Comment.nvim" },
-  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-lualine/lualine.nvim" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
-  { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-tree/nvim-tree.lua" },
+  { "nvim-tree/nvim-web-devicons", opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   { "nvimtools/none-ls.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
-  { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "romgrk/barbar.nvim" },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
   { "vim-scripts/ReplaceWithRegister" },
-  { "williamboman/mason-lspconfig.nvim" },
-  { "williamboman/mason.nvim", config = true },
-  { "windwp/nvim-autopairs", config = true, event = "InsertEnter" },
-  { "windwp/nvim-ts-autotag" },
+  { "williamboman/mason-lspconfig.nvim", dependencies = { "williamboman/mason.nvim" } },
+  { "williamboman/mason.nvim", opts = {} },
+  { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
+  { "windwp/nvim-ts-autotag", opts = {} },
 }, {
   dev = {
     path = "~/ghq/github.com/h3pei",
@@ -77,7 +79,6 @@ require("plugins/nvim-cmp")
 require("plugins/nvim-neoclip")
 require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
-require("plugins/nvim-ts-autotag")
 require("plugins/rspec")
 require("plugins/trace-pr")
 require("plugins/telescope")

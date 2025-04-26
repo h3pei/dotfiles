@@ -4,9 +4,6 @@ local on_attach = function(client, bufnr)
   -- see: :help vim.lsp.semantic_tokens.start
   client.server_capabilities.semanticTokensProvider = nil
 
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
