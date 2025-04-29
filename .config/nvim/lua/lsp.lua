@@ -21,5 +21,21 @@ vim.lsp.config("*", {
   on_attach = on_attach,
 })
 
--- mason でインストール済みの LSP を一括で有効化
-vim.lsp.enable(require("mason-lspconfig").get_installed_servers())
+local lsp_servers = {
+  "dockerls",
+  "jsonls",
+  "lua_ls",
+  "rubocop",
+  "ruby_lsp",
+  "stimulus_ls",
+  "tailwindcss",
+  "ts_ls",
+  "volar",
+}
+
+-- LSP servers のインストール
+require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
+
+-- インストール済みの LSP servers を一括で有効化
+-- vim.lsp.enable(require("mason-lspconfig").get_installed_servers())
+vim.lsp.enable(lsp_servers)
