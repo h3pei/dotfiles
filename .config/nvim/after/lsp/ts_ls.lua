@@ -1,4 +1,4 @@
-local vue_language_server_path = require("mason-registry").get_package("vue-language-server"):get_install_path()
+local vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-server")
 
 -- MEMO: Project root に tsconfig.json or jsconfig.json を配置する必要がある
 return {
