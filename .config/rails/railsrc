@@ -3,5 +3,4 @@
 --css=tailwind
 --skip-action-mailbox
 --skip-action-cable
---skip-asset-pipeline
 --skip-jbuilder
