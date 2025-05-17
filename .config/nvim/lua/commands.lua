@@ -32,3 +32,11 @@ end, {})
 
 -- go-to-factory-bot.nvim
 vim.api.nvim_create_user_command("GF", "GoToFactoryBot", {})
+
+-- .yml だと syntax highlight が有効にならないため .yaml として認識させる
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.yml" },
+  callback = function()
+    vim.bo.filetype = "yaml"
+  end,
+})
