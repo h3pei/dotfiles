@@ -29,7 +29,7 @@ local lsp_servers = {
   "ruby_lsp",
   "tailwindcss",
   "ts_ls",
-  "volar",
+  "vue_ls",
 }
 
 -- LSP servers のインストール
