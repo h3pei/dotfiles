@@ -23,6 +23,14 @@ if [ -d $HOME/.rbenv ]; then
   done
 fi
 
+# .claude
+if [ -d .claude ]; then
+  mkdir -p $HOME/.claude
+  for file in `ls -1 .claude/*`; do
+    ln -s -f `realpath $file` $HOME/.claude/
+  done
+fi
+
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [ ! -e "${ZINIT_HOME}" ]; then
