@@ -8,6 +8,7 @@ vim.opt.rtp:prepend(lazypath)
 -- MEMO: `opts = {}` を渡すと、`require(PLUGIN_NAME).setup(opts)` を呼び出す
 require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
+  { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
   { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", opts = {} },
   { "bronson/vim-trailing-whitespace" },
@@ -72,6 +73,7 @@ require("plugins/fidget")
 require("plugins/git-conflict")
 require("plugins/gitsigns")
 require("plugins/go-to-factory-bot")
+require("plugins/img-clip")
 require("plugins/lualine")
 require("plugins/none-ls")
 require("plugins/nvim-cmp")

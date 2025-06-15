@@ -82,3 +82,6 @@ vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_si
 
 -- copy-file-path.nvim
 vim.keymap.set("n", "<Leader>cp", "<Cmd>CopyFilePath<CR>", noremap_and_silent)
+
+-- img-clip.nvim
+vim.keymap.set("n", "<Leader>p", "<cmd>PasteImage<CR>", noremap_and_silent)
