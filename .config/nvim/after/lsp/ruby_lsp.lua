@@ -1,5 +1,10 @@
 return {
   init_options = {
-    formatter = "rubocop",
+    formatter = 'none',
+    linters = { 'none' },
+    enabledFeatures = {
+      diagnostics = false,
+      formatting = false,
+    },
   },
 }
