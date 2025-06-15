@@ -5,7 +5,7 @@ set -ex
 mkdir -p $HOME/{work,bin,trash,memo,screenshots,.ssh}
 
 # dotfiles 直下のドットファイル
-for dotfile in `ls -1a . | grep "^\." | grep -v '.gitignore'`; do
+for dotfile in `ls -1a . | grep "^\." | grep -vx '.gitignore'`; do
   if [ -f $dotfile ]; then
     ln -s -f `realpath $dotfile` $HOME/$dotfile
   fi
