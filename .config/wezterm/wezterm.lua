@@ -40,6 +40,7 @@ return {
     { key = "=", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
     { key = "+", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
     { key = "_", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
+    { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
   },
   line_height = 1.25,
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
