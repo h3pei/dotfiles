@@ -40,7 +40,7 @@ setopt hist_save_no_dups # 履歴ファイルに書き出す際、新しいコ�
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.claude/local/node_modules/.bin:$PATH"
 
 source ~/.zsh_libs
 source ~/.zsh_aliases
