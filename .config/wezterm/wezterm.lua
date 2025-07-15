@@ -46,6 +46,7 @@ return {
   macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
   use_ime = true,
+  warn_about_missing_glyphs = false,
   window_background_opacity = 0.80,
   window_decorations = "RESIZE",
   window_padding = {
