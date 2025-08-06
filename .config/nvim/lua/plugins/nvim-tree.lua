@@ -55,11 +55,11 @@ require("nvim-tree").setup({
     git_ignored = false,
     -- 以下は読み込むと重くなる、かつエディタで見るケースがほぼ考えられないため除外する
     custom = {
-      "^\\.git",
-      "^node_modules",
-      "^\\.cache", -- gatsby
-      "^cache", -- rails
-      "^vendor", -- rails, bundler
+      "^\\.git$",
+      "^node_modules$",
+      "^\\.cache$", -- gatsby
+      "^cache$", -- rails
+      "^vendor$", -- rails, bundler
     },
   },
 })
