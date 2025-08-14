@@ -20,6 +20,7 @@ bind status E !git commit --allow-empty
 bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
 bind status <Ctrl-r> ?gh pr create --web --assignee "@me"
 bind status X ?git clean -df
+bind status Z !sh -c 'echo "[git checkout .] Modified files to be discarded:" && git diff --name-only && echo "Discard ALL changes? (y/N):" && read ans && [ "$ans" = "y" ] && git checkout .'
 
 # refs view: 主にbranchに対しての操作をする
 bind refs d ?git branch -d %(branch)
