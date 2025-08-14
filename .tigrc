@@ -19,6 +19,7 @@ bind status + !git commit --amend
 bind status E !git commit --allow-empty
 bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
 bind status <Ctrl-r> ?gh pr create --web --assignee "@me"
+bind status X ?git clean -df
 
 # refs view: 主にbranchに対しての操作をする
 bind refs d ?git branch -d %(branch)
