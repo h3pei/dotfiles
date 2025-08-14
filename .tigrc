@@ -37,6 +37,10 @@ bind stash S !git stash push
 bind stash U !git stash push -u
 bind stash P !git stash pop %(stash)
 
+# カーソル行の色を変更
+# [文字色] [背景色] [属性]
+color cursor black yellow bold
+
 # -- MEMO --
 #
 # user-defined command の先頭の記号について
