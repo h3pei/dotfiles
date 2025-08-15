@@ -64,8 +64,8 @@ vim.keymap.set("n", "<Leader>fw", "<Cmd>FixWhitespace<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", noremap_and_silent)
 
 -- Register (neoclip)
-vim.keymap.set("n", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
-vim.keymap.set("v", "\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("n", ";\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("v", ";\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 
 -- Linting & Formatting
 vim.keymap.set("n", "<Leader>f", function()
