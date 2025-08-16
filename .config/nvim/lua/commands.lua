@@ -40,3 +40,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "yaml"
   end,
 })
+
+-- Quickfix を閉じる
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<Esc>", ":cclose<CR>", { buffer = true })
+  end,
+})

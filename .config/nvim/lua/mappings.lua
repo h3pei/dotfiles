@@ -5,8 +5,6 @@ local noremap_and_silent = { noremap = true, silent = true }
 
 -- Disables Ex mode && For QuickFix
 vim.keymap.set("n", "Q", "<Nop>", noremap_and_silent)
-vim.keymap.set("n", "Qo", "<Cmd>copen<CR>", noremap_and_silent)
-vim.keymap.set("n", "Qc", "<Cmd>cclose<CR>", noremap_and_silent)
 vim.keymap.set("n", "Ql", "<Cmd>clist<CR>", noremap_and_silent)
 
 -- For INSERT mode (shell-like mapping setup)
