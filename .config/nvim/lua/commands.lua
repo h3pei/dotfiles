@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
--- Quickfix を閉じる
+-- Quickfix window を Esc で閉じる
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   callback = function()
