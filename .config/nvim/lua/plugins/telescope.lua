@@ -98,6 +98,12 @@ end, {})
 vim.keymap.set("n", ";b", function()
   builtin.buffers()
 end, {})
+vim.keymap.set("n", ";c", function()
+  builtin.command_history()
+end, {})
+vim.keymap.set("n", ";q", function()
+  builtin.quickfix()
+end, {})
 
 -- Telescope window の Title と Border をすべて白にする
 -- https://github.com/nvim-telescope/telescope.nvim/blob/d4204618dddf1628e7a19ad4a7b910864d1120a5/plugin/telescope.lua#L24-L38
