@@ -67,8 +67,10 @@ telescope.setup({
   },
 })
 
+-- Load extensions
 telescope.load_extension("fzf")
 telescope.load_extension("neoclip")
+telescope.load_extension("smart_open")
 
 -- Key mappings
 vim.keymap.set("n", ";f", function()
@@ -104,6 +106,9 @@ end, {})
 vim.keymap.set("n", ";q", function()
   builtin.quickfix()
 end, {})
+vim.keymap.set("n", ";s", function()
+  telescope.extensions.smart_open.smart_open()
+end, { noremap = true, silent = true })
 
 -- Telescope window の Title と Border をすべて白にする
 -- https://github.com/nvim-telescope/telescope.nvim/blob/d4204618dddf1628e7a19ad4a7b910864d1120a5/plugin/telescope.lua#L24-L38
