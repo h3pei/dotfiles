@@ -7,6 +7,11 @@ local noremap_and_silent = { noremap = true, silent = true }
 vim.keymap.set("n", "Q", "<Nop>", noremap_and_silent)
 vim.keymap.set("n", "Ql", "<Cmd>clist<CR>", noremap_and_silent)
 
+-- Change keymap for opening command line window.
+-- q: はミスタイプしやすいので、Q: に変更
+vim.keymap.set("n", "q:", "<Nop>", noremap_and_silent)
+vim.keymap.set("n", "Q:", "q:", noremap_and_silent)
+
 -- For INSERT mode (shell-like mapping setup)
 -- memo: <C-u> -> Delete from the beggining of the line till the cursor
 vim.keymap.set("i", "<C-n>", "<Down>", noremap_and_silent)
