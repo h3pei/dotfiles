@@ -7,7 +7,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- MEMO: `opts = {}` を渡すと、`require(PLUGIN_NAME).setup(opts)` を呼び出す
 require("lazy").setup({
-  { "AckslD/nvim-neoclip.lua", dependencies = { "nvim-telescope/telescope.nvim" } },
+  { "AckslD/nvim-neoclip.lua", dependencies = { { "nvim-telescope/telescope.nvim" }, { "kkharji/sqlite.lua" } } },
   { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
   { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", opts = {} },
