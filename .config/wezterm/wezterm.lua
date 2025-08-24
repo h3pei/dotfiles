@@ -15,8 +15,8 @@ end)
 return {
   adjust_window_size_when_changing_font_size = false,
   color_scheme = "Hybrid (terminal.sexy)",
-  font = wezterm.font("Cica", { weight = "Bold" }),
-  font_size = 15.0,
+  font = wezterm.font("Cica"),
+  font_size = 18.0,
   hide_tab_bar_if_only_one_tab = true,
   hyperlink_rules = {
     -- Linkify things that look like URL.
