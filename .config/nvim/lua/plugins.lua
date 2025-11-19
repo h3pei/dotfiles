@@ -19,6 +19,7 @@ require("lazy").setup({
   { "h3pei/copy-file-path.nvim" },
   { "h3pei/go-to-factory-bot.nvim", opts = {} },
   { "h3pei/rspec.nvim" },
+  { "h3pei/ruby-block-toggle.nvim", opts = {} },
   { "h3pei/trace-pr.nvim" },
   { "haya14busa/vim-asterisk" },
   { "hrsh7th/cmp-buffer" },
