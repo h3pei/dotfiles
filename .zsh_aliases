@@ -8,3 +8,4 @@ alias be='bundle exec'
 alias tree='tree -a -C'
 alias t='tmux'
 alias claude="~/.claude/local/node_modules/.bin/claude"
+alias r="rails"
