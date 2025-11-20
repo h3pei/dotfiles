@@ -26,3 +26,4 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
 export PURE_PROMPT_SYMBOL='$'
+export DISABLE_PRY_RAILS=1
