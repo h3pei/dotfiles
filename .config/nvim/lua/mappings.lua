@@ -83,14 +83,14 @@ vim.keymap.set("n", "<Leader>rF", "<Cmd>RSpecOnlyFailures<CR>", noremap_and_sile
 vim.keymap.set("n", "<Leader>rr", "<Cmd>RSpecRerun<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_silent)
 
+-- ruby-fqcn.nvim
+vim.keymap.set("n", "<Leader>ry", "<Cmd>CopyRubyFQCN<CR>", noremap_and_silent)
+
+-- ruby-block-toggle.nvim
+vim.keymap.set("n", "<Leader>rb", "<Cmd>RubyBlockToggle<CR>", noremap_and_silent)
+
 -- copy-file-path.nvim
 vim.keymap.set("n", "<Leader>cp", "<Cmd>CopyFilePath<CR>", noremap_and_silent)
 
 -- img-clip.nvim
 vim.keymap.set("n", "<Leader>p", "<Cmd>PasteImage<CR>", noremap_and_silent)
-
--- ruby-fqcn.nvim
-vim.keymap.set("n", "<Leader>rcp", "<Cmd>CopyRubyFQCN<CR>", noremap_and_silent)
-
--- ruby-block-toggle.nvim
-vim.keymap.set("n", "<Leader>rbt", "<Cmd>RubyBlockToggle<CR>", noremap_and_silent)
