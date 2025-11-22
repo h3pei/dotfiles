@@ -14,7 +14,7 @@ require("lazy").setup({
   { "bronson/vim-trailing-whitespace" },
   { "danielfalk/smart-open.nvim", branch = "0.2.x", dependencies = { "kkharji/sqlite.lua" } },
   { "github/copilot.vim" },
-  { "h3pei/autosave.nvim", opts = { exclude_filetypes = { "oil" } } },
+  { "h3pei/autosave.nvim", opts = {} },
   { "h3pei/buf-sweep.nvim" },
   { "h3pei/copy-file-path.nvim" },
   { "h3pei/go-to-factory-bot.nvim", opts = {} },
@@ -46,7 +46,6 @@ require("lazy").setup({
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim" },
-  { "stevearc/oil.nvim" },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
@@ -55,6 +54,7 @@ require("lazy").setup({
   { "williamboman/mason.nvim", opts = {} },
   { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
   { "windwp/nvim-ts-autotag", opts = {} },
+  { "h3pei/ruby-fqcn.nvim", dev = true },
 }, {
   dev = {
     path = "~/ghq/github.com/h3pei",
@@ -83,7 +83,6 @@ require("plugins/nvim-cmp")
 require("plugins/nvim-neoclip")
 require("plugins/nvim-tree")
 require("plugins/nvim-treesitter")
-require("plugins/oil")
 require("plugins/rspec")
 require("plugins/trace-pr")
 require("plugins/telescope")
