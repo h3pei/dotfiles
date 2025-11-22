@@ -17,9 +17,10 @@ require("lazy").setup({
   { "h3pei/autosave.nvim", opts = {} },
   { "h3pei/buf-sweep.nvim" },
   { "h3pei/copy-file-path.nvim" },
-  { "h3pei/go-to-factory-bot.nvim", opts = {} },
-  { "h3pei/rspec.nvim" },
+  { "h3pei/go-to-factory-bot.nvim", ft = "ruby", opts = {} },
+  { "h3pei/rspec.nvim", ft = "ruby" },
   { "h3pei/ruby-block-toggle.nvim", ft = "ruby", opts = {}, dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+  { "h3pei/ruby-fqcn.nvim", ft = "ruby", dependencies = { 'nvim-treesitter/nvim-treesitter' } },
   { "h3pei/trace-pr.nvim" },
   { "haya14busa/vim-asterisk" },
   { "hrsh7th/cmp-buffer" },
@@ -54,7 +55,6 @@ require("lazy").setup({
   { "williamboman/mason.nvim", opts = {} },
   { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
   { "windwp/nvim-ts-autotag", opts = {} },
-  { "h3pei/ruby-fqcn.nvim", dev = true },
 }, {
   dev = {
     path = "~/ghq/github.com/h3pei",
