@@ -16,6 +16,7 @@ require("lazy").setup({
   { "github/copilot.vim" },
   { "h3pei/autosave.nvim", opts = {} },
   { "h3pei/buf-sweep.nvim" },
+  { "h3pei/case-dial.nvim", opts = {} },
   { "h3pei/copy-file-path.nvim" },
   { "h3pei/go-to-factory-bot.nvim", ft = "ruby", opts = {} },
   { "h3pei/rspec.nvim", ft = "ruby" },
