@@ -79,8 +79,6 @@ vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
 -- Run rspec (rspec.nvim)
 vim.keymap.set("n", "<Leader>rn", "<Cmd>RSpecNearest<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>rf", "<Cmd>RSpecCurrentFile<CR>", noremap_and_silent)
-vim.keymap.set("n", "<Leader>rF", "<Cmd>RSpecOnlyFailures<CR>", noremap_and_silent)
-vim.keymap.set("n", "<Leader>rr", "<Cmd>RSpecRerun<CR>", noremap_and_silent)
 vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_silent)
 
 -- ruby-fqcn.nvim
