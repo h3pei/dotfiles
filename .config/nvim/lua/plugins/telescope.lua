@@ -61,8 +61,8 @@ telescope.setup({
       mappings = {
         i = {
           ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
-        }
-      }
+        },
+      },
     },
   },
 })

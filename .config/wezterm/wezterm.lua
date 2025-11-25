@@ -21,7 +21,13 @@ local config = {
   hyperlink_rules = wezterm.default_hyperlink_rules(),
   keys = {
     { key = "u", mods = "CMD", action = wezterm.action.EmitEvent("toggle-opacity") },
-    { key = ",", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") } }) },
+    {
+      key = ",",
+      mods = "CMD",
+      action = wezterm.action.SpawnCommandInNewTab({
+        args = { "/opt/homebrew/bin/nvim", os.getenv("WEZTERM_CONFIG_FILE") },
+      }),
+    },
     { key = "-", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
     { key = "=", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
     { key = "+", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
@@ -29,25 +35,25 @@ local config = {
     { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
   },
   line_height = 1.25,
-  macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL',
+  macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
   use_ime = true,
   warn_about_missing_glyphs = false,
   window_background_opacity = 0.80,
   window_decorations = "RESIZE",
   window_padding = {
-    left = '1.2cell',
-    right = '1.2cell',
-    top = '0.8cell',
-    bottom = '0.3cell',
-  }
+    left = "1.2cell",
+    right = "1.2cell",
+    top = "0.8cell",
+    bottom = "0.3cell",
+  },
 }
 
 -- docker-desktop のカスタムURLスキーマに対応
 -- 例: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xxx
 table.insert(config.hyperlink_rules, {
-  regex = 'docker-desktop://[\\w\\-\\._~:/?#\\[\\]@!$&\'()*+,;=]+',
-  format = '$0',
+  regex = "docker-desktop://[\\w\\-\\._~:/?#\\[\\]@!$&'()*+,;=]+",
+  format = "$0",
 })
 
 return config

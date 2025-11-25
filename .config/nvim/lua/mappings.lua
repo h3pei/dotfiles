@@ -48,10 +48,10 @@ vim.keymap.set("n", "<Leader>D", "<Cmd>BufSweep<CR>", noremap_and_silent)
 
 -- Move lines
 -- see: https://qiita.com/itmammoth/items/312246b4b7688875d023
-vim.keymap.set("n", "<C-Up>", "\"zdd<Up>\"zP", noremap)
-vim.keymap.set("n", "<C-Down>", "\"zdd\"zp", noremap)
-vim.keymap.set("v", "<C-Up>", "\"zx<Up>\"zP`[V`]", noremap)
-vim.keymap.set("v", "<C-Down>", "\"zx\"zp`[V`]", noremap)
+vim.keymap.set("n", "<C-Up>", '"zdd<Up>"zP', noremap)
+vim.keymap.set("n", "<C-Down>", '"zdd"zp', noremap)
+vim.keymap.set("v", "<C-Up>", '"zx<Up>"zP`[V`]', noremap)
+vim.keymap.set("v", "<C-Down>", '"zx"zp`[V`]', noremap)
 
 -- Move jump list
 -- * plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
@@ -67,8 +67,8 @@ vim.keymap.set("n", "<Leader>fw", "<Cmd>FixWhitespace<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", noremap_and_silent)
 
 -- Register (neoclip)
-vim.keymap.set("n", ";\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
-vim.keymap.set("v", ";\"", "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("n", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("v", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 
 -- Linting & Formatting
 vim.keymap.set("n", "<Leader>f", function()
