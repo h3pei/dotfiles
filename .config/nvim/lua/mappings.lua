@@ -43,8 +43,8 @@ vim.keymap.set("n", "M", "%", noremap_and_silent)
 -- Operate buffers
 vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
 vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
-vim.keymap.set("n", "<Leader>bd", "<Cmd>BufferClose<CR>", noremap_and_silent)
-vim.keymap.set("n", "<Leader>bD", "<Cmd>BufSweep<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>d", "<Cmd>BufferClose<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>D", "<Cmd>BufSweep<CR>", noremap_and_silent)
 
 -- Move lines
 -- see: https://qiita.com/itmammoth/items/312246b4b7688875d023

@@ -1,4 +1,6 @@
-require("gitsigns").setup({
+local gitsigns = require("gitsigns")
+
+gitsigns.setup({
   signs = {
     add = { text = "+" },
     change = { text = "~" },
@@ -7,3 +9,13 @@ require("gitsigns").setup({
     changedelete = { text = "~" },
   },
 })
+
+vim.keymap.set("n", "<C-]>", function()
+  gitsigns.nav_hunk("next")
+end)
+vim.keymap.set("n", "<C-[>", function()
+  gitsigns.nav_hunk("prev")
+end)
+vim.keymap.set("n", "<Leader>b", function()
+  gitsigns.blame_line({ full = true })
+end)
