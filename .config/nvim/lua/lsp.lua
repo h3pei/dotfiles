@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gR", vim.lsp.buf.references, bufopts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set("n", "<space>td", vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set("n", "<space>re", vim.lsp.buf.rename)
   vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
