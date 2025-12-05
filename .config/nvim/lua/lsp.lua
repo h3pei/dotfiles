@@ -30,11 +30,12 @@ local lsp_servers = {
   "tailwindcss",
   "ts_ls",
   "vue_ls",
+  "pyright",
 }
 
 -- LSP servers のインストール
 require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
 
 -- インストール済みの LSP servers を一括で有効化
--- vim.lsp.enable(require("mason-lspconfig").get_installed_servers())
-vim.lsp.enable(lsp_servers)
+vim.lsp.enable(require("mason-lspconfig").get_installed_servers())
+-- vim.lsp.enable(lsp_servers)
