@@ -40,7 +40,7 @@ require("lazy").setup({
   { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "nvim-telescope/telescope.nvim", tag = "v0.2.0", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-tree/nvim-tree.lua" },
   { "nvim-tree/nvim-web-devicons", opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
