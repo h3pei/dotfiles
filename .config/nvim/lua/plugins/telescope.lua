@@ -37,6 +37,8 @@ telescope.setup({
         -- デフォルトでは scroll up の挙動になるため無効化. カーソル位置より前を削除する挙動になる
         -- see: https://www.reddit.com/r/neovim/comments/qjxhif/telescope_use_cu_to_clear_search_field/
         ["<C-u>"] = false,
+        ["<C-f>"] = false,
+        ["<C-k>"] = false,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = multiple_select,
       },
