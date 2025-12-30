@@ -12,7 +12,6 @@ require("lazy").setup({
   { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", opts = {} },
   { "bronson/vim-trailing-whitespace" },
-  { "danielfalk/smart-open.nvim", branch = "0.2.x", dependencies = { "kkharji/sqlite.lua" } },
   { "github/copilot.vim" },
   { "h3pei/autosave.nvim", opts = {} },
   { "h3pei/buf-sweep.nvim" },
