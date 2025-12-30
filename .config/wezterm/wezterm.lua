@@ -36,6 +36,8 @@ local config = {
   },
   line_height = 1.25,
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
+  -- ClaudeCode の画面がチラつく問題の暫定対処
+  scrollback_lines = 1000,
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
   use_ime = true,
   warn_about_missing_glyphs = false,
