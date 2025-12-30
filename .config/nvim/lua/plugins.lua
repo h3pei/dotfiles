@@ -9,7 +9,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { "AckslD/nvim-neoclip.lua", dependencies = { { "nvim-telescope/telescope.nvim" }, { "kkharji/sqlite.lua" } } },
   { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
-  { "akinsho/git-conflict.nvim", version = "*" },
   { "akinsho/toggleterm.nvim", version = "*", opts = {} },
   { "bronson/vim-trailing-whitespace" },
   { "github/copilot.vim" },
@@ -47,6 +46,7 @@ require("lazy").setup({
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim" },
+  { "sindrets/diffview.nvim" },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
@@ -73,7 +73,6 @@ require("plugins/Comment")
 require("plugins/auto-session")
 require("plugins/barbar")
 require("plugins/fidget")
-require("plugins/git-conflict")
 require("plugins/gitsigns")
 require("plugins/go-to-factory-bot")
 require("plugins/img-clip")
