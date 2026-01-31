@@ -36,6 +36,7 @@ local config = {
   },
   line_height = 1.25,
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
+  macos_window_background_blur = 10,
   -- ClaudeCode の画面がチラつく問題の暫定対処
   scrollback_lines = 1000,
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
