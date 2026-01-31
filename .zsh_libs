@@ -3,13 +3,9 @@ if [ -f $HOME/.fzf.zsh ]; then
   source ~/.fzf.zsh
 fi
 
-# z
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-  # Intel Mac
-  source /usr/local/etc/profile.d/z.sh
-elif [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
-  # Apple Silicon Mac
-  source /opt/homebrew/etc/profile.d/z.sh
+# zoxide
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
 # rbenv
