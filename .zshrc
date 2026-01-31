@@ -10,6 +10,8 @@
 
 # zinit
 source "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
+# zinit が zi という alias を作成するが、zoxide とコンフリクトするため削除
+unalias zi 2>/dev/null
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -40,7 +42,7 @@ setopt hist_save_no_dups # 履歴ファイルに書き出す際、新しいコ�
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-export PATH="$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$HOME/.claude/local/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 
 source ~/.zsh_libs
 source ~/.zsh_aliases
