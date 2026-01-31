@@ -40,6 +40,7 @@ local config = {
   -- ClaudeCode の画面がチラつく問題の暫定対処
   scrollback_lines = 1000,
   selection_word_boundary = " \t\n{}[]()\"'`│┃",
+  show_new_tab_button_in_tab_bar = false,
   use_ime = true,
   warn_about_missing_glyphs = false,
   window_background_opacity = 0.80,
