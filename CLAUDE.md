@@ -4,29 +4,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a comprehensive dotfiles repository managing a complete development environment for a developer working primarily with Ruby/Rails, JavaScript/Vue.js, and web technologies. The setup includes shell configuration (zsh), Neovim, WezTerm, Git, tmux, and package management through Homebrew.
+This is a dotfiles repository managed by [chezmoi](https://www.chezmoi.io/), providing a complete development environment for a developer working primarily with Ruby/Rails, JavaScript/Vue.js, and web technologies. The setup includes shell configuration (zsh), Neovim, WezTerm, Git, tmux, and package management through Homebrew.
 
 ## Common Commands
 
 ### Setup and Installation
 ```bash
-# Initial setup (run from home directory)
-git clone git@github.com:h3pei/dotfiles.git
-cd dotfiles
-sh setup.sh
+# New machine setup
+brew install chezmoi
+chezmoi init --apply h3pei
+
+# Apply changes from source to home
+chezmoi apply -v
+
+# Check differences before applying
+chezmoi diff
 ```
 
-### Claude Code Configuration
-The repository includes Claude Code global settings that are automatically symlinked during setup:
-- `.claude/settings.json` → `~/.claude/settings.json`
+### Editing Configuration
+```bash
+# Edit via chezmoi (recommended)
+chezmoi edit ~/.zshrc
+
+# Or edit directly then sync back to source
+chezmoi add ~/.zshrc
+
+# Navigate to source directory
+chezmoi cd
+```
 
 ### Package Management
 ```bash
-# Install all packages from Brewfile
-brew bundle
+# Update Brewfile after adding/removing packages
+brew bundle dump --force --file="$(chezmoi source-path)/Brewfile"
 
-# Update Brewfile after changes
-brew bundle dump --force
+# Brewfile changes are auto-detected by run_onchange script on chezmoi apply
 
 # Custom upgrade workflow (defined in .zsh_functions)
 brew-upgrade
@@ -51,9 +63,35 @@ gd
 ## Architecture and Structure
 
 ### Configuration Management
-- **Symlink-based**: setup.sh creates symlinks from home directory to dotfiles
-- **Modular**: Separate directories for different tools (.config/nvim, .config/wezterm, etc.)
-- **Local overrides**: Supports .zshrc_local for machine-specific configurations
+- **chezmoi-based**: Files are copied from source directory (`~/.local/share/chezmoi/`) to home
+- **Source naming**: `dot_` prefix maps to `.` (e.g., `dot_zshrc` → `~/.zshrc`)
+- **Templates**: `.tmpl` suffix for machine-specific files (e.g., `dot_gitconfig.tmpl`)
+- **Scripts**: `.chezmoiscripts/` contains setup automation (run_once, run_onchange)
+- **Local overrides**: `~/.zshrc_local` for machine-specific settings (create_ prefix, never overwritten)
+
+### Source Directory Layout
+```
+~/.local/share/chezmoi/
+├── .chezmoi.toml.tmpl          # Interactive config (prompts for email on init)
+├── .chezmoiignore              # Files not deployed to home
+├── .chezmoiscripts/
+│   ├── run_once_before_create-directories.sh
+│   ├── run_once_before_install-zinit.sh
+│   └── run_onchange_after_brew-bundle.sh.tmpl
+├── Brewfile                    # Referenced by script, not deployed to home
+├── dot_zshrc                   # → ~/.zshrc
+├── dot_gitconfig.tmpl          # → ~/.gitconfig (templated)
+├── dot_config/
+│   ├── nvim/                   # → ~/.config/nvim/
+│   ├── wezterm/                # → ~/.config/wezterm/
+│   ├── aerospace/              # → ~/.config/aerospace/
+│   ├── borders/                # → ~/.config/borders/
+│   ├── rails/                  # → ~/.config/rails/
+│   └── rubocop/                # → ~/.config/rubocop/
+├── dot_claude/                 # → ~/.claude/
+├── private_dot_ssh/            # → ~/.ssh/ (private permissions)
+└── create_dot_zshrc_local      # → ~/.zshrc_local (only if absent)
+```
 
 ### Key Configuration Areas
 
@@ -96,7 +134,6 @@ gd
 ### Web Development
 - Vue.js support with vue_ls language server
 - TypeScript/JavaScript tooling through various LSP servers
-- Browser automation with Vimium configuration
 
 ## Important Patterns
 - Configuration files often include both English and Japanese comments

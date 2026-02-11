@@ -1,40 +1,74 @@
 # dotfiles
 
-## Initial setup
+Dotfiles managed with [chezmoi](https://www.chezmoi.io/).
+
+## Setup
+
+### 1. Install Homebrew
 
 ```console
-cd ~
-git clone git@github.com:h3pei/dotfiles.git
-cd dotfiles
-sh setup.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Homebrew
+https://brew.sh/
+
+### 2. Install chezmoi
 
 ```console
-# Install homebrew before executing the following commands.
-# see: https://brew.sh/
-
-# Install packages by using Homebrew Bundle
-cd ~/dotfiles
-brew bundle
+brew install chezmoi
 ```
 
-- パッケージの追加・削除をしたら dotfiles 直下で `brew bundle dump --force` を実行してBrewfileを更新する
-- 新しい環境では `brew bundle` のみで同じパッケージ群をインストールできる
-
-## Neovim
-
-```vim
-:checkhealth
-:Mason
-```
-
-## fzf
+### 3. Apply dotfiles
 
 ```console
-# Run follwing command after running `brew install`.
+chezmoi init --apply h3pei
+```
+
+You will be prompted to enter your email address during `chezmoi init`.
+
+This will automatically:
+- Deploy all dotfiles to the home directory
+- Create required directories
+- Install zinit
+- Run `brew bundle` to install packages
+
+### 4. Setup fzf
+
+```console
 $(brew --prefix)/opt/fzf/install
 ```
 
-see: https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
+## Daily Usage
+
+### Editing dotfiles
+
+Edit files directly in the home directory, then sync changes back to the chezmoi source:
+
+```bash
+# Edit as usual
+vim ~/.zshrc
+vim ~/.tmux.conf
+
+# Sync all changes back to source at once
+chezmoi re-add
+
+# Or sync a specific file
+chezmoi add ~/.zshrc
+```
+
+Alternatively, you can edit the source directly via `chezmoi edit`:
+
+```bash
+chezmoi edit ~/.zshrc
+chezmoi apply
+```
+
+### Package management
+
+```bash
+# Update Brewfile after adding/removing packages
+brew bundle dump --force --file="$(chezmoi source-path)/Brewfile"
+
+# chezmoi apply detects Brewfile changes and runs brew bundle automatically
+chezmoi apply
+```
