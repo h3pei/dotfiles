@@ -8,8 +8,8 @@ require("barbar").setup({
     -- closeボタンは非表示にする
     button = false,
   },
-  -- nerdtreeを開いたときにoffsetを設定する
+  -- nvim-tree を開いたときにoffsetを設定する
   sidebar_filetypes = {
-    nerdtree = true,
+    NvimTree = true,
   },
 })
