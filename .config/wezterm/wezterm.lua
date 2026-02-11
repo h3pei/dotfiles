@@ -14,9 +14,10 @@ end)
 
 local config = {
   adjust_window_size_when_changing_font_size = false,
+  cell_width = 1.1,
   color_scheme = "Hybrid (terminal.sexy)",
   font = wezterm.font("Cica"),
-  font_size = 18.0,
+  font_size = 20.0,
   hide_tab_bar_if_only_one_tab = true,
   hyperlink_rules = wezterm.default_hyperlink_rules(),
   keys = {
@@ -34,7 +35,7 @@ local config = {
     { key = "_", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
     { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
   },
-  line_height = 1.25,
+  line_height = 1.3,
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
   macos_window_background_blur = 10,
   -- ClaudeCode の画面がチラつく問題の暫定対処
