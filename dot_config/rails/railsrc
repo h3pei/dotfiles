@@ -1,0 +1,6 @@
+--database=postgresql
+--javascript=importmap
+--css=tailwind
+--skip-action-mailbox
+--skip-action-cable
+--skip-jbuilder

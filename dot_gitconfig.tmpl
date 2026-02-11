@@ -1,0 +1,42 @@
+[core]
+  editor = nvim
+  excludefile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
+
+[user]
+  name = h3pei
+  email = {{ .email }}
+
+[color]
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+
+[alias]
+  s = status
+  br = branch
+  co = checkout
+  c = commit
+  l = log --oneline --graph --decorate
+  d = diff
+  a = add
+
+[pull]
+  ff = only
+
+[status]
+  showUntrackedFiles = all
+
+[init]
+  defaultBranch = main
+  ; templatedir = ~/.git_template/
+
+[rebase]
+  autosquash = true
+  autostash = true
+
+[commit]
+  verbose = true
