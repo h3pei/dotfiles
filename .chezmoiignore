@@ -5,3 +5,4 @@ setup.sh
 Brewfile
 stylua.toml
 chezmoi-migration-plan.md
+Makefile
