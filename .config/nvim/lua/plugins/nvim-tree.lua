@@ -28,6 +28,10 @@ end
 
 require("nvim-tree").setup({
   actions = {
+    -- nvim-tree がツリーのルート変更時に :lcd を実行し、Neovim の cwd を変えてしまうのを防ぐ
+    change_dir = {
+      enable = false,
+    },
     open_file = {
       -- ファイルを開いたら NvimTree を閉じる
       quit_on_open = true,
@@ -42,9 +46,8 @@ require("nvim-tree").setup({
   view = {
     width = 50,
   },
-  -- respect_buf_cwd と update_focused_file の関係性を整理しきれていないが、
-  -- 「NvimTree を開いたとき、現在の buffer のファイルにフォーカスさせる. 現在の buffer が存在しないときは cwd とする」ために必要と思われる設定
-  respect_buf_cwd = true,
+  -- 「NvimTree を開いたとき、現在の buffer のファイルにフォーカスさせる」ための設定
+  -- update_root によるツリールートの追従は維持しつつ、actions.change_dir.enable = false で :lcd の実行を防いでいる
   update_focused_file = {
     enable = true,
     update_root = true,
