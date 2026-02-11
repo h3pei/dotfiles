@@ -1,0 +1,94 @@
+-- Use <Space> as Leader key (default: '\')
+vim.g.mapleader = " "
+local noremap = { noremap = true }
+local noremap_and_silent = { noremap = true, silent = true }
+
+-- Disables Ex mode && For QuickFix
+vim.keymap.set("n", "Q", "<Nop>", noremap_and_silent)
+vim.keymap.set("n", "Ql", "<Cmd>clist<CR>", noremap_and_silent)
+
+-- Change keymap for opening command line window.
+-- q: はミスタイプしやすいので、Q: に変更
+vim.keymap.set("n", "q:", "<Nop>", noremap_and_silent)
+vim.keymap.set("n", "Q:", "q:", noremap_and_silent)
+
+-- For INSERT mode (shell-like mapping setup)
+-- memo: <C-u> -> Delete from the beggining of the line till the cursor
+vim.keymap.set("i", "<C-n>", "<Down>", noremap_and_silent)
+vim.keymap.set("i", "<C-p>", "<Up>", noremap_and_silent)
+vim.keymap.set("i", "<C-b>", "<Left>", noremap_and_silent)
+vim.keymap.set("i", "<C-f>", "<Right>", noremap_and_silent)
+vim.keymap.set("i", "<C-h>", "<BS>", noremap_and_silent)
+vim.keymap.set("i", "<C-a>", "<C-o>^", noremap_and_silent)
+vim.keymap.set("i", "<C-e>", "<End>", noremap_and_silent)
+vim.keymap.set("i", "<C-k>", "<C-o>D", noremap_and_silent)
+vim.keymap.set("i", "<C-d>", "<Del>", noremap_and_silent)
+vim.keymap.set("i", "<C-l>", function()
+  local line = vim.fn.getline(".")
+  local col = vim.fn.getpos(".")[3]
+  local substring = line:sub(1, col - 1)
+  local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
+  return "<C-w>" .. result:upper()
+end, { expr = true })
+
+-- Clear search highlighting
+vim.keymap.set("n", "<Leader>h", ":noh<CR>")
+
+-- Copy from the cursor position to the end of the line (not the whole line)
+vim.keymap.set("n", "Y", "y$", noremap_and_silent)
+
+-- Jump between brackets
+vim.keymap.set("n", "M", "%", noremap_and_silent)
+
+-- Operate buffers
+vim.keymap.set("n", "<C-l>", "<Cmd>BufferNext<CR>", noremap_and_silent)
+vim.keymap.set("n", "<C-h>", "<Cmd>BufferPrevious<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>d", "<Cmd>BufferClose<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>D", "<Cmd>BufSweep<CR>", noremap_and_silent)
+
+-- Move lines
+-- see: https://qiita.com/itmammoth/items/312246b4b7688875d023
+vim.keymap.set("n", "<C-Up>", '"zdd<Up>"zP', noremap)
+vim.keymap.set("n", "<C-Down>", '"zdd"zp', noremap)
+vim.keymap.set("v", "<C-Up>", '"zx<Up>"zP`[V`]', noremap)
+vim.keymap.set("v", "<C-Down>", '"zx"zp`[V`]', noremap)
+
+-- Move jump list
+-- * plusとminusを使いたかったが、ASCII standardではない文字のため割り当てられなかった
+-- * see: https://vimhelp.org/vim_faq.txt.html#faq-20.5
+-- * CTRL+f と CTRL+b はページのスクロールで時々使うことがあるが、実験的にジャンプリストの移動にしてみる. 合わなかったら戻そう
+vim.keymap.set("n", "<C-f>", "<C-I>", noremap_and_silent)
+vim.keymap.set("n", "<C-b>", "<C-O>", noremap_and_silent)
+
+-- Remove whitespece
+vim.keymap.set("n", "<Leader>fw", "<Cmd>FixWhitespace<CR>", noremap_and_silent)
+
+-- Toggle file explorer (NvimTree)
+vim.keymap.set("n", "<C-n>", "<Cmd>NvimTreeToggle<CR>", noremap_and_silent)
+
+-- Register (neoclip)
+vim.keymap.set("n", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+vim.keymap.set("v", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
+
+-- Linting & Formatting
+vim.keymap.set("n", "<Leader>f", function()
+  vim.lsp.buf.format({ async = true })
+end)
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
+
+-- Run rspec (rspec.nvim)
+vim.keymap.set("n", "<Leader>rn", "<Cmd>RSpecNearest<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rf", "<Cmd>RSpecCurrentFile<CR>", noremap_and_silent)
+vim.keymap.set("n", "<Leader>rs", "<Cmd>RSpecShowLastResult<CR>", noremap_and_silent)
+
+-- ruby-fqcn.nvim
+vim.keymap.set("n", "<Leader>ry", "<Cmd>CopyRubyFQCN<CR>", noremap_and_silent)
+
+-- ruby-block-toggle.nvim
+vim.keymap.set("n", "<Leader>rb", "<Cmd>RubyBlockToggle<CR>", noremap_and_silent)
+
+-- copy-file-path.nvim
+vim.keymap.set("n", "<Leader>cp", "<Cmd>CopyFilePath<CR>", noremap_and_silent)
+
+-- img-clip.nvim
+vim.keymap.set("n", "<Leader>p", "<Cmd>PasteImage<CR>", noremap_and_silent)

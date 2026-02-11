@@ -1,0 +1,29 @@
+function cd() {
+  builtin cd $@ && ls;
+}
+
+function gd() {
+  dir=$(ghq list -p | fzf --query="$1")
+  if [ -e "$dir" ]; then
+    cd $dir
+  fi
+}
+
+# see: https://yulii.github.io/brew-cleanup-installed-formulae-20200509.html
+function brew-list-unused-formulae() {
+  brew list --formulae | xargs -P9 -I{} sh -c 'brew uses --installed {} | wc -l | xargs printf "%20s is used by %2d formulae.\n" {}' | grep ' 0 formulae'
+}
+
+function brew-upgrade() {
+  # MEMO: cask も update する場合は `brew upgrade -v --cask --greedy` だが、副作用もありそうなので一旦保留
+  brew update -v && brew upgrade -v && HOMEBREW_CLEANUP_MAX_AGE_DAYS=1 brew cleanup -v
+}
+
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --exact --no-sort --reverse --query="$LBUFFER" --prompt="History > ")
+  CURSOR=${#BUFFER}
+}
+
+zle -N select-history
+bindkey '^r' select-history
+bindkey '^U' backward-kill-line
