@@ -108,10 +108,13 @@ on-mode-changed = []
     # '''
 
     # ウィンドウレイアウトの変更
-    # AeroSpace には2種類のレイアウトが存在する
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    # タイル: タイル型に並ぶ最もよく使うレイアウト
     alt-slash = 'layout tiles horizontal vertical'
+    # アコーディオン: ウィンドウが重なりつつ、メインがほぼ全体を占める
     alt-comma = 'layout accordion horizontal vertical'
+    # フローティング: ウィンドウが自由に移動・リサイズ可能になる. ドラッグ&ドロップしたいときに一時的に使うなど
+    alt-shift-f = 'layout floating tiling'
 
     # ウィンドウフォーカスの移動
     # left や right で位置指定で移動することもできるが、次のウィンドウへの移動のみで十分そうだった
