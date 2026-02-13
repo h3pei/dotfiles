@@ -120,6 +120,7 @@ on-mode-changed = []
     # left や right で位置指定で移動することもできるが、次のウィンドウへの移動のみで十分そうだった
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-n = 'focus --boundaries-action wrap-around-the-workspace dfs-next'
+    alt-shift-n = 'workspace --wrap-around next'
 
     # ウィンドウ自体の移動
     # 上下に移動する見込みがないので up と down は割り当てていない
