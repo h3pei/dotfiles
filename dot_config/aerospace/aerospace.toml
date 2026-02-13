@@ -47,7 +47,7 @@ automatically-unhide-macos-hidden-apps = false
 # persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
 #                          "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
 #                          "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-persistent-workspaces = ["1", "2", "3"]
+persistent-workspaces = ["1", "2", "3", "4"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -74,6 +74,12 @@ on-mode-changed = []
     outer.bottom =     5
     outer.top =        5
     outer.right =      5
+
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'secondary'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -138,17 +144,18 @@ on-mode-changed = []
     alt-f = 'fullscreen'
 
     # ワークスペースの切り替え
-    # 現在は3つのワークスペースを使用しているが、増減も可能
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
 
     # 現在のウィンドウを別のワークスペースに移動する
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
 
     # 現在のワークスペースを別のモニターに移動する
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
