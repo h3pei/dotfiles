@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_user_command("FormatJson", "%!jq", {})
 
 -- git hunk をリセットする (破壊的な操作になるためコマンド化している)
-vim.api.nvim_create_user_command("RS", "Gitsigns reset_hunk", {})
+vim.api.nvim_create_user_command("RH", "Gitsigns reset_hunk", {})
 
 -- プロファイリングの開始
 -- 使い方: Profile コマンドを実行 -> 計測したい操作を行う -> :q などで終了 -> profile.txt に結果が出力される
