@@ -30,9 +30,18 @@ This will automatically:
 - Deploy all dotfiles to the home directory
 - Create required directories
 - Install zinit
-- Run `brew bundle` to install packages
 
-### 4. Setup fzf
+### 4. Install homebrew packages (optional)
+
+This is a set of packages optimized for personal PCs, so installation is optional.
+
+```console
+make brew-install
+```
+
+### 5. Setup fzf (optional)
+
+fzf must be installed via Homebrew.
 
 ```console
 $(brew --prefix)/opt/fzf/install
