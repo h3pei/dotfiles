@@ -71,9 +71,6 @@ vim.keymap.set("n", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 vim.keymap.set("v", ';"', "<Cmd>Telescope neoclip<CR>", noremap_and_silent)
 
 -- Linting & Formatting
-vim.keymap.set("n", "<Leader>f", function()
-  vim.lsp.buf.format({ async = true })
-end)
 vim.keymap.set("n", "<Leader>e", function()
   vim.diagnostic.open_float({ border = "rounded" })
 end)
