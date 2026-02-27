@@ -23,6 +23,11 @@ require("kanagawa").setup({
 
 vim.cmd.colorscheme("kanagawa")
 
+-- LSP の hover や diagnostic のフロートウィンドウを見やすくするための設定
+-- NOTE: transparent = true だとフロートウィンドウの背景も透過されるため、直接上書き
+vim.cmd("highlight NormalFloat guibg=#000000")
+vim.cmd("highlight FloatBorder guifg=#727169")
+
 -- NOTE: barbar.nvim の highlight の上書き (意図的にcolorschemeの後に書く)
 -- current buffer の背景色とウィンドウの背景色を同化
 vim.cmd("highlight BufferCurrent guibg=NONE")
