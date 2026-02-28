@@ -16,4 +16,20 @@ return {
     "typescript",
     "vue",
   },
+  on_attach = function(_client, bufnr)
+    -- 不足している import の自動追加
+    vim.keymap.set("n", "<space>ai", function()
+      vim.lsp.buf.code_action({
+        -- Code Action の選択肢が1つの場合に自動適用する
+        apply = true,
+        context = {
+          -- 返してほしい Code Action を限定する
+          only = { "source.addMissingImports.ts" },
+          -- 通常 Code Action はカーソル位置の diagnostics に基づいて提供されるが
+          -- 空テーブルを渡すことでファイル全体に対するアクションを要求
+          diagnostics = {},
+        },
+      })
+    end, { buffer = bufnr })
+  end,
 }
