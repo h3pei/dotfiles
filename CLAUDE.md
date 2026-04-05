@@ -108,9 +108,7 @@ gd
 - Comprehensive LSP setup with mason.nvim for language servers
 
 #### Version Managers
-- **Ruby**: rbenv with default gems (rspec, rubocop, ruby-lsp)
-- **Node.js**: nodenv
-- **Python**: pyenv
+- **Ruby/Node.js/Python**: mise (default gems: rspec, rubocop, ruby-lsp)
 - **Go**: GOPATH configuration
 
 ### Custom Functions (.zsh_functions)
