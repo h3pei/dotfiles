@@ -1,6 +1,8 @@
 local parsers = {
   "comment",
   "css",
+  "diff",
+  "gitcommit",
   "go",
   "html",
   "javascript",
@@ -23,6 +25,8 @@ require("nvim-treesitter").install(parsers)
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
-    pcall(vim.treesitter.start)
+    if not pcall(vim.treesitter.start) then
+      vim.bo.syntax = "on"
+    end
   end,
 })
