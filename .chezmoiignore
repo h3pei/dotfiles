@@ -4,3 +4,4 @@ Brewfile
 stylua.toml
 Makefile
 .config/mise
+.config/nvim/lua/local.lua
