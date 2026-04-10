@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "hooks": {
     "PermissionRequest": [
       {
@@ -27,13 +26,5 @@
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/scripts/statusline.sh"
-  },
-  "enabledPlugins": {
-    "document-skills@anthropic-agent-skills": true,
-    "example-skills@anthropic-agent-skills": true
-  },
-  "alwaysThinkingEnabled": true,
-  "feedbackSurveyState": {
-    "lastShownTime": 1754012333135
   }
 }
