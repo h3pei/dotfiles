@@ -35,7 +35,6 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim" },
   { "mattn/emmet-vim" },
   { "neovim/nvim-lspconfig" },
-  { "numToStr/Comment.nvim" },
   { "nvim-lualine/lualine.nvim" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope.nvim", tag = "v0.2.0", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -69,7 +68,6 @@ require("plugins/vim-quickrun")
 require("plugins/vim-rails")
 
 -- written in Lua
-require("plugins/Comment")
 require("plugins/auto-session")
 require("plugins/barbar")
 require("plugins/fidget")

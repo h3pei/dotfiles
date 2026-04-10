@@ -31,6 +31,10 @@ vim.keymap.set("i", "<C-l>", function()
   return "<C-w>" .. result:upper()
 end, { expr = true })
 
+-- Comment toggle (built-in gc/gcc)
+vim.keymap.set("n", "<Leader>,", "gcc", { remap = true })
+vim.keymap.set("v", "<Leader>,", "gc", { remap = true })
+
 -- Clear search highlighting
 vim.keymap.set("n", "<Leader>h", ":noh<CR>")
 

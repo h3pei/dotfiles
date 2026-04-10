@@ -2,6 +2,7 @@ local parsers = {
   "comment",
   "css",
   "diff",
+  "embedded_template",
   "gitcommit",
   "go",
   "html",
