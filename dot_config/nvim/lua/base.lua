@@ -32,7 +32,6 @@ vim.opt.wildignore = vim.opt.wildignore + { "*/tmp/*", "*.so", "*.swp", "*.zip" 
 vim.opt.wildmode = { "list:longest", "full" }
 
 -- Disable built-in plugins for startup performance
-vim.g.loaded_2html_plugin = 1
 vim.g.loaded_gzip = 1
 vim.g.loaded_matchparen = 1
 vim.g.loaded_netrw = 1
