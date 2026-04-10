@@ -5,3 +5,4 @@ stylua.toml
 Makefile
 .config/mise
 .config/nvim/lua/local.lua
+.config/nvim/lazy-lock.json
