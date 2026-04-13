@@ -13,7 +13,9 @@ return {
   },
   filetypes = {
     "javascript",
+    "javascriptreact",
     "typescript",
+    "typescriptreact",
     "vue",
   },
   on_attach = function(_client, bufnr)
