@@ -21,13 +21,14 @@ bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
 bind status <Ctrl-r> ?gh pr create --web --assignee "@me"
 bind status X ?git clean -df
 bind status x ?git clean -f %(file)
-bind status Z !sh -c 'echo "[git checkout .] Modified files to be discarded:" && git diff --name-only && echo "Discard ALL changes? (y/N):" && read ans && [ "$ans" = "y" ] && git checkout .'
+bind status Z !git discard-all
 
 # refs view: 主にbranchに対しての操作をする
 bind refs d ?git branch -d %(branch)
 bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs F ?git fetch --prune
+bind refs <Ctrl-f> ?git fetch-all-local
 bind refs p ?git pull %(remote) %(repo:head)
 bind refs M ?git merge %(branch)
 bind refs + ?git rebase %(branch)

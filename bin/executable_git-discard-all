@@ -1,0 +1,13 @@
+#!/bin/sh
+# `git checkout .` をプロンプト確認付きで実行し、
+# 作業ツリーの未ステージ変更を全て破棄する。
+set -eu
+
+echo "[git checkout .] Modified files to be discarded:"
+git diff --name-only
+
+printf 'Discard ALL changes? (y/N): '
+read -r ans
+[ "$ans" = "y" ] || exit 0
+
+git checkout .
