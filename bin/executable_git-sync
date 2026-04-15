@@ -1,0 +1,22 @@
+#!/bin/sh
+# 朝一用まとめコマンド:
+#   1. git fetch --prune         (リモート追跡を最新化 & 消えたものを整理)
+#   2. git fetch-all-local       (現在ブランチ以外のローカルを FF 更新)
+#   3. git delete-merged         (default ブランチにマージ済みを削除)
+#   4. git delete-gone           (upstream が消えたブランチを削除)
+set -eu
+
+echo '==> git fetch --prune'
+git fetch --prune
+
+echo
+echo '==> git fetch-all-local'
+git fetch-all-local
+
+echo
+echo '==> git delete-merged'
+git delete-merged
+
+echo
+echo '==> git delete-gone'
+git delete-gone
