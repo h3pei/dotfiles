@@ -6,17 +6,14 @@
 #   4. git delete-gone           (upstream が消えたブランチを削除)
 set -eu
 
-echo '==> git fetch --prune'
+echo '=> git fetch --prune'
 git fetch --prune
 
-echo
-echo '==> git fetch-all-local'
+echo '=> git fetch-all-local'
 git fetch-all-local
 
-echo
-echo '==> git delete-merged'
+echo '=> git delete-merged'
 git delete-merged
 
-echo
-echo '==> git delete-gone'
+echo '=> git delete-gone'
 git delete-gone

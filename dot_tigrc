@@ -29,7 +29,7 @@ bind refs D ?git branch -D %(branch)
 bind refs B ?git checkout -b "%(prompt Enter branch name: )" %(branch)
 bind refs F ?git fetch --prune
 bind refs <Ctrl-f> ?git fetch-all-local
-bind refs <Ctrl-d> ?git delete-merged
+bind refs <Ctrl-s> ?git sync
 bind refs p ?git pull %(remote) %(repo:head)
 bind refs M ?git merge %(branch)
 bind refs + ?git rebase %(branch)
