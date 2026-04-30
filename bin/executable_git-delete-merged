@@ -1,7 +1,8 @@
 #!/bin/sh
 # default ブランチ (origin/HEAD が指すブランチ) にマージ済みの
-# ローカルブランチをプロンプト確認付きでまとめて削除する。
+# ローカルブランチをまとめて削除する。
 # 現在 checkout 中のブランチと default ブランチ自体は除外。
+# `git branch -d` を使うため未マージのブランチは git 側で拒否される。
 set -eu
 
 default=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's#^origin/##') || {
@@ -21,11 +22,7 @@ if [ -z "$branches" ]; then
   exit 0
 fi
 
-echo "Merged into $default (will be deleted):"
+echo "Merged into $default (deleting):"
 echo "$branches" | sed 's/^/  /'
-
-printf 'Delete these branches? (y/N): '
-read -r ans
-[ "$ans" = "y" ] || exit 0
 
 echo "$branches" | xargs git branch -d
