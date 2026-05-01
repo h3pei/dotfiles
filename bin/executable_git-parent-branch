@@ -1,0 +1,38 @@
+#!/bin/sh
+# 現在ブランチの "派生元" ブランチを推定して出力する。
+# 優先順位:
+#   1. branch.<name>.parent の git config 値 (明示指定)
+#   2. reflog の "branch: Created from <X>" エントリ
+#   3. default branch (origin/HEAD)
+# git は派生関係をネイティブに記録しないため、これは推定であり完璧ではない。
+# 確実性を上げたい場合はブランチ作成時に
+# `git config branch.<name>.parent <source>` を打って明示する。
+set -eu
+
+cur=$(git symbolic-ref --short HEAD 2>/dev/null) || {
+  echo "Detached HEAD: cannot determine parent branch." >&2
+  exit 1
+}
+
+# 1. config 明示
+parent=$(git config "branch.$cur.parent" 2>/dev/null || true)
+if [ -n "$parent" ]; then
+  echo "$parent"
+  exit 0
+fi
+
+# 2. reflog から逆引き ("Created from HEAD" は元の名前を解決できないので除外)
+parent=$(git reflog show "$cur" 2>/dev/null \
+  | grep -oE 'branch: Created from \S+' \
+  | sed 's/^branch: Created from //' \
+  | grep -vx 'HEAD' \
+  | tail -1 \
+  || true)
+if [ -n "$parent" ] && git rev-parse --verify "$parent" >/dev/null 2>&1; then
+  # refs/remotes/origin/main → origin/main のように短縮表記に揃える
+  git rev-parse --abbrev-ref "$parent"
+  exit 0
+fi
+
+# 3. default branch fallback
+git default-branch
