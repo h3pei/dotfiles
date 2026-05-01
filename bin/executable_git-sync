@@ -2,10 +2,10 @@
 # 朝一用まとめコマンド:
 # 1. git fetch --prune         (リモート追跡を最新化 & 消えたものを整理)
 # 2. default ブランチに switch (既に default にいれば何もしない)
-# 3. git fetch-all-local       (現在ブランチ以外のローカルを FF 更新)
-# 4. git delete-merged         (origin/<default> にマージ済みを削除)
-# 5. git delete-gone           (upstream が消えたブランチを削除)
-# 6. git pull --ff-only        (default ブランチを FF 更新; 失敗時は警告のみ)
+# 3. git pull --ff-only        (default ブランチを FF 更新; 失敗時は警告のみ)
+# 4. git fetch-all-local       (現在ブランチ以外のローカルを FF 更新)
+# 5. git delete-merged         (origin/<default> にマージ済みを削除)
+# 6. git delete-gone           (upstream が消えたブランチを削除)
 #
 # トピックブランチに留まったまま全体を sync したい場合は git-sync ではなく
 # git fetch-all-local 等を個別に使う想定。
@@ -24,6 +24,14 @@ if [ "$cur" != "$default" ]; then
   git switch "$default"
 fi
 
+# pull --ff-only を delete 系より先に行うのは、`git branch -d` が upstream [gone] の
+# ブランチに対して HEAD (= ローカル default) を基準にマージ判定するため。
+# ローカル default が古いと、origin/default にはマージ済みでも -d が拒否される。
+echo '=> git pull --ff-only'
+if ! git pull --ff-only; then
+  echo "Failed to fast-forward current branch. Skipped." >&2
+fi
+
 echo '=> git fetch-all-local'
 git fetch-all-local
 
@@ -32,8 +40,3 @@ git delete-merged
 
 echo '=> git delete-gone'
 git delete-gone
-
-echo '=> git pull --ff-only'
-if ! git pull --ff-only; then
-  echo "Failed to fast-forward current branch. Skipped." >&2
-fi
