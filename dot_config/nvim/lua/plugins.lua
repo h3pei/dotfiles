@@ -41,11 +41,11 @@ require("lazy").setup({
   { "nvim-tree/nvim-tree.lua" },
   { "nvim-tree/nvim-web-devicons", opts = {} },
   { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate", lazy = false },
-  { "nvimtools/none-ls.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "rmagatti/auto-session" },
   { "romgrk/barbar.nvim" },
   { "sindrets/diffview.nvim" },
+  { "stevearc/conform.nvim" },
   { "thinca/vim-quickrun" },
   { "tpope/vim-endwise", ft = "ruby" },
   { "tpope/vim-rails" },
@@ -69,12 +69,12 @@ require("plugins/vim-rails")
 -- written in Lua
 require("plugins/auto-session")
 require("plugins/barbar")
+require("plugins/conform")
 require("plugins/fidget")
 require("plugins/gitsigns")
 require("plugins/go-to-factory-bot")
 require("plugins/img-clip")
 require("plugins/lualine")
-require("plugins/none-ls")
 require("plugins/nvim-cmp")
 require("plugins/nvim-neoclip")
 require("plugins/nvim-tree")
