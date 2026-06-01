@@ -37,7 +37,7 @@ require("lazy").setup({
   { "neovim/nvim-lspconfig" },
   { "nvim-lualine/lualine.nvim" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { "nvim-telescope/telescope.nvim", tag = "v0.2.0", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "nvim-telescope/telescope.nvim", tag = "v0.2.1", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-tree/nvim-tree.lua" },
   { "nvim-tree/nvim-web-devicons", opts = {} },
   { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate", lazy = false },
