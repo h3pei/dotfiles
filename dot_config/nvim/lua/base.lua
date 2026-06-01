@@ -16,6 +16,7 @@ vim.opt.backup = false
 vim.opt.startofline = true
 vim.opt.swapfile = false
 vim.opt.writebackup = false
+vim.opt.undofile = true -- undo履歴をファイルに永続化し、Neovimを閉じても元に戻せるようにする
 vim.opt.mouse = ""
 vim.opt.scrolloff = 5 -- 指定行数分の余裕を持たせて上下にスクロールさせる
 vim.opt.sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "winpos", "terminal", "localoptions" }
