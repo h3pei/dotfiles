@@ -11,6 +11,7 @@ require("lazy").setup({
   { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
   { "akinsho/toggleterm.nvim", version = "*", opts = {} },
   { "bronson/vim-trailing-whitespace" },
+  { "folke/flash.nvim" },
   { "github/copilot.vim" },
   { "h3pei/autosave.nvim", opts = {} },
   { "h3pei/buf-sweep.nvim" },
@@ -71,6 +72,7 @@ require("plugins/auto-session")
 require("plugins/barbar")
 require("plugins/conform")
 require("plugins/fidget")
+require("plugins/flash")
 require("plugins/gitsigns")
 require("plugins/go-to-factory-bot")
 require("plugins/img-clip")
