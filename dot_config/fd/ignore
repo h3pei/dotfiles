@@ -1,0 +1,24 @@
+# Global ignore for fd (managed by chezmoi)
+
+# VCS / 依存物
+.git/
+node_modules/
+.bundle/
+
+# 言語ツールチェイン・パッケージキャッシュ
+go/pkg/
+.cargo/
+.rustup/
+.gem/
+.npm/
+.local/share/mise/
+.local/share/gem/
+
+# キャッシュ全般
+.cache/
+Caches/
+
+# macOS / その他
+Library/
+.Trash/
+.docker/

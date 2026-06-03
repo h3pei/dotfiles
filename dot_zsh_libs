@@ -2,6 +2,13 @@
 if [ -f $HOME/.fzf.zsh ]; then
   source ~/.fzf.zsh
 fi
+# 候補収集を fd に置き換える。多スレッドで速く、~/.config/fd/ignore を尊重し、
+# fzf にストリーム供給されるので大量ファイル下でも UI が即応する。
+# (Yazi の fzf 検索もこの変数を参照する)
+if command -v fd &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --type f --type d --hidden --follow --strip-cwd-prefix'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 # zoxide
 if command -v zoxide &> /dev/null; then
