@@ -10,12 +10,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 #
-# Editors
-#
-# FIXME: これを残さないと、tmux起動時にCtrl+nとCtrl+pが効かなくなってしまう...
-export EDITOR='nano'
-
-#
 # Paths
 #
 # Ensure path arrays do not contain duplicates.

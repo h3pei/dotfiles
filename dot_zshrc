@@ -44,6 +44,11 @@ export HISTSIZE=1000000
 export SAVEHIST=1000000
 export PATH="$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$HOME/.cargo/bin:$PATH"
 
+# キーマップを emacs に明示する。
+# NOTE: 明示しないと zsh は $EDITOR に "vi" が含まれるかでキーマップを自動選択するため、
+#       EDITOR=nvim にすると vi キーマップになり Ctrl+N/Ctrl+P の履歴移動が効かなくなる。
+bindkey -e
+
 source ~/.zsh_libs
 source ~/.zsh_aliases
 source ~/.zsh_functions
