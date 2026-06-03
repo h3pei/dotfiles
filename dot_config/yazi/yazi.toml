@@ -1,0 +1,20 @@
+# Yazi configuration (managed by chezmoi)
+#
+# ここに書いたキーだけがデフォルト設定に上書きマージされる (全項目を書く必要はない)。
+# 設定リファレンス: https://yazi-rs.github.io/docs/configuration/yazi
+# 拡張する場合:
+#   - キーバインド   -> このディレクトリに keymap.toml を追加
+#   - 配色/テーマ     -> このディレクトリに theme.toml を追加
+#   - プラグイン      -> `ya pack` で管理 (~/.config/yazi/package.toml)
+#
+# NOTE: ファイルを開くエディタは $EDITOR (=nvim) を参照するため、ここでの opener 指定は不要。
+
+[mgr]
+show_hidden    = false      # 隠しファイルの表示 (起動後は . キーでトグル可)
+sort_by        = "natural"  # 自然順ソート (file2 < file10)
+sort_dir_first = true       # ディレクトリを先頭にまとめる
+
+[preview]
+# 画像/コードプレビューを調整したくなったらここに追記する
+# max_width  = 1200
+# max_height = 1200

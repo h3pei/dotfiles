@@ -9,6 +9,17 @@ function gd() {
   fi
 }
 
+# yazi (ファイラー) を起動し、終了時にいたディレクトリへシェルごと移動する。
+# `y` で起動 → q で抜けると、そのディレクトリに cd する (自作 cd 経由なので ls も走る)。
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 # see: https://yulii.github.io/brew-cleanup-installed-formulae-20200509.html
 function brew-list-unused-formulae() {
   brew list --formulae | xargs -P9 -I{} sh -c 'brew uses --installed {} | wc -l | xargs printf "%20s is used by %2d formulae.\n" {}' | grep ' 0 formulae'
