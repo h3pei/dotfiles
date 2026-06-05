@@ -1,0 +1,17 @@
+## Conversation rules
+
+- 常に日本語で会話する
+
+## Git rules
+
+- default ブランチに直接 push してはいけない。必要がある場合は許可を得る
+{{- if stat (joinPath .chezmoi.homeDir .obsidianpath) }}
+
+## Obsidian への記録
+
+- 再利用価値のある発見・意思決定が出たら、依頼がなくても ai-brain-recorder skill を使って記録する。
+  - 一時的/自明な内容は記録しない
+- 1記録1ファイル
+- 種別・主題は frontmatter の tags で表す
+- 記録したことは報告する
+{{- end }}

@@ -1,0 +1,4 @@
+# ai_brain (Obsidian) の vault パス（home 相対）。
+# パスが異なるマシンは ~/.config/chezmoi/chezmoi.toml の [data] で上書きする。
+# キーは小文字（chezmoi の config データ小文字化の罠を回避するため）。
+obsidianpath = "obsidian/h3pei/ai_brain"
