@@ -42,7 +42,7 @@ setopt hist_save_no_dups # 履歴ファイルに書き出す際、新しいコ�
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-export PATH="$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$GOPATH/bin:$HOME/.cargo/bin:/Applications/Obsidian.app/Contents/MacOS:$PATH"
 
 # キーマップを emacs に明示する。
 # NOTE: 明示しないと zsh は $EDITOR に "vi" が含まれるかでキーマップを自動選択するため、
