@@ -52,5 +52,7 @@ killall Dock 2>/dev/null || true
 killall Finder 2>/dev/null || true
 killall SystemUIServer 2>/dev/null || true
 killall WindowManager 2>/dev/null || true
+# Menu bar clock is managed by ControlCenter on Ventura+; restart to apply ShowSeconds etc.
+killall ControlCenter 2>/dev/null || true
 
 echo "macOS settings configured. Some changes may require logout to take effect."
