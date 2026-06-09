@@ -34,6 +34,11 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Default view style: list view (Nlsv=list, icnv=icon, clmv=column, glyv=gallery)
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
 
+# --- Desktop & Stage Manager ---
+# Disable "click wallpaper to reveal desktop" (only in Stage Manager => "Only in Stage Manager")
+# When false, clicking an empty desktop area no longer scatters windows aside.
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
 # --- Sound ---
 # Play feedback when volume is changed
 defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool true
@@ -46,5 +51,6 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool true
 killall Dock 2>/dev/null || true
 killall Finder 2>/dev/null || true
 killall SystemUIServer 2>/dev/null || true
+killall WindowManager 2>/dev/null || true
 
 echo "macOS settings configured. Some changes may require logout to take effect."
