@@ -41,10 +41,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
--- Quickfix window を Esc で閉じる
+-- Quickfix window のキーマッピング
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   callback = function()
+    -- Esc で閉じる
     vim.keymap.set("n", "<Esc>", ":cclose<CR>", { buffer = true })
+    -- <CR> で候補にジャンプしたあと quickfix を閉じる
+    -- (`gd` 等で候補が複数表示されたときに、選択後 quickfix を残さないため)
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, silent = true })
+    -- quickfix を閉じずにジャンプしたい場合は <C-CR> を使う
+    vim.keymap.set("n", "<C-CR>", "<CR>", { buffer = true, silent = true })
   end,
 })
