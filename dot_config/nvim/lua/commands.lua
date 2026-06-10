@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     -- <CR> で候補にジャンプしたあと quickfix を閉じる
     -- (`gd` 等で候補が複数表示されたときに、選択後 quickfix を残さないため)
     vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, silent = true })
-    -- quickfix を閉じずにジャンプしたい場合は <C-CR> を使う
-    vim.keymap.set("n", "<C-CR>", "<CR>", { buffer = true, silent = true })
+    -- quickfix を閉じずにジャンプしたい場合は <Space> を使う
+    vim.keymap.set("n", "<Space>", "<CR>", { buffer = true, silent = true })
   end,
 })
