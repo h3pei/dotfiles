@@ -1,0 +1,17 @@
+# Yazi keybindings (managed by chezmoi)
+#
+# prepend_keymap でデフォルトキーマップの先頭に追記する (先勝ちマージ)。
+# 全キーを書く必要はなく、上書き/追加したいものだけ書けばよい。
+# リファレンス: https://yazi-rs.github.io/docs/configuration/keymap
+
+# mgr (ファイル一覧) はデフォルトのままにする:
+#   / = find   … 絞らず一致をハイライトしてジャンプ (vim/tig 流, n/N で前後の一致へ)
+#   f = filter … 表示を絞り込む
+# どちらもデフォルト割り当てなので、ここでは何も書かない。
+
+# help 画面には find が無く絞り込み (filter) のみ。
+# /cut のように / で絞れるようにする (デフォルトの f もそのまま残る)。
+[help]
+prepend_keymap = [
+  { on = "/", run = "filter", desc = "Filter help items" },
+]
