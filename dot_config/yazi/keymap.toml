@@ -4,10 +4,15 @@
 # 全キーを書く必要はなく、上書き/追加したいものだけ書けばよい。
 # リファレンス: https://yazi-rs.github.io/docs/configuration/keymap
 
-# mgr (ファイル一覧) はデフォルトのままにする:
-#   / = find   … 絞らず一致をハイライトしてジャンプ (vim/tig 流, n/N で前後の一致へ)
-#   f = filter … 表示を絞り込む
-# どちらもデフォルト割り当てなので、ここでは何も書かない。
+# mgr (ファイル一覧):
+#   / = find   … 絞らず一致をハイライトしてジャンプ (vim/tig 流, n/N で前後の一致へ) ※デフォルト
+#   f = filter … 表示を絞り込む ※デフォルト
+#   Enter      … デフォルトの open を上書きし、l と同じ enter (子dirに入る) にする。
+#                ファイルを開くのは o = open (デフォルトのまま)。
+[mgr]
+prepend_keymap = [
+  { on = "<Enter>", run = "enter", desc = "Enter the child directory" },
+]
 
 # help 画面には find が無く絞り込み (filter) のみ。
 # /cut のように / で絞れるようにする (デフォルトの f もそのまま残る)。
