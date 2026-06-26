@@ -3,7 +3,7 @@ set vertical-split = no
 
 # generic view
 bind generic S none
-bind generic ` @bash -c "echo -n '%(commit)' | pbcopy" # copy selected commit hash
+bind generic ` +sh -c "printf %s '%(commit)' | pbcopy && echo 'Copied commit: %(commit)'" # copy selected commit hash (main 等ではステータスラインに表示。refs は reload で消えるため refs 用に別バインド)
 
 # main view: 主にcommitに対しての操作をする
 # -I: rebaseの "-i" オプションから
