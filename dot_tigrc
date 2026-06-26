@@ -3,7 +3,7 @@ set vertical-split = no
 
 # generic view
 bind generic S none
-bind generic ` @bash -c "echo -n '%(commit)' | pbcopy" # copy selected commit hash
+bind generic ` +sh -c "printf %s '%(commit)' | pbcopy && echo 'Copied commit: %(commit)'" # copy selected commit hash
 
 # main view: 主にcommitに対しての操作をする
 # -I: rebaseの "-i" オプションから
@@ -41,6 +41,7 @@ bind refs <Ctrl-s> ?git sync
 bind refs p ?git pull %(remote) %(repo:head)
 bind refs M ?git merge %(branch)
 bind refs + ?git rebase %(branch)
+bind refs ` +sh -c "printf %s '%(branch)' | pbcopy && echo 'Copied branch: %(branch)'" # copy selected branch name
 
 # stash view
 # - S: stashのS. このためにgenericに割り当てられた `S` を無効化した
