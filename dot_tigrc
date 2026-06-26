@@ -16,8 +16,8 @@ bind main I ?git rebase -i %(commit)
 bind main F ?git commit --fixup %(commit)
 bind main C ?git cherry-pick %(commit)
 bind main K ?git rebase --onto %(commit)^ %(commit)
-bind main <LessThan>    ?git reset --soft %(commit)
-bind main <GreaterThan> ?git reset --hard %(commit)
+bind main <LessThan> ?git reset --soft %(commit)
+bind main >          ?git reset --hard %(commit)
 
 # status view: 作業中のメインview. 最も多く利用する
 bind status P ?git push %(remote) %(repo:head)
