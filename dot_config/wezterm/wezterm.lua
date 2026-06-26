@@ -14,6 +14,15 @@ end)
 
 local config = {
   adjust_window_size_when_changing_font_size = false,
+  -- tig 等でのコピー成功を画面フラッシュで通知する。音は煩いので無効化し視覚のみ
+  audible_bell = "Disabled",
+  visual_bell = {
+    fade_in_function = "EaseIn",
+    fade_in_duration_ms = 75,
+    fade_out_function = "EaseOut",
+    fade_out_duration_ms = 75,
+    target = "CursorColor",
+  },
   cell_width = 1.1,
   color_scheme = "Hybrid (terminal.sexy)",
   colors = {
