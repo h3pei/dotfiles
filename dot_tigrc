@@ -3,19 +3,27 @@ set vertical-split = no
 
 # generic view
 bind generic S none
-bind generic ` @bash -c "echo -n '%(commit)' | pbcopy" # copy selected commit hash
+bind generic ` +sh -c "printf %s '%(commit)' | pbcopy && echo 'Copied commit: %(commit)'" # copy selected commit hash (main 等ではステータスラインに表示。refs は reload で消えるため refs 用に別バインド)
 
 # main view: 主にcommitに対しての操作をする
 # -I: rebaseの "-i" オプションから
 # -F: commitの "--fixup" オプションから
+# -C: cherry-pickのC. 選択commitを現在ブランチへ
+# -K: kill. このcommitだけを drop (後続を %(commit)^ へ付け替える. conflict時はエディタへ)
+# -< / >: 選択commitへ reset --soft / --hard (status の `<` の任意commit版)
 bind main ! ?git revert %(commit)
 bind main I ?git rebase -i %(commit)
 bind main F ?git commit --fixup %(commit)
+bind main C ?git cherry-pick %(commit)
+bind main K ?git rebase --onto %(commit)^ %(commit)
+bind main <LessThan> ?git reset --soft %(commit)
+bind main >          ?git reset --hard %(commit)
 
 # status view: 作業中のメインview. 最も多く利用する
 bind status P ?git push %(remote) %(repo:head)
 bind status <Ctrl-p> ?git push --force-with-lease %(remote) %(repo:head)
 bind status + !git commit --amend
+bind status A !git commit --amend --no-edit
 bind status E !git commit --allow-empty
 bind status <LessThan> ?git reset --soft HEAD^ # LessThan: <
 bind status <Ctrl-r> ?gh pr create --web --assignee "@me"
@@ -33,14 +41,19 @@ bind refs <Ctrl-s> ?git sync
 bind refs p ?git pull %(remote) %(repo:head)
 bind refs M ?git merge %(branch)
 bind refs + ?git rebase %(branch)
+bind refs ` @bash -c "echo -n '%(branch)' | pbcopy" # copy selected branch name
 
 # stash view
 # - S: stashのS. このためにgenericに割り当てられた `S` を無効化した
 # - U: `-u(--include-untracked)` のU
 # - P: popのP
+# - a: applyのa. pop と違い stash を消さずに展開する
+# - D: dropのD. stash を破棄する
 bind stash S !git stash push
 bind stash U !git stash push -u
 bind stash P !git stash pop %(stash)
+bind stash a !git stash apply %(stash)
+bind stash D ?git stash drop %(stash)
 
 # カーソル行の色を変更
 # [文字色] [背景色] [属性]
