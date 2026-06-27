@@ -83,17 +83,19 @@ end, {})
 vim.keymap.set("n", ";r", function()
   builtin.live_grep()
 end, {})
+-- core.quotePath=false: 非ASCII（日本語など）を含むパスを git が "\343\203..." と
+-- 8進エスケープせず UTF-8 のまま出力させる。指定しないと Telescope 上で文字化けする。
 vim.keymap.set("n", ";U", function()
   -- "U" -> "untracked"
-  builtin.git_files({ git_command = { "git", "ls-files", "--others", "--exclude-standard" } })
+  builtin.git_files({ git_command = { "git", "-c", "core.quotePath=false", "ls-files", "--others", "--exclude-standard" } })
 end, {})
 vim.keymap.set("n", ";m", function()
   -- "m" -> "modified"
-  builtin.git_files({ git_command = { "git", "ls-files", "--modified", "--exclude-standard" } })
+  builtin.git_files({ git_command = { "git", "-c", "core.quotePath=false", "ls-files", "--modified", "--exclude-standard" } })
 end, {})
 vim.keymap.set("n", ";s", function()
   -- "s" -> "staged"
-  builtin.git_files({ git_command = { "git", "diff", "--cached", "--name-only" } })
+  builtin.git_files({ git_command = { "git", "-c", "core.quotePath=false", "diff", "--cached", "--name-only" } })
 end, { noremap = true, silent = true })
 vim.keymap.set("n", ";o", function()
   builtin.oldfiles({ only_cwd = true })
