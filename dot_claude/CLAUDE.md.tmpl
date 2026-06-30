@@ -4,7 +4,8 @@
 
 ## Git rules
 
-- default ブランチに直接 push してはいけない。必要がある場合は許可を得る
+- default ブランチに force push してはいけない (MUST)
+- default ブランチに無許可に push してはいけない。許可があればOK
 {{- if stat (joinPath .chezmoi.homeDir .obsidianpath) }}
 
 ## Obsidian への記録
