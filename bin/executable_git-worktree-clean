@@ -1,0 +1,96 @@
+#!/bin/sh
+# default ブランチにマージ済み、または upstream が削除済み ([gone]) のブランチを指す
+# worktree をまとめて削除する。detached HEAD の worktree は、その commit が
+# default ブランチの祖先かどうかで判定する。
+# 未コミットの変更 (untracked 含む) が残る worktree は安全のため対象外。
+# worktree を消すだけでブランチ自体は消さない。ブランチの掃除は
+# git-delete-gone / git-delete-merged を別途使う。
+# 事前に `git fetch --prune` でリモート追跡を最新化しておくこと。
+set -eu
+
+default=$(git default-branch)
+
+n=0
+path="" branch="" detached=0
+removable=""
+skipped=""
+
+process() {
+  wt_path=$1
+  wt_branch=$2
+  wt_detached=$3
+
+  if [ -n "$(git -C "$wt_path" status --porcelain 2>/dev/null)" ]; then
+    skipped="${skipped}  ${wt_path} (未コミットの変更あり)
+"
+    return
+  fi
+
+  if [ "$wt_detached" = 1 ]; then
+    commit=$(git -C "$wt_path" rev-parse HEAD)
+    if git merge-base --is-ancestor "$commit" "origin/$default" 2>/dev/null; then
+      removable="${removable}${wt_path}
+"
+    else
+      skipped="${skipped}  ${wt_path} (detached, 未マージ)
+"
+    fi
+    return
+  fi
+
+  track=$(git for-each-ref --format='%(upstream:track)' "refs/heads/$wt_branch")
+  if [ "$track" = "[gone]" ] || git merge-base --is-ancestor "refs/heads/$wt_branch" "origin/$default" 2>/dev/null; then
+    removable="${removable}${wt_path}
+"
+  else
+    skipped="${skipped}  ${wt_path} (${wt_branch}, 未マージ)
+"
+  fi
+}
+
+while IFS= read -r line; do
+  case "$line" in
+    "worktree "*)
+      # porcelain は main worktree を必ず先頭に出す。n==1 は main なので対象から外す
+      if [ "$n" -gt 1 ]; then
+        process "$path" "$branch" "$detached"
+      fi
+      n=$((n + 1))
+      path=${line#worktree }
+      branch=""
+      detached=0
+      ;;
+    "branch "*)
+      branch=${line#branch refs/heads/}
+      ;;
+    detached)
+      detached=1
+      ;;
+  esac
+done <<EOF
+$(git worktree list --porcelain)
+EOF
+[ "$n" -gt 1 ] && process "$path" "$branch" "$detached"
+
+if [ -n "$skipped" ]; then
+  echo "Skipped:"
+  printf '%s' "$skipped"
+fi
+
+if [ -z "$removable" ]; then
+  echo "No worktrees to remove."
+  exit 0
+fi
+
+echo "Will remove:"
+printf '%s' "$removable" | sed 's/^/  /'
+
+printf 'Remove these worktrees? (y/N): '
+read -r ans
+[ "$ans" = "y" ] || exit 0
+
+printf '%s' "$removable" | while IFS= read -r p; do
+  [ -n "$p" ] && git worktree remove "$p"
+done
+
+git worktree prune
