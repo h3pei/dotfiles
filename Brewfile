@@ -4,6 +4,7 @@ tap "homebrew/services"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
 tap "sanemat/font"
+tap "stripe/stripe-cli"
 tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git"
 # Library for command-line editing
 brew "readline"
@@ -95,6 +96,8 @@ brew "yazi"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace", trusted: true
 # Anthropic's official Claude AI desktop app
@@ -133,8 +136,9 @@ cask "obsidian"
 cask "raycast"
 # Team communication and collaboration software
 cask "slack"
+# Multimedia player
+cask "vlc"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
 cargo "stylua"
-npm "@stripe/cli"
 npm "corepack"
