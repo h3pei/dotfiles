@@ -67,6 +67,8 @@ local config = {
   use_ime = true,
   warn_about_missing_glyphs = false,
   window_background_opacity = 0.80,
+  -- 終了時(Mac のシャットダウン含む)の確認ダイアログを出さない
+  window_close_confirmation = "NeverPrompt",
   window_decorations = "RESIZE",
   window_padding = {
     left = "1.2cell",
