@@ -21,6 +21,8 @@ defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3
 defaults write com.apple.dock orientation -string left
 # Auto-hide
 defaults write com.apple.dock autohide -bool true
+# Hide recent applications
+defaults write com.apple.dock show-recents -bool false
 
 # --- Screenshot ---
 # Save location
@@ -29,6 +31,8 @@ defaults write com.apple.screencapture location -string "$HOME/screenshots"
 # --- Finder ---
 # Show path bar at bottom
 defaults write com.apple.finder ShowPathbar -bool true
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool true
 # Always show file extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Default view style: list view (Nlsv=list, icnv=icon, clmv=column, glyv=gallery)

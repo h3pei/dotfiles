@@ -47,6 +47,28 @@ fzf must be installed via Homebrew.
 $(brew --prefix)/opt/fzf/install
 ```
 
+### 6. Manual settings
+
+The following settings are not managed by this repository and must be configured by hand.
+
+#### macOS
+
+- System Settings > Keyboard > Keyboard Shortcuts
+  - Screenshots: turn off all shortcuts (to use CleanShot X instead)
+  - Input Sources: turn off "Select the previous input source" (Ctrl+Space) (to use it for Raycast)
+- System Settings > Keyboard > Input Sources
+  - Add Google Japanese Input and remove the built-in Japanese input
+
+#### CleanShot X
+
+- Enable shortcuts for capture commands (after turning off the macOS screenshot shortcuts)
+- Other preferences
+
+#### Raycast
+
+- Set the Raycast hotkey to Ctrl+Space (after turning off the macOS input source shortcut)
+- Other preferences (can be migrated with "Export Settings & Data" / "Import Settings & Data")
+
 ## Daily Usage
 
 ### Editing dotfiles
