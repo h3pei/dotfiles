@@ -16,6 +16,8 @@ brew "coreutils"
 brew "curl"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Tool for managing dock items
+brew "dockutil"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream select audio and video codecs

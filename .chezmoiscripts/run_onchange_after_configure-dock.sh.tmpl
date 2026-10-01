@@ -1,0 +1,47 @@
+#!/bin/bash
+# Dock items configuration
+# This script runs via chezmoi when its contents change.
+# Apps not installed on this machine are skipped, so the same list works across machines.
+set -e
+
+{{- $apps := list
+  "/System/Applications/System Settings.app"
+  "/Applications/Google Chrome.app"
+  "/Applications/WezTerm.app"
+  "/Applications/Claude.app"
+  "/Applications/ChatGPT.app"
+  "/Applications/Obsidian.app"
+  "/Applications/TablePlus.app"
+  "/System/Applications/Passwords.app"
+  "/System/Applications/Notes.app"
+}}
+
+# Re-run trigger: rendered content changes when installed apps or dockutil availability change.
+# dockutil: {{ lookPath "dockutil" }}
+# installed: {{ range $apps }}{{ if stat . }}{{ base . }}, {{ end }}{{ end }}
+
+if ! command -v dockutil >/dev/null 2>&1; then
+  echo "dockutil not found. Skipping Dock configuration (run brew bundle first)."
+  exit 0
+fi
+
+echo "Configuring Dock items..."
+
+apps=(
+{{- range $apps }}
+  {{ . | quote }}
+{{- end }}
+)
+
+dockutil --remove all --no-restart
+for app in "${apps[@]}"; do
+  if [ -d "$app" ]; then
+    dockutil --add "$app" --no-restart
+  else
+    echo "Skip (not installed): $app"
+  fi
+done
+
+dockutil --add "$HOME/Downloads" --view fan --display stack --sort dateadded --no-restart
+
+killall Dock 2>/dev/null || true
