@@ -2,6 +2,7 @@
 # Dock items configuration
 # This script runs via chezmoi when its contents change.
 # Apps not installed on this machine are skipped, so the same list works across machines.
+# Per-machine additions/exclusions go in ~/.dock_local (see the comments in that file).
 set -e
 
 {{- $apps := list
@@ -15,10 +16,12 @@ set -e
   "/System/Applications/Passwords.app"
   "/System/Applications/Notes.app"
 }}
+{{- $localFile := joinPath .chezmoi.homeDir ".dock_local" }}
 
-# Re-run trigger: rendered content changes when installed apps or dockutil availability change.
+# Re-run trigger: rendered content changes when installed apps, dockutil availability or ~/.dock_local change.
 # dockutil: {{ lookPath "dockutil" }}
 # installed: {{ range $apps }}{{ if stat . }}{{ base . }}, {{ end }}{{ end }}
+# dock_local: {{ if stat $localFile }}{{ include $localFile | sha256sum }}{{ end }}
 
 if ! command -v dockutil >/dev/null 2>&1; then
   echo "dockutil not found. Skipping Dock configuration (run brew bundle first)."
@@ -32,6 +35,27 @@ apps=(
   {{ . | quote }}
 {{- end }}
 )
+
+# Apply per-machine additions ("path") and exclusions ("-path") from ~/.dock_local
+local_file="$HOME/.dock_local"
+if [ -f "$local_file" ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%%#*}"
+    line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+    [ -z "$line" ] && continue
+
+    if [ "${line:0:1}" = "-" ]; then
+      exclude="${line:1}"
+      filtered=()
+      for app in "${apps[@]}"; do
+        [ "$app" != "$exclude" ] && filtered+=("$app")
+      done
+      apps=("${filtered[@]}")
+    else
+      apps+=("$line")
+    fi
+  done < "$local_file"
+fi
 
 dockutil --remove all --no-restart
 for app in "${apps[@]}"; do

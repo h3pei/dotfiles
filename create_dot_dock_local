@@ -1,0 +1,17 @@
+# ~/.dock_local - このマシンだけの Dock の増減設定
+#
+# 目的:
+#   Dock に表示するアプリは chezmoi の共通リストで管理している
+#   (.chezmoiscripts/run_onchange_after_configure-dock.sh.tmpl)。
+#   このファイルには「このマシンだけ」追加したい・外したいアプリを書く。
+#   chezmoi では同期されない (ファイルがないときに作られるだけで、上書きされない)。
+#
+# 使い方:
+#   - 1 行に 1 アプリの .app のフルパスを書くと、共通リストの末尾に追加する
+#   - 先頭に "-" を付けると、共通リストから除外する
+#   - "#" 以降はコメント、空行は無視する
+#   - 編集したら `chezmoi apply` で Dock に反映される
+#
+# 例:
+#   /Applications/Slack.app
+#   -/Applications/ChatGPT.app
