@@ -84,6 +84,15 @@
                     },
                     "ignore": false,
                     "treat_as_built_in_keyboard": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 2,
+                        "vendor_id": 14477
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
