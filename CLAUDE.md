@@ -40,7 +40,7 @@ brew bundle dump --force --file="$(chezmoi source-path)/Brewfile"
 
 # Brewfile changes are auto-detected by run_onchange script on chezmoi apply
 
-# Custom upgrade workflow (defined in .zsh_functions)
+# Custom upgrade workflow (bin/brew-upgrade)
 brew-upgrade
 ```
 
@@ -112,8 +112,8 @@ gd
 - **Go**: GOPATH configuration
 
 ### Custom Functions (.zsh_functions)
+Shell-state-changing commands (cd, zle widgets) only; everything else lives in `bin/`.
 - `gd()`: Repository navigation using ghq and fzf
-- `brew-upgrade()`: Automated brew maintenance (update, upgrade, cleanup)
 - `select-history()`: Enhanced history search with fzf
 
 ### Development Tools Integration

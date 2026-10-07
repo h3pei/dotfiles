@@ -1,0 +1,5 @@
+#!/bin/sh
+# 今日のメモファイル (~/memo/YYYYMMDD.md) を nvim で開く。
+set -eu
+
+exec nvim "$(memo-path)"

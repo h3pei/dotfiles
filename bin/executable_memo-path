@@ -1,0 +1,5 @@
+#!/bin/sh
+# 今日のメモファイルのパス (~/memo/YYYYMMDD.md) を出力する。
+set -eu
+
+echo "${HOME}/memo/$(date +%Y%m%d).md"
