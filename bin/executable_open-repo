@@ -1,0 +1,11 @@
+#!/bin/sh
+# 現在のリポジトリの GitHub ページをブラウザで開く。
+# 追加の引数は gh repo view にそのまま渡す (例: `open-repo owner/name`, `--branch foo`)。
+set -eu
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "open-repo: gh is not installed" >&2
+  exit 1
+fi
+
+exec gh repo view --web "$@"

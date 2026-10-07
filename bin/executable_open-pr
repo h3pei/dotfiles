@@ -1,0 +1,12 @@
+#!/bin/sh
+# 現在のブランチの PR をブラウザで開く。PR がなければ作成画面を開く。
+set -eu
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "open-pr: gh is not installed" >&2
+  exit 1
+fi
+
+if ! gh pr view --web 2>/dev/null; then
+  exec gh pr create --web
+fi

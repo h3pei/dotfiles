@@ -1,0 +1,11 @@
+#!/bin/sh
+# 自分が作成した open な PR を更新が新しい順に一覧する。
+# 追加の引数は gh search prs にそのまま渡す (例: `list-my-prs --owner foo`, `--web`)。
+set -eu
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "list-my-prs: gh is not installed" >&2
+  exit 1
+fi
+
+exec gh search prs --author=@me --state=open --sort=updated "$@"
