@@ -1,6 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $name := promptStringOnce . "name" "Git user name" -}}
+{{- $personalSkills := promptBoolOnce . "personal_skills" "Set up personal agent skills (private repo h3pei/agent-skills)" -}}
 
 [data]
     email = {{ $email | quote }}
     name = {{ $name | quote }}
+    personal_skills = {{ $personalSkills }}

@@ -6,3 +6,6 @@ Makefile
 .config/mise
 .config/nvim/lua/local.lua
 .config/nvim/lazy-lock.json
+{{ if not .personal_skills -}}
+.claude/skills
+{{ end -}}

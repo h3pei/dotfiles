@@ -1,0 +1,34 @@
+{{- if .personal_skills -}}
+#!/bin/bash
+# Clone the personal skills repo (private) with ghq and link each skill into ~/.agents/skills.
+# External skills installed directly into ~/.agents/skills are left untouched.
+set -e
+
+if ! command -v ghq >/dev/null 2>&1; then
+  echo "ghq not found. Skipping personal skills setup (run brew bundle first)."
+  exit 0
+fi
+
+repo="github.com/h3pei/agent-skills"
+ghq get -s "$repo" || {
+  echo "Failed to clone $repo. Run 'gh auth login' and 'gh auth setup-git', then chezmoi apply again."
+  exit 0
+}
+
+src="$(ghq root)/$repo"
+dst="$HOME/.agents/skills"
+mkdir -p "$dst"
+
+for skill in "$src"/*/SKILL.md; do
+  [ -f "$skill" ] || continue
+  dir="$(dirname "$skill")"
+  ln -sfn "$dir" "$dst/$(basename "$dir")"
+done
+
+# Remove links to personal skills that no longer exist
+for link in "$dst"/*; do
+  if [ -L "$link" ] && [ ! -e "$link" ] && [[ "$(readlink "$link")" == "$src"/* ]]; then
+    rm "$link"
+  fi
+done
+{{- end }}

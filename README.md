@@ -26,6 +26,8 @@ chezmoi init --apply h3pei
 
 You will be prompted to enter your email address during `chezmoi init`.
 
+You will also be asked whether to set up personal agent skills. If yes, the private repo `h3pei/agent-skills` is cloned with ghq, each skill is linked into `~/.agents/skills`, and `~/.claude/skills` becomes a symlink to `~/.agents/skills`. Run `gh auth login` and `gh auth setup-git` beforehand so that the private repo can be cloned (ghq is installed via Brewfile; if it is missing, this step is skipped until the next `chezmoi apply`). Answer no on machines that don't need them (e.g. work PCs).
+
 This will automatically:
 - Deploy all dotfiles to the home directory
 - Create required directories
