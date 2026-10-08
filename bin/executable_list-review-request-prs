@@ -1,6 +1,8 @@
 #!/bin/sh
 # 自分 (所属チーム含む) にレビュー依頼が来ている open な PR を更新が新しい順に一覧する。
+# repo#番号 は端末ハイパーリンク (OSC 8) になっており、クリックでブラウザで開ける。
 # 追加の引数は gh search prs にそのまま渡す (例: `list-review-request-prs --owner foo`, `--web`)。
+# --web / --json / --jq / --template を指定した場合は既定の表示テンプレートを使わない。
 set -eu
 
 if ! command -v gh >/dev/null 2>&1; then
@@ -8,4 +10,16 @@ if ! command -v gh >/dev/null 2>&1; then
   exit 1
 fi
 
-exec gh search prs --review-requested=@me --state=open --sort=updated "$@"
+set -- --review-requested=@me --state=open --sort=updated "$@"
+
+for arg in "$@"; do
+  case "$arg" in
+    -w|--web|--json|--json=*|-q|--jq|--jq=*|-t|--template|--template=*)
+      exec gh search prs "$@"
+      ;;
+  esac
+done
+
+exec gh search prs "$@" \
+  --json repository,number,title,author,updatedAt,url \
+  --template '{{range .}}{{tablerow (hyperlink .url (printf "%s#%v" .repository.nameWithOwner .number) | autocolor "green") .title (.author.login | autocolor "cyan") (timeago .updatedAt | autocolor "gray")}}{{end}}{{tablerender}}'
