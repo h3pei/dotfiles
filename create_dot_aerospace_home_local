@@ -1,0 +1,15 @@
+# ~/.aerospace_home_local - このマシンだけの home コマンドの配置
+#
+# 目的:
+#   仕事用 PC など、メイン PC とは異なるアプリ・配置で home コマンドを使うマシンでの利用を想定している。
+#   home コマンドは通常 ~/.config/aerospace/home.conf (chezmoi で同期) を使う。
+#   このファイルに有効な行があれば、home.conf は使わずにこのファイルだけを使う。
+#   chezmoi では同期されない (ファイルがないときに作られるだけで、上書きされない)。
+#
+# 書式: <bundle-id> <workspace>
+#   - bundle id は `aerospace list-apps` で調べられる
+#   - "#" 以降はコメント、空行は無視する
+#
+# 例:
+#   com.google.Chrome      1
+#   com.github.wez.wezterm 2

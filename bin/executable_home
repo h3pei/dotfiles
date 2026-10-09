@@ -1,0 +1,45 @@
+#!/bin/sh
+# 起動中のアプリのウィンドウを aerospace のワークスペースの定位置に移動する。
+# 配置は ~/.aerospace_home_local に有効な行があればそれを、なければ ~/.config/aerospace/home.conf を使う。
+#   home         配置を適用する
+#   home --edit  現在使っている配置ファイルを編集する
+set -eu
+
+local_conf="$HOME/.aerospace_home_local"
+common_conf="$HOME/.config/aerospace/home.conf"
+
+# コメントと空行を除いた "<bundle-id> <workspace>" の行を出力する
+entries() {
+  sed -e 's/#.*//' "$1" | awk 'NF >= 2 { print $1, $2 }'
+}
+
+if [ -f "$local_conf" ] && [ -n "$(entries "$local_conf")" ]; then
+  conf="$local_conf"
+else
+  conf="$common_conf"
+fi
+
+if [ "${1:-}" = "--edit" ]; then
+  if [ "$conf" = "$common_conf" ]; then
+    exec chezmoi edit --apply "$common_conf"
+  fi
+  exec "${EDITOR:-nvim}" "$conf"
+fi
+
+if ! command -v aerospace >/dev/null 2>&1; then
+  echo "home: aerospace is not installed" >&2
+  exit 1
+fi
+
+if [ ! -f "$conf" ]; then
+  echo "home: config not found: $conf" >&2
+  exit 1
+fi
+
+windows=$(aerospace list-windows --all --format '%{window-id} %{app-bundle-id} %{workspace}')
+
+entries "$conf" | while read -r bundle_id workspace; do
+  echo "$windows" | awk -v id="$bundle_id" -v ws="$workspace" '$2 == id && $3 != ws { print $1 }' | while read -r window_id; do
+    aerospace move-node-to-workspace --window-id "$window_id" "$workspace"
+  done
+done
