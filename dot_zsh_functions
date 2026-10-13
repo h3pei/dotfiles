@@ -28,3 +28,61 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 bindkey '^U' backward-kill-line
+
+# 直前のコマンドの出力をクリップボードにコピーする (tmux 内のみ)。
+# コマンドを再実行せず、tmux のスクロールバックから出力範囲を切り出す。
+# 出力範囲は preexec / precmd 時点のカーソル行 (スクロールバック先頭からの絶対行番号) で記録する。
+function _last-output-preexec() {
+  [[ -n $TMUX ]] || return
+  local hsize cy
+  read hsize cy <<< "$(tmux display -p -t "$TMUX_PANE" '#{history_size} #{cursor_y}')"
+  _last_output_start=$(( hsize + cy ))
+  _last_output_running=1
+}
+
+function _last-output-precmd() {
+  [[ -n $TMUX && -n $_last_output_running ]] || return
+  unset _last_output_running
+  local hsize cy cx
+  read hsize cy cx <<< "$(tmux display -p -t "$TMUX_PANE" '#{history_size} #{cursor_y} #{cursor_x}')"
+  # 出力が改行で終わっていなければカーソル行も出力に含める
+  _last_output_end=$(( hsize + cy - (cx == 0 ? 1 : 0) ))
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _last-output-preexec
+# pure などがプロンプトを描く前に記録するため先頭に入れる
+precmd_functions=(_last-output-precmd ${precmd_functions:#_last-output-precmd})
+
+# tmux のステータスラインに一瞬だけ表示する (プロンプト下に残さない)
+function _copy-last-output-notify() {
+  tmux display-message -d 1500 -t "$TMUX_PANE" "$1"
+}
+
+function copy-last-output() {
+  if [[ -z $TMUX ]]; then
+    zle -M "copy-last-output: only available inside tmux"
+    return
+  fi
+  if [[ -z $_last_output_end ]] || (( _last_output_end < _last_output_start )); then
+    _copy-last-output-notify "No output to copy"
+    return
+  fi
+  local hsize=$(tmux display -p -t "$TMUX_PANE" '#{history_size}')
+  local start=$(( _last_output_start - hsize )) end=$(( _last_output_end - hsize ))
+  # clear でスクロールバックが消えた場合など、範囲が既に存在しない
+  if (( start < -hsize )); then
+    _copy-last-output-notify "Output is no longer in scrollback"
+    return
+  fi
+  # $(...) で末尾の改行は落ちる (pwd の結果などを貼ったとき改行が付かないように)
+  local output=$(tmux capture-pane -p -J -t "$TMUX_PANE" -S $start -E $end | sed 's/[[:space:]]*$//')
+  print -rn -- "$output" | pbcopy
+  local -a lines=("${(@f)output}")
+  local unit=lines
+  (( ${#lines} == 1 )) && unit=line
+  _copy-last-output-notify "📋 Copied ${#lines} $unit to clipboard"
+}
+
+zle -N copy-last-output
+bindkey '^[c' copy-last-output # Alt+C
