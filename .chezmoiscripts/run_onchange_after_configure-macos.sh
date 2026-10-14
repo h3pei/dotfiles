@@ -24,6 +24,17 @@ defaults write com.apple.dock autohide -bool true
 # Hide recent applications
 defaults write com.apple.dock show-recents -bool false
 
+# --- Hot Corners ---
+# Action: 1=none, 13=Lock Screen / Modifier: 0=none, 1048576=Command
+# Top-left: Command + corner to lock screen
+defaults write com.apple.dock wvous-tl-corner -int 13
+defaults write com.apple.dock wvous-tl-modifier -int 1048576
+# Others: disabled (bottom-right defaults to Quick Note)
+for corner in tr bl br; do
+  defaults write com.apple.dock "wvous-${corner}-corner" -int 1
+  defaults write com.apple.dock "wvous-${corner}-modifier" -int 0
+done
+
 # --- Screenshot ---
 # Save location
 defaults write com.apple.screencapture location -string "$HOME/screenshots"
