@@ -2,10 +2,10 @@ tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "nikitabobko/tap"
-tap "oven-sh/bun"
+tap "oven-sh/bun", trusted: true
 tap "sanemat/font"
 tap "stripe/stripe-cli"
-tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git"
+tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: true
 # Library for command-line editing
 brew "readline"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -42,6 +42,8 @@ brew "graphviz"
 brew "pkgconf"
 # Git hook and pre-commit lint manager
 brew "hk"
+# Review-first terminal diff viewer for agent-authored changesets
+brew "hunk"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Regular expressions library
@@ -98,6 +100,8 @@ brew "yazi"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe", trusted: true
 # AeroSpace is an i3-like tiling window manager for macOS
