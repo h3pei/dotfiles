@@ -40,8 +40,6 @@ brew "pango"
 brew "graphviz"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
-# Git hook and pre-commit lint manager
-brew "hk"
 # Review-first terminal diff viewer for agent-authored changesets
 brew "hunk"
 # Tools and libraries to manipulate images in select formats
