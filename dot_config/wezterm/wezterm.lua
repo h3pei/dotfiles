@@ -60,6 +60,7 @@ local config = {
     { key = "q", mods = "CTRL", action = wezterm.action.SendString("\x11") },
   },
   line_height = 1.3,
+  -- 日本語の変換中に Ctrl+H で削除、Ctrl+B で移動などを IME に効かせるため Ctrl も IME に渡す
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
   macos_window_background_blur = 10,
   -- ClaudeCode の画面がチラつく問題の暫定対処
