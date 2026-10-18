@@ -56,6 +56,8 @@ local config = {
     { key = "+", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
     { key = "_", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
     { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
+    -- Ctrl を IME に渡す設定(macos_forward_to_ime_modifier_mask)だと Ctrl+Q の1回目が IME に吸われるため直接送る
+    { key = "q", mods = "CTRL", action = wezterm.action.SendString("\x11") },
   },
   line_height = 1.3,
   macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
