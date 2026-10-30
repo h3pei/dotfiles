@@ -3,7 +3,6 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "nikitabobko/tap"
 tap "oven-sh/bun", trusted: true
-tap "sanemat/font"
 tap "stripe/stripe-cli"
 tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: true
 # Library for command-line editing
