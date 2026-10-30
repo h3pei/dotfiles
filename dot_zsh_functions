@@ -21,7 +21,12 @@ function y() {
 }
 
 function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --exact --no-sort --reverse --query="$LBUFFER" --prompt="History > ")
+  # _ignore-command-not-found-history で弾いた行 (sl などのタイポ) は、zsh の仕様で
+  # 次のコマンドを実行するまでメモリ上の履歴に一番新しい行として残っている。
+  # その間に Ctrl+R すると候補に出てしまうので、目印が立っていれば先頭の 1 行を飛ばす。
+  local from=1
+  [[ -n $_history_rejected ]] && from=2
+  BUFFER=$(history -n -r 1 | tail -n +$from | fzf --exact --no-sort --reverse --query="$LBUFFER" --prompt="History > ")
   CURSOR=${#BUFFER}
 }
 
@@ -53,6 +58,28 @@ autoload -Uz add-zsh-hook
 add-zsh-hook preexec _last-output-preexec
 # pure などがプロンプトを描く前に記録するため先頭に入れる
 precmd_functions=(_last-output-precmd ${precmd_functions:#_last-output-precmd})
+
+# 存在しないコマンド (ls のつもりの sl など。実行すると 127 になるもの) を履歴に残さない。
+# return 1 だと次のコマンドを実行するまでは履歴に残るので、直後に ↑ で打ち直せる。
+# その間は select-history で飛ばせるよう _history_rejected に目印を立てておく。
+function _ignore-command-not-found-history() {
+  # 空 Enter では弾いた行が履歴に残ったままなので、目印もそのままにする
+  [[ -z ${1//[[:space:]]/} ]] && return 0
+  _history_rejected= # 前回の目印を消す (この行は判定し直す)
+  local -a words=(${(z)1})
+  # 先頭の環境変数代入 (FOO=bar cmd) は読み飛ばす
+  while [[ ${words[1]} =~ '^[A-Za-z_][A-Za-z0-9_]*=' ]]; do
+    shift words
+  done
+  local cmd=${(Q)words[1]}
+  # ( や { で始まる行など、コマンド名でないものは判定しない
+  [[ $cmd == [[:alnum:]_./~-]* ]] || return 0
+  whence -- "${cmd/#\~/$HOME}" > /dev/null && return 0
+  _history_rejected=1
+  return 1
+}
+
+add-zsh-hook zshaddhistory _ignore-command-not-found-history
 
 # tmux のステータスラインに一瞬だけ表示する (プロンプト下に残さない)
 function _copy-last-output-notify() {
