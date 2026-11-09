@@ -144,6 +144,6 @@ cask "slack"
 # Multimedia player
 cask "vlc"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+cask "wezterm@nightly"
 cargo "stylua"
 npm "corepack"
