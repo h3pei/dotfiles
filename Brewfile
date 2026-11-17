@@ -116,7 +116,6 @@ cask "docker-desktop"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Collaborative team software
-cask "figma"
 # Web browser
 cask "firefox"
 cask "font-cica"
@@ -134,7 +133,6 @@ cask "homerow"
 # Keyboard customiser
 cask "karabiner-elements"
 # App to write, plan, collaborate, and get organised
-cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Control your tools with a few keystrokes
