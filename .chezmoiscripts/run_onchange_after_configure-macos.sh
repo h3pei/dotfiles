@@ -62,6 +62,11 @@ defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool true
 # Show seconds
 defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
+# --- Chrome ---
+# App shortcut: Cmd+B toggles the vertical tabs sidebar (bound by menu item title)
+# Modifiers: @=Cmd, ^=Ctrl, ~=Option, $=Shift. Restart Chrome to apply.
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "垂直タブを閉じる" "@b"
+
 # --- Apply changes ---
 killall Dock 2>/dev/null || true
 killall Finder 2>/dev/null || true
